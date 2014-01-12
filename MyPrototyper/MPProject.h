@@ -12,6 +12,8 @@
 @property(nonatomic) NSInteger idx;
 @property(strong,nonatomic) NSString *name;
 @property(strong,nonatomic) NSString *path;
+@property(strong,nonatomic) NSString *zip;
 @property(nonatomic) NSInteger addTime;
+@property(nonatomic) NSInteger modifiedTime;
 
 @end

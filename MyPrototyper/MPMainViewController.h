@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MPMainViewController : UITableViewController
+@interface MPMainViewController : UITableViewController<UIAlertViewDelegate>
 
 @end

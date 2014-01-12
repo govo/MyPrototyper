@@ -12,7 +12,6 @@
 		9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A347187AF93C00F8C9EC /* FMDatabaseAdditions.m */; };
 		9416A351187AF93C00F8C9EC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A349187AF93C00F8C9EC /* FMDatabasePool.m */; };
 		9416A352187AF93C00F8C9EC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34B187AF93C00F8C9EC /* FMDatabaseQueue.m */; };
-		9416A353187AF93C00F8C9EC /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34C187AF93C00F8C9EC /* fmdb.m */; };
 		9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34E187AF93C00F8C9EC /* FMResultSet.m */; };
 		9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9416A355187AF96D00F8C9EC /* libsqlite3.dylib */; };
 		9416A359187B005900F8C9EC /* MPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A358187B005900F8C9EC /* MPProject.m */; };
@@ -24,8 +23,6 @@
 		9483C5A2187AEA6B001074DD /* MPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5A1187AEA6B001074DD /* MPAppDelegate.m */; };
 		9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9483C5A3187AEA6B001074DD /* Main_iPhone.storyboard */; };
 		9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9483C5A6187AEA6B001074DD /* Main_iPad.storyboard */; };
-		9483C5AB187AEA6B001074DD /* MPFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5AA187AEA6B001074DD /* MPFirstViewController.m */; };
-		9483C5AE187AEA6B001074DD /* MPSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5AD187AEA6B001074DD /* MPSecondViewController.m */; };
 		9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9483C5AF187AEA6B001074DD /* Images.xcassets */; };
 		9483C5B7187AEA6B001074DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C5B6187AEA6B001074DD /* XCTest.framework */; };
 		9483C5B8187AEA6B001074DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C591187AEA6B001074DD /* Foundation.framework */; };
@@ -33,6 +30,21 @@
 		9483C5C1187AEA6B001074DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9483C5BF187AEA6B001074DD /* InfoPlist.strings */; };
 		9483C5C3187AEA6B001074DD /* MyPrototyperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5C2187AEA6B001074DD /* MyPrototyperTests.m */; };
 		9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5CD187AED20001074DD /* MPMainViewController.m */; };
+		94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */; };
+		94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB192187C2ACE004F19F9 /* ioapi.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB194187C2ACE004F19F9 /* make_vms.com */; };
+		94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB195187C2ACE004F19F9 /* Makefile */; };
+		94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */; };
+		94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */; };
+		94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB19A187C2ACE004F19F9 /* mztools.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94ABB1AB187C2ACE004F19F9 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB19C187C2ACE004F19F9 /* unzip.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94ABB1AC187C2ACE004F19F9 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB19E187C2ACE004F19F9 /* zip.c */; };
+		94ABB1AD187C2ACE004F19F9 /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1A1187C2ACE004F19F9 /* ZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		94ABB1AF187C3918004F19F9 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABB1AE187C3918004F19F9 /* libz.1.2.5.dylib */; };
+		94ABB1B8187D61EC004F19F9 /* MPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1B7187D61EC004F19F9 /* MPWebViewController.m */; };
+		94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */; };
+		94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */; };
+		94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +68,6 @@
 		9416A349187AF93C00F8C9EC /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		9416A34A187AF93C00F8C9EC /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
 		9416A34B187AF93C00F8C9EC /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		9416A34C187AF93C00F8C9EC /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
 		9416A34D187AF93C00F8C9EC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		9416A34E187AF93C00F8C9EC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		9416A355187AF96D00F8C9EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -74,10 +85,6 @@
 		9483C5A1187AEA6B001074DD /* MPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPAppDelegate.m; sourceTree = "<group>"; };
 		9483C5A4187AEA6B001074DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		9483C5A7187AEA6B001074DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		9483C5A9187AEA6B001074DD /* MPFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPFirstViewController.h; sourceTree = "<group>"; };
-		9483C5AA187AEA6B001074DD /* MPFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPFirstViewController.m; sourceTree = "<group>"; };
-		9483C5AC187AEA6B001074DD /* MPSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPSecondViewController.h; sourceTree = "<group>"; };
-		9483C5AD187AEA6B001074DD /* MPSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPSecondViewController.m; sourceTree = "<group>"; };
 		9483C5AF187AEA6B001074DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9483C5B5187AEA6B001074DD /* MyPrototyperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPrototyperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9483C5B6187AEA6B001074DD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -86,6 +93,30 @@
 		9483C5C2187AEA6B001074DD /* MyPrototyperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPrototyperTests.m; sourceTree = "<group>"; };
 		9483C5CC187AED20001074DD /* MPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMainViewController.h; sourceTree = "<group>"; };
 		9483C5CD187AED20001074DD /* MPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMainViewController.m; sourceTree = "<group>"; };
+		94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
+		94ABB191187C2ACE004F19F9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		94ABB192187C2ACE004F19F9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		94ABB193187C2ACE004F19F9 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		94ABB194187C2ACE004F19F9 /* make_vms.com */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = make_vms.com; sourceTree = "<group>"; };
+		94ABB195187C2ACE004F19F9 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_Changes.txt; sourceTree = "<group>"; };
+		94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_info.txt; sourceTree = "<group>"; };
+		94ABB19A187C2ACE004F19F9 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		94ABB19B187C2ACE004F19F9 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		94ABB19C187C2ACE004F19F9 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		94ABB19D187C2ACE004F19F9 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		94ABB19E187C2ACE004F19F9 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		94ABB19F187C2ACE004F19F9 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		94ABB1A0187C2ACE004F19F9 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
+		94ABB1A1187C2ACE004F19F9 /* ZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
+		94ABB1AE187C3918004F19F9 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		94ABB1B6187D61EC004F19F9 /* MPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWebViewController.h; sourceTree = "<group>"; };
+		94ABB1B7187D61EC004F19F9 /* MPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWebViewController.m; sourceTree = "<group>"; };
+		94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		94ABB1BB187DA6E4004F19F9 /* MPSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingViewController.h; sourceTree = "<group>"; };
+		94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingViewController.m; sourceTree = "<group>"; };
+		94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingUtils.h; sourceTree = "<group>"; };
+		94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */,
+				94ABB1AF187C3918004F19F9 /* libz.1.2.5.dylib in Frameworks */,
 				9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */,
 				9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */,
 				9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */,
@@ -124,7 +157,6 @@
 				9416A349187AF93C00F8C9EC /* FMDatabasePool.m */,
 				9416A34A187AF93C00F8C9EC /* FMDatabaseQueue.h */,
 				9416A34B187AF93C00F8C9EC /* FMDatabaseQueue.m */,
-				9416A34C187AF93C00F8C9EC /* fmdb.m */,
 				9416A34D187AF93C00F8C9EC /* FMResultSet.h */,
 				9416A34E187AF93C00F8C9EC /* FMResultSet.m */,
 			);
@@ -154,7 +186,10 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */,
+				94ABB1AE187C3918004F19F9 /* libz.1.2.5.dylib */,
 				9416A355187AF96D00F8C9EC /* libsqlite3.dylib */,
+				94ABB18E187C2ACE004F19F9 /* ZipArchive */,
 				9416A343187AF93C00F8C9EC /* fmdb */,
 				9483C591187AEA6B001074DD /* Foundation.framework */,
 				9483C593187AEA6B001074DD /* CoreGraphics.framework */,
@@ -171,16 +206,18 @@
 				9483C5A1187AEA6B001074DD /* MPAppDelegate.m */,
 				9483C5A3187AEA6B001074DD /* Main_iPhone.storyboard */,
 				9483C5A6187AEA6B001074DD /* Main_iPad.storyboard */,
-				9483C5A9187AEA6B001074DD /* MPFirstViewController.h */,
-				9483C5AA187AEA6B001074DD /* MPFirstViewController.m */,
 				9483C5CC187AED20001074DD /* MPMainViewController.h */,
 				9483C5CD187AED20001074DD /* MPMainViewController.m */,
+				94ABB1B6187D61EC004F19F9 /* MPWebViewController.h */,
+				94ABB1B7187D61EC004F19F9 /* MPWebViewController.m */,
+				94ABB1BB187DA6E4004F19F9 /* MPSettingViewController.h */,
+				94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */,
+				94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */,
+				94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */,
 				9416A340187AF90000F8C9EC /* MPStorage.h */,
 				9416A341187AF90000F8C9EC /* MPStorage.m */,
 				9416A357187B005900F8C9EC /* MPProject.h */,
 				9416A358187B005900F8C9EC /* MPProject.m */,
-				9483C5AC187AEA6B001074DD /* MPSecondViewController.h */,
-				9483C5AD187AEA6B001074DD /* MPSecondViewController.m */,
 				9483C5AF187AEA6B001074DD /* Images.xcassets */,
 				9483C598187AEA6B001074DD /* Supporting Files */,
 			);
@@ -214,6 +251,38 @@
 				9483C5BF187AEA6B001074DD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94ABB18E187C2ACE004F19F9 /* ZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				94ABB18F187C2ACE004F19F9 /* minizip */,
+				94ABB1A0187C2ACE004F19F9 /* ZipArchive.h */,
+				94ABB1A1187C2ACE004F19F9 /* ZipArchive.m */,
+			);
+			name = ZipArchive;
+			path = MyPrototyper/ZipArchive;
+			sourceTree = SOURCE_ROOT;
+		};
+		94ABB18F187C2ACE004F19F9 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */,
+				94ABB191187C2ACE004F19F9 /* crypt.h */,
+				94ABB192187C2ACE004F19F9 /* ioapi.c */,
+				94ABB193187C2ACE004F19F9 /* ioapi.h */,
+				94ABB194187C2ACE004F19F9 /* make_vms.com */,
+				94ABB195187C2ACE004F19F9 /* Makefile */,
+				94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */,
+				94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */,
+				94ABB19A187C2ACE004F19F9 /* mztools.c */,
+				94ABB19B187C2ACE004F19F9 /* mztools.h */,
+				94ABB19C187C2ACE004F19F9 /* unzip.c */,
+				94ABB19D187C2ACE004F19F9 /* unzip.h */,
+				94ABB19E187C2ACE004F19F9 /* zip.c */,
+				94ABB19F187C2ACE004F19F9 /* zip.h */,
+			);
+			path = minizip;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +333,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = me.govo;
 				TargetAttributes = {
+					9483C58D187AEA6B001074DD = {
+						DevelopmentTeam = FN643Q9PBX;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
 					9483C5B4187AEA6B001074DD = {
 						TestTargetID = 9483C58D187AEA6B001074DD;
 					};
@@ -293,9 +370,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
 				9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
+				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
+				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
+				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,18 +396,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9483C5AB187AEA6B001074DD /* MPFirstViewController.m in Sources */,
+				94ABB1AB187C2ACE004F19F9 /* unzip.c in Sources */,
+				94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */,
+				94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */,
 				9483C59E187AEA6B001074DD /* main.m in Sources */,
 				9483C5A2187AEA6B001074DD /* MPAppDelegate.m in Sources */,
 				9416A34F187AF93C00F8C9EC /* FMDatabase.m in Sources */,
+				94ABB1AC187C2ACE004F19F9 /* zip.c in Sources */,
 				9416A351187AF93C00F8C9EC /* FMDatabasePool.m in Sources */,
 				9416A352187AF93C00F8C9EC /* FMDatabaseQueue.m in Sources */,
+				94ABB1B8187D61EC004F19F9 /* MPWebViewController.m in Sources */,
+				94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */,
 				9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */,
-				9483C5AE187AEA6B001074DD /* MPSecondViewController.m in Sources */,
 				9416A342187AF90000F8C9EC /* MPStorage.m in Sources */,
-				9416A353187AF93C00F8C9EC /* fmdb.m in Sources */,
 				9416A359187B005900F8C9EC /* MPProject.m in Sources */,
 				9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */,
+				94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */,
+				94ABB1AD187C2ACE004F19F9 /* ZipArchive.m in Sources */,
+				94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */,
 				9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +507,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,6 +541,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				"OTHER_LDFLAGS[arch=*]" = "-lz";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

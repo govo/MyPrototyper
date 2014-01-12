@@ -10,4 +10,7 @@
 
 @implementation MPProject
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"id:%ld,name:%@,path:%@,zip:%@,addTime:%@,modifiedTime:%@",(long)self.idx,self.name,self.path,self.zip,[NSDate dateWithTimeIntervalSince1970:self.addTime],[NSDate dateWithTimeIntervalSince1970:self.modifiedTime]];
+}
 @end
