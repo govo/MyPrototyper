@@ -280,6 +280,7 @@
 
  */
 
+#pragma mark - utils
 
 -(NSArray *)listFileAtPath:(NSString *)path
 {
@@ -444,7 +445,12 @@
 
 - (IBAction)segmentedChange:(id)sender {
     UISegmentedControl *segmented = (UISegmentedControl *) sender;
-    switch (segmented.selectedSegmentIndex) {
+    [self switchToTableList:segmented.selectedSegmentIndex];
+}
+-(void)switchToTableList:(NSInteger)tag
+{
+    
+    switch (tag) {
         case 0:
         {
             _datas = _projectListArray;
@@ -460,7 +466,7 @@
             _datas = _localFilesArray;
             break;
     }
-    _segmentIndex = segmented.selectedSegmentIndex;
+    _segmentIndex = tag;
     [self.tableView reloadData];
 }
 
@@ -478,6 +484,8 @@
                 _unZipFile = nil;
             }else if(_lastUnZip && alertView.tag ==10){
                 [self showWebView:_lastUnZip];
+                [self switchToTableList:0];
+                self.segment.selectedSegmentIndex = 0;
             }
         }
             break;

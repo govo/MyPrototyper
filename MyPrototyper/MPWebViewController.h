@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPSettingViewController.h"
 
 @interface MPWebViewController : UIViewController<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webview;

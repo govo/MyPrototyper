@@ -38,6 +38,11 @@
     self.switchScrollBar.on = [[settings objectForKey:kSettingScrollBar] boolValue];
     self.switchStatusBar.on = [[settings objectForKey:kSettingStatusBar] boolValue];
     self.switchLanceSpace.on = [[settings objectForKey:kSettingLandSpace] boolValue];
+    
+    UIViewController *parentController = self.presentingViewController;
+    if (![parentController isKindOfClass:[UINavigationController class]]) {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -58,6 +58,10 @@
     }else{
         
     }
+
+    self.webview.scrollView.showsHorizontalScrollIndicator = _scrollBar;
+    self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +83,7 @@
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion==UIEventSubtypeMotionShake) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles: nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出" otherButtonTitles:@"设置", nil];
         [actionSheet showInView:self.view];
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
@@ -120,7 +124,12 @@
         case 0:
             [self dismissViewControllerAnimated:YES completion:nil];
             break;
-            
+        case 1:
+        {
+            //TODO:使用setting
+            MPSettingViewController *setting = (MPSettingViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"setting"];
+            [self presentViewController:setting animated:YES completion:nil];
+        }
         default:
             break;
     }

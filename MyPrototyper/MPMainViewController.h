@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MPMainViewController : UITableViewController<UIAlertViewDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @end
