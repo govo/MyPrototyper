@@ -240,19 +240,24 @@
                 FMResultSet *rs = [storage.db executeQuery:query,_unZipFile];
                 NSString *title,*message;
                 if ([rs next]) {
+
+                    _lastUnZip = [rs objectForColumnName:FIELD_PATH];
+                    title = @"重新生成";
+                    message = [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新生成将覆盖原有文件，\n是否重新生成？"];
                     
-                    title = @"重新解压";
-                    message = [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新生成",@"直接预览", nil];
+                    alert.tag = 30;
+                    [alert show];
                 }else{
-                    title = @"解压原型";
-                    message = @"将会解压成同名原型";
+                    title = @"生成原型";
+                    message = @"将会生成成同名原型";
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"不生成" otherButtonTitles:@"开始生成", nil];
+                    alert.tag = 20;
+                    [alert show];
                 }
                 [rs close];
                 [storage.db closeOpenResultSets];
 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"不生成" otherButtonTitles:@"开始生成", nil];
-                alert.tag = 20;
-                [alert show];
             }
         }
             break;
@@ -480,18 +485,23 @@
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if(_lastUnZip && alertView.tag == 30 && buttonIndex ==2){
+        [self showWebView:_lastUnZip];
+        _lastUnZip = nil;
+        return;
+    }
     switch (buttonIndex) {
         case 1:
         {
             if (_zipNeedPassword) {
                 [self unZipFile:_zipNeedPassword withPassword:[alertView textFieldAtIndex:0].text];
                 _zipNeedPassword = nil;
-            }else if(_unZipFile && alertView.tag == 20){
+            }else if(_unZipFile && (alertView.tag == 20 || alertView.tag == 30)){
                 [self unZipFile:_unZipFile withPassword:nil];
                 _unZipFile = nil;
             }else if(_lastUnZip && alertView.tag ==10){
-                [self switchToTableList:0];
-                self.segment.selectedSegmentIndex = 0;
+//                [self switchToTableList:0];
+//                self.segment.selectedSegmentIndex = 0;
                 [self showWebView:_lastUnZip];
             }
         }
