@@ -12,18 +12,32 @@
 
 +(NSDictionary *)settings
 {
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:kSettingFileOut];
+    return [MPSettingUtils settingsFromDirectory:kSettingGlobalDirectory];
+}
++(void)saveSettings:(NSDictionary *)dict
+{
+    [MPSettingUtils saveSettings:dict toDirectory:kSettingGlobalDirectory];
+}
++(NSDictionary *)settingsFromDirectory:(NSString *)path
+{
+    NSString *fullPath =[path stringByAppendingPathComponent:kSettingFileName];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fullPath];
     if (dict==nil) {
-        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:NO],kSettingLandSpace:[NSNumber numberWithBool:NO],kSettingAppVersion:kAppVersion};
-        [dict writeToFile:kSettingFileOut atomically:YES];
+        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:NO],kSettingLandSpace:[NSNumber numberWithInteger:UIInterfaceOrientationMaskPortrait],kSettingAppVersion:kAppVersion};
+        [dict writeToFile:fullPath atomically:YES];
     }
     return dict;
 }
-+(void)setSettings:(NSDictionary *)dict
++(void)saveSettings:(NSDictionary *)dict toDirectory:(NSString *)path
 {
+    NSString *fullPath =[path stringByAppendingPathComponent:kSettingFileName];
     if (dict!=nil) {
-        [dict writeToFile:kSettingFileOut atomically:YES];
+        [dict writeToFile:fullPath atomically:YES];
+    }else{
+        NSFileManager *fileManager = [[NSFileManager alloc]init];
+        if ([fileManager fileExistsAtPath:fullPath]) {
+            [fileManager removeItemAtPath:fullPath error:nil];
+        }
     }
 }
-
 @end

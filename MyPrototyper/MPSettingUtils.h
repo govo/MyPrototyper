@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#define kSettingFileOut [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"setting.out"]
+#define kSettingFileName @"setting.out"
+#define kSettingGlobalDirectory [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
 #define kAppVersion @"1.0.0"
 #define kSettingScrollBar @"scrollBar"
 #define kSettingStatusBar @"statusBar"
@@ -18,5 +20,7 @@
 @interface MPSettingUtils : NSObject
 
 +(NSDictionary *)settings;
-+(void)setSettings:(NSDictionary *)dict;
++(void)saveSettings:(NSDictionary *)dict;
++(NSDictionary *)settingsFromDirectory:(NSString *)path;
++(void)saveSettings:(NSDictionary *)dict toDirectory:(NSString *)path;
 @end

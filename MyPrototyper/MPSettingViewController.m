@@ -9,7 +9,9 @@
 #import "MPSettingViewController.h"
 #import "MPSettingUtils.h"
 
+
 @interface MPSettingViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *landspaceType;
 
 @end
 
@@ -33,27 +35,32 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSDictionary *settings = MPSettingUtils.settings;
-    NSLog(@"dict:%@",settings);
-    self.switchScrollBar.on = [[settings objectForKey:kSettingScrollBar] boolValue];
-    self.switchStatusBar.on = [[settings objectForKey:kSettingStatusBar] boolValue];
-    self.switchLanceSpace.on = [[settings objectForKey:kSettingLandSpace] boolValue];
+    
     
     UIViewController *parentController = self.presentingViewController;
-    if (![parentController isKindOfClass:[UINavigationController class]]) {
+    if (parentController!=nil) {
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
         
+        self.navigationItem.leftBarButtonItem = leftButton;
     }
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+//    NSLog(@"mypath:%@",self.path);
+    [self setSettingForPath:self.path];
+}
 
 
 
-#pragma mark - Table view data source
+#pragma mark - Table view  source
 
 
 
@@ -73,7 +80,7 @@
     UISwitch *sw = (UISwitch *)sender;
     NSInteger tag = sw.tag;
     
-    NSMutableDictionary *setting =[NSMutableDictionary dictionaryWithDictionary:MPSettingUtils.settings] ;
+    NSMutableDictionary *setting =[NSMutableDictionary dictionaryWithDictionary:self.path?[MPSettingUtils settingsFromDirectory:self.path]: MPSettingUtils.settings] ;
     switch (tag) {
         case 1:
             [setting setValue:[NSNumber numberWithBool:sw.on] forKey:kSettingScrollBar];
@@ -81,14 +88,70 @@
         case 2:
             [setting setValue:[NSNumber numberWithBool:sw.on] forKey:kSettingStatusBar];
             break;
-        case 3:
-            [setting setValue:[NSNumber numberWithBool:sw.on] forKey:kSettingLandSpace];
+    }
+    if (self.path) {
+        [MPSettingUtils saveSettings:setting toDirectory:self.path];
+    }else{
+        [MPSettingUtils saveSettings:setting];
+    }
+}
+
+-(void)done:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)setSettingForPath:(NSString *)path
+{
+    NSDictionary *settings = path?[MPSettingUtils settingsFromDirectory:path]: MPSettingUtils.settings;
+
+    self.switchScrollBar.on = [[settings objectForKey:kSettingScrollBar] boolValue];
+    self.switchStatusBar.on = [[settings objectForKey:kSettingStatusBar] boolValue];
+    
+    [self setLandspaceTypeForOrientation:[[settings objectForKey:kSettingLandSpace] integerValue]];
+    
+    
+}
+-(void)setLandspaceTypeForOrientation:(NSInteger)orientation
+{
+    switch (orientation) {
+        case UIInterfaceOrientationMaskPortrait:
+            self.landspaceType.text = @"竖屏";
             break;
-            
-        default:
+        case UIInterfaceOrientationMaskLandscape:
+        case UIInterfaceOrientationMaskLandscapeLeft:
+        case UIInterfaceOrientationMaskLandscapeRight:
+            self.landspaceType.text = @"横屏";
+            break;
+        case UIInterfaceOrientationMaskAllButUpsideDown:
+        case UIInterfaceOrientationMaskAll:
+            self.landspaceType.text = @"自由";
             break;
     }
-    
-    MPSettingUtils.settings = setting;
+}
+
+-(void)didSelected:(NSInteger)orientation{
+
+    NSDictionary *settings = self.path?[MPSettingUtils settingsFromDirectory:self.path]: MPSettingUtils.settings;
+    [settings setValue:[NSNumber numberWithInteger:orientation] forKey:kSettingLandSpace];
+    if (self.path) {
+        
+        [MPSettingUtils saveSettings:settings toDirectory:self.path];
+    }else{
+        [MPSettingUtils saveSettings:settings];
+    }
+    [self setLandspaceTypeForOrientation:orientation];
+}
+
+#pragma mark prepareForSegue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"LandspaceSetting"]) {
+        MPLandespaceSettingViewController *landspaceController = (MPLandespaceSettingViewController *)segue.destinationViewController;
+        NSDictionary *settings = self.path?[MPSettingUtils settingsFromDirectory:self.path]: MPSettingUtils.settings;
+        landspaceController.orientation = [[settings objectForKey:kSettingLandSpace] integerValue];
+        landspaceController.delegate = self;
+
+    }
 }
 @end

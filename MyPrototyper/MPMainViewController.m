@@ -47,10 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *path = [paths objectAtIndex:0];
-//    [self unzipAllFile:path];
-    NSLog(@"MY PATH:%@",kDocumentDictory);
+    NSLog(@"APP PATH:%@",kDocumentDictory);
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
@@ -60,6 +57,9 @@
     MPStorage *storage = [[MPStorage alloc]init];
     _segmentIndex = 0;
     _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:10]];
+    
+    
+//    NSLog(@"the int:%ld",UIInterfaceOrientationMaskPortrait);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -95,6 +95,14 @@
     }
     return output;
 }
+-(void)showWebView:(NSString *)path
+{
+    MPWebViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
+    
+    [controller loadHtmlAtPath:path];
+    //    [self.navigationController pushViewController:controller animated:YES];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
 #pragma mark - Table view data source
 
@@ -120,7 +128,12 @@
         {
             MPProject *project = (MPProject *)[_datas objectAtIndex:indexPath.row];
             cell.textLabel.text = project.name;
-            [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+            if (NSFoundationVersionNumber>NSFoundationVersionNumber_iOS_6_1) {
+                //iOS 7 and later
+                [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+            }else{
+                [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+            }
         }
             break;
             
@@ -199,15 +212,6 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
--(void)showWebView:(NSString *)path
-{
-    
-    MPWebViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"WebView"];
-
-    [controller loadHtmlAtPath:path];
-
-    [self presentViewController:controller animated:YES completion:nil];
-}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (_segmentIndex) {
@@ -222,7 +226,7 @@
         }
             break;
             
-        default:
+        case 1:
         {
             NSString *file = [_localFilesArray objectAtIndex:indexPath.row];
             if ([[file pathExtension] isEqualToString:@"zip"]) {
@@ -243,8 +247,11 @@
                     title = @"解压原型";
                     message = @"将会解压成同名原型";
                 }
-                
+                [rs close];
+                [storage.db closeOpenResultSets];
+
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"不生成" otherButtonTitles:@"开始生成", nil];
+                alert.tag = 20;
                 [alert show];
             }
         }
@@ -289,7 +296,7 @@
     
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
-
+/*
 //    NSLog(@"LISTING ALL FILES FOUND");
     int count;
     for (count = 0; count < (int)[directoryContent count]; count++)
@@ -297,12 +304,11 @@
         NSString *file = [directoryContent objectAtIndex:count];
         NSLog(@"File %d :%@", (count + 1), file);
     }
-    
+*/
     return directoryContent;
 }
 -(void)unZipFile:(NSString *)file withPassword:(NSString *)password
 {
-    
 //    __block int count;
     
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
@@ -360,8 +366,7 @@
                 NSString *currentProjectPath = [projectPath stringByAppendingPathComponent:[self MD5:file]];
                 if([zip UnzipFileTo:currentProjectPath overWrite:YES])
                 {
-                    NSArray *parts = [file componentsSeparatedByString:@"/"];
-                    NSString *fileName = [parts lastObject];
+                    NSString *fileName = [file lastPathComponent];
                     
                     MPProject *project = [[MPProject alloc]init];
                     project.name = [fileName stringByDeletingPathExtension];
@@ -384,8 +389,8 @@
                         }
                     }
                     [rs close];
-                    [self listFileAtPath:currentProjectPath];// FOR testing
-                    NSLog(@"unzip successed!");
+//                    [self listFileAtPath:currentProjectPath];// FOR testing
+                    NSLog(@"unzip successed! row id:%d",rowId);
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解压成功" message:@"马上去预览吧！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:@"去预览", nil];
@@ -396,7 +401,9 @@
 //                    NSLog(@"UnZipFile %@ to %@", file,currentProjectPath);
                 }
             }
-            [self listenDocumentChange];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self listenDocumentChange];
+            });
         }
     
     });
@@ -408,7 +415,7 @@
     if (_timer!=nil) {
         [_timer invalidate];
     }
-    NSLog(@"new listener");
+
     _timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timerTicked:) userInfo:nil repeats:NO];
 
 }
@@ -479,13 +486,13 @@
             if (_zipNeedPassword) {
                 [self unZipFile:_zipNeedPassword withPassword:[alertView textFieldAtIndex:0].text];
                 _zipNeedPassword = nil;
-            }else if(_unZipFile){
+            }else if(_unZipFile && alertView.tag == 20){
                 [self unZipFile:_unZipFile withPassword:nil];
                 _unZipFile = nil;
             }else if(_lastUnZip && alertView.tag ==10){
-                [self showWebView:_lastUnZip];
                 [self switchToTableList:0];
                 self.segment.selectedSegmentIndex = 0;
+                [self showWebView:_lastUnZip];
             }
         }
             break;
@@ -494,6 +501,18 @@
             break;
     }
 }
-
+#pragma mark - rotation
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 @end

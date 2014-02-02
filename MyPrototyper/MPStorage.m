@@ -113,7 +113,7 @@
         NSInteger lastInsertRowId = (NSInteger) [_db  lastInsertRowId];
         [_db  closeOpenResultSets];
         if (isUpdated) {
-            NSLog(@"inserted");
+//            NSLog(@"inserted");
 //            NSInteger lastRowId=0;
 //            FMResultSet *lastRowRs = [_db executeQuery:@"select last_insert_rowid();"];
 //            if ([lastRowRs next]) {
@@ -138,7 +138,7 @@
         NSString *query;
         BOOL isUpdated = NO;
         if (project.idx) {
-            NSLog(@"update:%d，%@",project.idx,_db);
+//            NSLog(@"update:%d，%@",project.idx,_db);
             query = [NSString stringWithFormat:@"update %@ set %@ = ?, %@=? where %@ = ?;",TABLE_NAME,FIELD_NAME,FIELD_MODIFIED_TIME,FIELD_ID];
             isUpdated = [_db executeUpdate:query,
                          project.name,

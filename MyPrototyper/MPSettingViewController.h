@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPLandespaceSettingViewController.h"
 
-@interface MPSettingViewController : UITableViewController
+@interface MPSettingViewController : UITableViewController <MPLandespaceSettingDelegate>
+
+
+
 @property (weak, nonatomic) IBOutlet UISwitch *switchScrollBar;
 @property (weak, nonatomic) IBOutlet UISwitch *switchStatusBar;
 @property (weak, nonatomic) IBOutlet UISwitch *switchLanceSpace;
+
+
+@property (strong,nonatomic) NSString *path;
+
 - (IBAction)doSwitch:(id)sender;
+
+-(void)setSettingForPath:(NSString *)path;
 
 @end
