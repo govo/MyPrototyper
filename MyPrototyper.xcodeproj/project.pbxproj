@@ -15,7 +15,6 @@
 		9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34E187AF93C00F8C9EC /* FMResultSet.m */; };
 		9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9416A355187AF96D00F8C9EC /* libsqlite3.dylib */; };
 		9416A359187B005900F8C9EC /* MPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A358187B005900F8C9EC /* MPProject.m */; };
-		9461BC851886641600C13CA7 /* MPSettingWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9461BC841886641600C13CA7 /* MPSettingWrapperViewController.m */; };
 		9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C591187AEA6B001074DD /* Foundation.framework */; };
 		9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C593187AEA6B001074DD /* CoreGraphics.framework */; };
 		9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C595187AEA6B001074DD /* UIKit.framework */; };
@@ -76,8 +75,6 @@
 		9416A355187AF96D00F8C9EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9416A357187B005900F8C9EC /* MPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProject.h; sourceTree = "<group>"; };
 		9416A358187B005900F8C9EC /* MPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProject.m; sourceTree = "<group>"; };
-		9461BC831886641600C13CA7 /* MPSettingWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingWrapperViewController.h; sourceTree = "<group>"; };
-		9461BC841886641600C13CA7 /* MPSettingWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingWrapperViewController.m; sourceTree = "<group>"; };
 		9483C58E187AEA6B001074DD /* MyPrototyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPrototyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9483C591187AEA6B001074DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9483C593187AEA6B001074DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -223,8 +220,6 @@
 				94ABB1B7187D61EC004F19F9 /* MPWebViewController.m */,
 				94ABB1BB187DA6E4004F19F9 /* MPSettingViewController.h */,
 				94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */,
-				9461BC831886641600C13CA7 /* MPSettingWrapperViewController.h */,
-				9461BC841886641600C13CA7 /* MPSettingWrapperViewController.m */,
 				94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */,
 				94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */,
 				94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */,
@@ -416,7 +411,6 @@
 				94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */,
 				94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */,
 				9483C59E187AEA6B001074DD /* main.m in Sources */,
-				9461BC851886641600C13CA7 /* MPSettingWrapperViewController.m in Sources */,
 				9483C5A2187AEA6B001074DD /* MPAppDelegate.m in Sources */,
 				9416A34F187AF93C00F8C9EC /* FMDatabase.m in Sources */,
 				94ABB1AC187C2ACE004F19F9 /* zip.c in Sources */,

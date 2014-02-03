@@ -9,7 +9,6 @@
 #import "MPWebViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MPSettingUtils.h"
-#import "MPSettingWrapperViewController.h"
 
 @interface MPWebViewController (){
     NSString *_filePath;
@@ -33,8 +32,8 @@
 -(BOOL)prefersStatusBarHidden
 {
     
-//    NSDictionary *settings = MPSettingUtils.settings;
-//    return ![[settings objectForKey:kSettingStatusBar] boolValue];
+    NSDictionary *settings = [MPSettingUtils settingsFromDirectory:_filePath];
+    _statusBar = [[settings objectForKey:kSettingStatusBar] boolValue];
     return !_statusBar;
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -61,15 +60,13 @@
     _statusBar = [[settings objectForKey:kSettingStatusBar] boolValue];
     _scrollBar = [[settings objectForKey:kSettingScrollBar] boolValue];
     _landSpace = [[settings objectForKey:kSettingLandSpace] integerValue];
-    if (_statusBar) {
-        CGRect frame = self.webview.frame;
-        frame.size.height = self.view.frame.size.height-20;
-        frame.origin.y = 20;
-        self.webview.frame = frame;
-
+    
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     }else{
-        
+        [[UIApplication sharedApplication] setStatusBarHidden:!_statusBar withAnimation:UIStatusBarAnimationNone];
     }
+
     
     self.webview.scrollView.showsHorizontalScrollIndicator = _scrollBar;
     self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
@@ -87,7 +84,7 @@
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion==UIEventSubtypeMotionShake) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出原型" otherButtonTitles:@"设置", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles:@"设置", nil];
         [actionSheet showInView:self.view];
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
@@ -130,23 +127,15 @@
             break;
         case 1:
         {
-            //TODO:使用setting,使用 container 形式，有等研究。。。。
-            MPSettingWrapperViewController *controller = (MPSettingWrapperViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"settingContainer"];
+            UINavigationController *controller = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"SettingNavigation"];
 
-            controller.path = _filePath;
+            UIViewController *vc = controller.viewControllers.firstObject;
+            if ([vc isKindOfClass:[MPSettingViewController class]]) {
+                MPSettingViewController *settingController = (MPSettingViewController *) vc;
+                settingController.path = _filePath;
+            }
             [self presentViewController:controller animated:YES completion:nil];
-//            [self presentViewController:controller animated:YES completion:^{
-//                UIViewController *firstChild = [controller.childViewControllers firstObject];
-//                if ([firstChild isKindOfClass:[UINavigationController class]]) {
-//                    UINavigationController *navC = (UINavigationController *)firstChild;
-//                    UIViewController *navRootView = [navC.viewControllers firstObject];
-////                    NSLog(@"presented:%@",navRootView);
-//                    if ([navRootView isKindOfClass:[MPSettingViewController class]]) {
-//                        MPSettingViewController *settingController = (MPSettingViewController *)navRootView;
-//                        settingController.path = _filePath;
-//                    }
-//                }
-//            }];
+
         }
 
     }

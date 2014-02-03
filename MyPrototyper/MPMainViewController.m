@@ -66,7 +66,7 @@
     if (_segmentIndex==1) {
         [self listenDocumentChange];
     }
-    
+    self.title = @"列表";
 }
 -(void)viewWillDisappear:(BOOL)animated{
     if (_segmentIndex==1) {
@@ -212,6 +212,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (_segmentIndex) {
@@ -263,7 +264,21 @@
             break;
     }
 }
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (_segmentIndex==0) {
+        MPSettingViewController *controller = (MPSettingViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"setting"];
+        
+        MPProject *project = (MPProject *)[_projectListArray objectAtIndex:indexPath.row];
+        
+        if (project.path) {
+            controller.path = project.path;
+        }
+        self.title = @"返回";
+        [self.navigationController pushViewController:controller animated:YES];
 
+    }
+}
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
