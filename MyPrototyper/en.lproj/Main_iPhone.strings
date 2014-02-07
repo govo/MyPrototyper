@@ -1,0 +1,45 @@
+
+/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[0] = "项目"; ObjectID = "6N6-1I-Rde"; */
+"6N6-1I-Rde.segmentTitles[0]" = "项目";
+
+/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[1] = "本地"; ObjectID = "6N6-1I-Rde"; */
+"6N6-1I-Rde.segmentTitles[1]" = "本地";
+
+/* Class = "IBUILabel"; text = "横屏"; ObjectID = "B0i-lj-YOM"; */
+"B0i-lj-YOM.text" = "横屏";
+
+/* Class = "IBUILabel"; text = "状态栏"; ObjectID = "DYq-cb-gQJ"; */
+"DYq-cb-gQJ.text" = "状态栏";
+
+/* Class = "IBUILabel"; text = "竖屏"; ObjectID = "HZE-SP-Wrl"; */
+"HZE-SP-Wrl.text" = "竖屏";
+
+/* Class = "IBUINavigationItem"; title = "横屏设置"; ObjectID = "Jyw-E3-NW6"; */
+"Jyw-E3-NW6.title" = "横屏设置";
+
+/* Class = "IBUILabel"; text = "坚屏"; ObjectID = "LVP-Y8-cxs"; */
+"LVP-Y8-cxs.text" = "坚屏";
+
+/* Class = "IBUINavigationItem"; title = "设置"; ObjectID = "Rqz-47-lzX"; */
+"Rqz-47-lzX.title" = "设置";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "U7D-uK-8dN"; */
+"U7D-uK-8dN.text" = "Title";
+
+/* Class = "IBUIBarButtonItem"; title = "返回"; ObjectID = "WEk-Uy-PXl"; */
+"WEk-Uy-PXl.title" = "返回";
+
+/* Class = "IBUITabBarItem"; title = "Setting"; ObjectID = "Z7h-1E-pvt"; */
+"Z7h-1E-pvt.title" = "Setting";
+
+/* Class = "IBUILabel"; text = "滚动条"; ObjectID = "ZUI-1D-Ddc"; */
+"ZUI-1D-Ddc.text" = "滚动条";
+
+/* Class = "IBUILabel"; text = "横屏设置"; ObjectID = "aRC-Mv-App"; */
+"aRC-Mv-App.text" = "横屏设置";
+
+/* Class = "IBUITabBarItem"; title = "Prototpype"; ObjectID = "vo7-2n-otQ"; */
+"vo7-2n-otQ.title" = "Prototpype";
+
+/* Class = "IBUILabel"; text = "自由"; ObjectID = "wiI-Ag-lPr"; */
+"wiI-Ag-lPr.text" = "自由";

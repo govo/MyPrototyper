@@ -31,6 +31,20 @@
 		9483C5C3187AEA6B001074DD /* MyPrototyperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5C2187AEA6B001074DD /* MyPrototyperTests.m */; };
 		9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483C5CD187AED20001074DD /* MPMainViewController.m */; };
 		9486711C189E856E002165CF /* MPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486711B189E856E002165CF /* MPTabBarController.m */; };
+		9486711F18A083AF002165CF /* MPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486711E18A083AF002165CF /* MPNavigationController.m */; };
+		9486715818A09685002165CF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486715718A09685002165CF /* MBProgressHUD.m */; };
+		9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9486715A18A09B82002165CF /* SVProgressHUD.bundle */; };
+		9486715E18A0B345002165CF /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486715C18A0B345002165CF /* help.png */; };
+		9486715F18A0B345002165CF /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486715D18A0B345002165CF /* help@2x.png */; };
+		9486716418A0F3BF002165CF /* shakephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716218A0F3BF002165CF /* shakephone.png */; };
+		9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716318A0F3BF002165CF /* shakephone@2x.png */; };
+		9486716818A103AC002165CF /* itunesconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716618A103AC002165CF /* itunesconnect.png */; };
+		9486716918A103AC002165CF /* itunesconnect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716718A103AC002165CF /* itunesconnect@2x.png */; };
+		9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486716B18A164BA002165CF /* MPHelpViewController.m */; };
+		9486716F18A29DA4002165CF /* supports.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716D18A29DA4002165CF /* supports.png */; };
+		9486717018A29DA4002165CF /* supports@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716E18A29DA4002165CF /* supports@2x.png */; };
+		9486717318A33CC1002165CF /* unzip.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717118A33CC1002165CF /* unzip.png */; };
+		9486717418A33CC1002165CF /* unzip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717218A33CC1002165CF /* unzip@2x.png */; };
 		94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */; };
 		94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB192187C2ACE004F19F9 /* ioapi.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB194187C2ACE004F19F9 /* make_vms.com */; };
@@ -97,6 +111,23 @@
 		9483C5CD187AED20001074DD /* MPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMainViewController.m; sourceTree = "<group>"; };
 		9486711A189E856E002165CF /* MPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTabBarController.h; sourceTree = "<group>"; };
 		9486711B189E856E002165CF /* MPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTabBarController.m; sourceTree = "<group>"; };
+		9486711D18A083AF002165CF /* MPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNavigationController.h; sourceTree = "<group>"; };
+		9486711E18A083AF002165CF /* MPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNavigationController.m; sourceTree = "<group>"; };
+		9486715618A09685002165CF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9486715718A09685002165CF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9486715A18A09B82002165CF /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		9486715C18A0B345002165CF /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		9486715D18A0B345002165CF /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		9486716218A0F3BF002165CF /* shakephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shakephone.png; sourceTree = "<group>"; };
+		9486716318A0F3BF002165CF /* shakephone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shakephone@2x.png"; sourceTree = "<group>"; };
+		9486716618A103AC002165CF /* itunesconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = itunesconnect.png; sourceTree = "<group>"; };
+		9486716718A103AC002165CF /* itunesconnect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "itunesconnect@2x.png"; sourceTree = "<group>"; };
+		9486716A18A164BA002165CF /* MPHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHelpViewController.h; sourceTree = "<group>"; };
+		9486716B18A164BA002165CF /* MPHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHelpViewController.m; sourceTree = "<group>"; };
+		9486716D18A29DA4002165CF /* supports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = supports.png; sourceTree = "<group>"; };
+		9486716E18A29DA4002165CF /* supports@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supports@2x.png"; sourceTree = "<group>"; };
+		9486717118A33CC1002165CF /* unzip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unzip.png; sourceTree = "<group>"; };
+		9486717218A33CC1002165CF /* unzip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unzip@2x.png"; sourceTree = "<group>"; };
 		94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
 		94ABB191187C2ACE004F19F9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		94ABB192187C2ACE004F19F9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -173,6 +204,7 @@
 		9483C585187AEA6B001074DD = {
 			isa = PBXGroup;
 			children = (
+				9486715918A09B82002165CF /* Resource */,
 				9483C597187AEA6B001074DD /* MyPrototyper */,
 				9483C5BC187AEA6B001074DD /* MyPrototyperTests */,
 				9483C590187AEA6B001074DD /* Frameworks */,
@@ -192,6 +224,7 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9486715518A09685002165CF /* MBProgressHUD */,
 				94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */,
 				94ABB1AE187C3918004F19F9 /* libz.1.2.5.dylib */,
 				9416A355187AF96D00F8C9EC /* libsqlite3.dylib */,
@@ -218,10 +251,14 @@
 				9483C5CD187AED20001074DD /* MPMainViewController.m */,
 				94ABB1B6187D61EC004F19F9 /* MPWebViewController.h */,
 				94ABB1B7187D61EC004F19F9 /* MPWebViewController.m */,
+				9486716A18A164BA002165CF /* MPHelpViewController.h */,
+				9486716B18A164BA002165CF /* MPHelpViewController.m */,
 				94ABB1BB187DA6E4004F19F9 /* MPSettingViewController.h */,
 				94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */,
 				94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */,
 				94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */,
+				9486711D18A083AF002165CF /* MPNavigationController.h */,
+				9486711E18A083AF002165CF /* MPNavigationController.m */,
 				94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */,
 				94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */,
 				9416A340187AF90000F8C9EC /* MPStorage.h */,
@@ -261,6 +298,35 @@
 				9483C5BF187AEA6B001074DD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9486715518A09685002165CF /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9486715618A09685002165CF /* MBProgressHUD.h */,
+				9486715718A09685002165CF /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = MyPrototyper/MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		9486715918A09B82002165CF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9486717118A33CC1002165CF /* unzip.png */,
+				9486717218A33CC1002165CF /* unzip@2x.png */,
+				9486716D18A29DA4002165CF /* supports.png */,
+				9486716E18A29DA4002165CF /* supports@2x.png */,
+				9486716618A103AC002165CF /* itunesconnect.png */,
+				9486716718A103AC002165CF /* itunesconnect@2x.png */,
+				9486716218A0F3BF002165CF /* shakephone.png */,
+				9486716318A0F3BF002165CF /* shakephone@2x.png */,
+				9486715C18A0B345002165CF /* help.png */,
+				9486715D18A0B345002165CF /* help@2x.png */,
+				9486715A18A09B82002165CF /* SVProgressHUD.bundle */,
+			);
+			name = Resource;
+			path = MyPrototyper/Resource;
 			sourceTree = "<group>";
 		};
 		94ABB18E187C2ACE004F19F9 /* ZipArchive */ = {
@@ -381,13 +447,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
+				9486717418A33CC1002165CF /* unzip@2x.png in Resources */,
+				9486716918A103AC002165CF /* itunesconnect@2x.png in Resources */,
+				9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */,
 				9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
+				9486717318A33CC1002165CF /* unzip.png in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
+				9486715E18A0B345002165CF /* help.png in Resources */,
+				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
+				9486716818A103AC002165CF /* itunesconnect.png in Resources */,
+				9486717018A29DA4002165CF /* supports@2x.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
+				9486715F18A0B345002165CF /* help@2x.png in Resources */,
+				9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */,
+				9486716F18A29DA4002165CF /* supports.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +485,7 @@
 			files = (
 				9486711C189E856E002165CF /* MPTabBarController.m in Sources */,
 				94ABB1AB187C2ACE004F19F9 /* unzip.c in Sources */,
+				9486715818A09685002165CF /* MBProgressHUD.m in Sources */,
 				94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */,
 				94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */,
 				9483C59E187AEA6B001074DD /* main.m in Sources */,
@@ -421,11 +499,13 @@
 				94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */,
 				9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */,
 				9416A342187AF90000F8C9EC /* MPStorage.m in Sources */,
+				9486711F18A083AF002165CF /* MPNavigationController.m in Sources */,
 				9416A359187B005900F8C9EC /* MPProject.m in Sources */,
 				9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */,
 				94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */,
 				94ABB1AD187C2ACE004F19F9 /* ZipArchive.m in Sources */,
 				94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */,
+				9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */,
 				9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

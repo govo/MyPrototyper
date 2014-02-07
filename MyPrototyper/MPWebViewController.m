@@ -9,6 +9,7 @@
 #import "MPWebViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MPSettingUtils.h"
+#import "MPNavigationController.h"
 
 @interface MPWebViewController (){
     NSString *_filePath;
@@ -70,12 +71,14 @@
     
     self.webview.scrollView.showsHorizontalScrollIndicator = _scrollBar;
     self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
-    [self becomeFirstResponder];
 
-    //TODO: 是否每次重新显示都要加载一次？
-//    [self loadWebView:_filePath];
+
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [self becomeFirstResponder];
+}
 -(BOOL)canBecomeFirstResponder
 {
     return YES;
@@ -112,9 +115,33 @@
 -(void)loadWebView:(NSString *)path
 {
 
-//    NSLog(@"load html:%@",[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[path stringByAppendingPathComponent:@"index.html"]]]);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    __block NSString *html = [path stringByAppendingPathComponent:@"index.html"];
+    if (![fileManager fileExistsAtPath:html]) {
+        html = nil;
+        NSArray *array = [fileManager contentsOfDirectoryAtPath:path error:nil];
+        //判断index.html是否不在第一层文件夹，最多只多做一层文件夹搜索
+        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSString *innerPath =[path stringByAppendingPathComponent:(NSString *)obj];
+            BOOL isDirectory = NO;
+            [fileManager fileExistsAtPath:innerPath isDirectory:&isDirectory];
+            if (isDirectory) {
+                html = [innerPath stringByAppendingPathComponent:@"index.html"];
+
+                if ([fileManager fileExistsAtPath:html]) {
+                    *stop = YES;
+                }
+            }
+        }];
+    }
+
+    if (html==nil) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"找不到index.html" message:@"请确保第一层文件夹中包含index.html" delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[path stringByAppendingPathComponent:@"index.html"]]]];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:html]]];
     
 }
 
@@ -128,6 +155,7 @@
         case 1:
         {
             UINavigationController *controller = (UINavigationController*)[self.storyboard instantiateViewControllerWithIdentifier:@"SettingNavigation"];
+            [self shouldSettingControllerRotateBySetting:[MPSettingUtils settingsFromDirectory:_filePath] withNav:controller];
 
             UIViewController *vc = controller.viewControllers.firstObject;
             if ([vc isKindOfClass:[MPSettingViewController class]]) {
@@ -141,11 +169,39 @@
     }
 }
 
+-(void)shouldSettingControllerRotateBySetting:(NSDictionary *)settings withNav:(UINavigationController *)nav
+{
+    
+    if ([nav isKindOfClass:[MPNavigationController class]]) {
+        MPNavigationController * navC = (MPNavigationController *)nav;
+        
+        NSInteger orientation = [[settings objectForKey:kSettingLandSpace] integerValue];
+        
+        switch (orientation) {
+            case UIInterfaceOrientationMaskPortrait:
+                navC.isRotateable = NO;
+                break;
+            case UIInterfaceOrientationMaskLandscape:
+            case UIInterfaceOrientationMaskLandscapeLeft:
+            case UIInterfaceOrientationMaskLandscapeRight:
+                navC.isRotateable = YES;
+                navC.orientationSupport = UIInterfaceOrientationMaskLandscapeLeft;
+                break;
+            case UIInterfaceOrientationMaskAllButUpsideDown:
+            case UIInterfaceOrientationMaskAll:
+                navC.isRotateable = YES;
+                navC.orientationSupport = UIInterfaceOrientationMaskAllButUpsideDown;
+                
+                break;
+        }
+        
+    }
+}
+
 -(BOOL)shouldAutorotate
 {
     NSDictionary *settings = [MPSettingUtils settingsFromDirectory:_filePath];
     _landSpace = [[settings objectForKey:kSettingLandSpace] integerValue];
-    NSLog(@"shouldAutorotate:%@",(_landSpace==UIInterfaceOrientationMaskLandscapeLeft || _landSpace == UIInterfaceOrientationMaskAllButUpsideDown || _landSpace == UIInterfaceOrientationMaskAll)?@"yes":@"no");
     return _landSpace==UIInterfaceOrientationMaskLandscapeLeft || _landSpace == UIInterfaceOrientationMaskAllButUpsideDown || _landSpace == UIInterfaceOrientationMaskAll;
 }
 - (NSUInteger)supportedInterfaceOrientations
@@ -156,19 +212,19 @@
     switch (_landSpace) {
         case UIInterfaceOrientationMaskPortrait:
             support = UIInterfaceOrientationMaskPortrait;
-            NSLog(@"supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait");
+
             break;
         case UIInterfaceOrientationMaskLandscape:
         case UIInterfaceOrientationMaskLandscapeLeft:
         case UIInterfaceOrientationMaskLandscapeRight:
             support = UIInterfaceOrientationMaskLandscapeLeft;
-            NSLog(@"supportedInterfaceOrientations:UIInterfaceOrientationMaskLandscape");
+
             break;
             
         case UIInterfaceOrientationMaskAll:
         case UIInterfaceOrientationMaskAllButUpsideDown:
             support = UIInterfaceOrientationMaskAllButUpsideDown;
-            NSLog(@"supportedInterfaceOrientations:UIInterfaceOrientationMaskAll");
+
             break;
     }
     return support;
@@ -191,8 +247,12 @@
         case UIInterfaceOrientationMaskAllButUpsideDown:
             shouldRotate = toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
     }
-    NSLog(@"shouldAutorotateToInterfaceOrientation:%@",shouldRotate?@"yes":@"no");
+
     return shouldRotate;
 }
-
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

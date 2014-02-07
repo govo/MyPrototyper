@@ -56,15 +56,6 @@
         return NO;
     }
     
-    /*
-    //create to storage placemark Address
-    NSString *addressSQL = [NSString stringWithFormat:@"create table if not exists address (id integer primary key, %@)",[[ADDRESS_KEYS_DICT allKeys] componentsJoinedByString:@","]];
-    BOOL isAddressTableCreated = [db executeUpdate:addressSQL];
-    if (!isAddressTableCreated) {
-        NSLog(@"isAddressTableCreated error");
-        return NO;
-    }
-     */
     NSLog(@"autoPrepareDocument ok");
     return YES;
     
@@ -72,9 +63,7 @@
 
 -(NSArray *)getDatasWithLimit:(NSUInteger)limit
 {
-//    if (![self autoPrepareDocument]) {
-//        return nil;
-//    }
+
     NSString *query = [NSString stringWithFormat:@"select * from %@ order by %@ desc limit ?;",TABLE_NAME,FIELD_ADD_TIME];
     FMResultSet *rs = [_db executeQuery:query,[NSNumber numberWithInteger:limit]];
     
@@ -90,35 +79,28 @@
         project.modifiedTime = [rs longForColumn:FIELD_MODIFIED_TIME];
         [array addObject:project];
     }
-    [rs close];
-    [_db closeOpenResultSets];
+
     return array;
     
 }
 
 -(NSInteger)insertData:(id)data
 {
-//    if (![self autoPrepareDocument]) {
-//        return 0;
-//    }
+
     NSArray *fields;
     NSString *query;
     if ([data isKindOfClass:[MPProject class]]) {
         MPProject *project = (MPProject *)data;
         
-        fields = @[FIELD_NAME,FIELD_PATH,FIELD_ZIP,FIELD_ADD_TIME];
-        query = [NSString stringWithFormat:@"insert into %@ (%@) values(?,?,?,?);",TABLE_NAME,[fields componentsJoinedByString:@","]];
-        BOOL isUpdated = [_db executeUpdate:query,project.name,project.path,project.zip,[NSNumber numberWithLong:[[NSDate date] timeIntervalSince1970]]];
+        fields = @[FIELD_NAME,FIELD_PATH,FIELD_ZIP,FIELD_ADD_TIME,FIELD_MODIFIED_TIME];
+        query = [NSString stringWithFormat:@"insert into %@ (%@) values(?,?,?,?,?);",TABLE_NAME,[fields componentsJoinedByString:@","]];
+        NSNumber *addTime =[NSNumber numberWithLong:[[NSDate date] timeIntervalSince1970]];
+        BOOL isUpdated = [_db executeUpdate:query,project.name,project.path,project.zip,addTime,addTime];
         
-        NSInteger lastInsertRowId = (NSInteger) [_db  lastInsertRowId];
-        [_db  closeOpenResultSets];
+        NSInteger lastInsertRowId = (NSInteger) [_db lastInsertRowId];
+
         if (isUpdated) {
-//            NSLog(@"inserted");
-//            NSInteger lastRowId=0;
-//            FMResultSet *lastRowRs = [_db executeQuery:@"select last_insert_rowid();"];
-//            if ([lastRowRs next]) {
-//                lastRowId = [lastRowRs longForColumnIndex:0];
-//            }
+//            NSLog(@"inserted:%ld",(long)lastInsertRowId);
             return lastInsertRowId;
         }else{
             NSLog(@"save failed:%@",query);
@@ -137,15 +119,16 @@
         MPProject *project = (MPProject *)data;
         NSString *query;
         BOOL isUpdated = NO;
-        if (project.idx) {
-//            NSLog(@"update:%d，%@",project.idx,_db);
+        if (project.idx>0) {
             query = [NSString stringWithFormat:@"update %@ set %@ = ?, %@=? where %@ = ?;",TABLE_NAME,FIELD_NAME,FIELD_MODIFIED_TIME,FIELD_ID];
+//            NSLog(@"update:%ld,%@",(long)project.idx,query);
             isUpdated = [_db executeUpdate:query,
                          project.name,
                          [NSNumber numberWithLong:[[NSDate date] timeIntervalSince1970]],
-                         nil];
-            [_db closeOpenResultSets];
+                         [NSNumber numberWithInteger:project.idx]];
+
             if (isUpdated) {
+                NSLog(@"updated:%ld",(long)project.idx);
                 return project.idx;
             }
         }
@@ -155,18 +138,17 @@
 
 -(NSInteger)deleteData:(id)data
 {
-    
-//    if (![self autoPrepareDocument]) {
-//        return 0;
-//    }
+
+    NSLog(@"delete:%@",data);
     if ([data isKindOfClass:[MPProject class]]) {
         MPProject *project = (MPProject *)data;
-        if (!project.idx) {
+        if (project.idx==0) {
             return 0;
         }
         NSString *query = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = ?;",TABLE_NAME,FIELD_ID];
         BOOL isDeleted = [_db executeUpdate:query,[NSNumber numberWithInteger:project.idx]];
-        [_db  closeOpenResultSets];
+
+//        NSLog(@"delete:%@",query);
         if (isDeleted) {
             NSLog(@"delete :%@",[NSNumber numberWithLong:project.idx]);
             return project.idx;

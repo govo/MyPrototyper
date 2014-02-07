@@ -8,6 +8,7 @@
 
 #import "MPSettingViewController.h"
 #import "MPSettingUtils.h"
+#import "MPNavigationController.h"
 
 
 @interface MPSettingViewController ()
@@ -40,6 +41,9 @@
     UIViewController *parentController = self.presentingViewController;
     if (parentController!=nil) {
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
+        
+        NSDictionary *settings = self.path?[MPSettingUtils settingsFromDirectory:self.path]: MPSettingUtils.settings;
+        [self shouldRotateSetting:settings];
         
         self.navigationItem.leftBarButtonItem = leftButton;
     }
@@ -100,6 +104,34 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+-(void)shouldRotateSetting:(NSDictionary *)settings
+{
+    
+    if ([self.navigationController isKindOfClass:[MPNavigationController class]]) {
+        MPNavigationController * navC = (MPNavigationController *)self.navigationController;
+        
+        NSInteger orientation = [[settings objectForKey:kSettingLandSpace] integerValue];
+        
+        switch (orientation) {
+            case UIInterfaceOrientationMaskPortrait:
+                navC.isRotateable = NO;
+                break;
+            case UIInterfaceOrientationMaskLandscape:
+            case UIInterfaceOrientationMaskLandscapeLeft:
+            case UIInterfaceOrientationMaskLandscapeRight:
+                navC.isRotateable = YES;
+                navC.orientationSupport = UIInterfaceOrientationMaskLandscapeLeft;
+                break;
+            case UIInterfaceOrientationMaskAllButUpsideDown:
+            case UIInterfaceOrientationMaskAll:
+                navC.isRotateable = YES;
+                navC.orientationSupport = UIInterfaceOrientationMaskAllButUpsideDown;
+
+                break;
+        }
+        
+    }
+}
 -(void)setSettingForPath:(NSString *)path
 {
     NSDictionary *settings = path?[MPSettingUtils settingsFromDirectory:path]: MPSettingUtils.settings;
@@ -139,6 +171,7 @@
     }else{
         [MPSettingUtils saveSettings:settings];
     }
+    [self shouldRotateSetting:settings];
     [self setLandspaceTypeForOrientation:orientation];
 }
 
@@ -154,4 +187,5 @@
 
     }
 }
+
 @end
