@@ -67,7 +67,7 @@
     if (![[baseSetting objectForKey:@"knowShaking"] boolValue]) {
         MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
         helpController.isFirstUse = YES;
-        [self presentViewController:helpController animated:NO completion:nil];
+//        [self presentViewController:helpController animated:NO completion:nil];
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -370,7 +370,6 @@
         if (project.path) {
             controller.path = project.path;
         }
-        self.title = @"返回";
         [self.navigationController pushViewController:controller animated:YES];
 
     }
@@ -665,7 +664,6 @@
 
 #pragma mark - button
 - (IBAction)helpPressed:(id)sender {
-    self.title = @"返回";
     UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
     [self.navigationController pushViewController:controller animated:YES];
 }

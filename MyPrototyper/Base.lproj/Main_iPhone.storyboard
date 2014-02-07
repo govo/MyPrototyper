@@ -112,7 +112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwi-tG-IPn">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xwi-tG-IPn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -120,169 +120,168 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijc-3S-Mdn" userLabel="3.View">
+                                                <rect key="frame" x="640" y="0.0" width="320" height="360"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="supports.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cfg-DA-KcL">
+                                                        <rect key="frame" x="56" y="25" width="209" height="200"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="多平台支持" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjh-t6-i3W">
+                                                        <rect key="frame" x="20" y="253" width="280" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="NOF-as-ss0">
+                                                        <rect key="frame" x="20" y="277" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <string key="text">兼容多个平台，支持任何HTML原型
+ </string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZlU-3B-KiT" userLabel="2.View">
+                                                <rect key="frame" x="320" y="0.0" width="320" height="360"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="itunesconnect.png" translatesAutoresizingMaskIntoConstraints="NO" id="fUS-BY-xnS">
+                                                        <rect key="frame" x="40" y="25" width="240" height="200"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="通过电脑itunes输送文件" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXs-aH-DEw">
+                                                        <rect key="frame" x="20" y="253" width="280" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="L61-44-cpk">
+                                                        <rect key="frame" x="20" y="277" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <string key="text">不进行联网，完全私人定制，减小泄密风险
+ </string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-I9-cad" userLabel="1.View">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unzip.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYQ-Ei-lLG">
+                                                        <rect key="frame" x="40" y="20" width="240" height="200"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="原型打包传输，解压预览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRh-oh-rZK">
+                                                        <rect key="frame" x="20" y="253" width="280" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="A4D-RR-NhO">
+                                                        <rect key="frame" x="20" y="277" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <string key="text">压缩打包便于传输，并自动解压为同名原型
+(目前仅支持ZIP文件解压)</string>
+                                                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view hidden="YES" tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vC3-pd-WFy" userLabel="0.View">
+                                                <rect key="frame" x="0.0" y="20" width="320" height="360"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unzip.png" translatesAutoresizingMaskIntoConstraints="NO" id="sfs-NA-TBr">
+                                                        <rect key="frame" x="40" y="20" width="240" height="200"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="原型打包传输，解压预览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-lp-vqA">
+                                                        <rect key="frame" x="20" y="253" width="280" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="LS9-BG-zmH">
+                                                        <rect key="frame" x="20" y="277" width="280" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <string key="text">压缩打包便于传输，并自动解压为同名原型
+(目前仅支持ZIP文件解压)</string>
+                                                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
                                             <view tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wm6-1A-mUe" userLabel="4.View">
-                                                <rect key="frame" x="960" y="0.0" width="320" height="560"/>
+                                                <rect key="frame" x="960" y="0.0" width="320" height="360"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shakephone.png" translatesAutoresizingMaskIntoConstraints="NO" id="SwH-co-4eY">
-                                                        <rect key="frame" x="56" y="69" width="210" height="180"/>
+                                                        <rect key="frame" x="55" y="25" width="210" height="200"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="180" id="S5v-Dj-dvl"/>
+                                                            <constraint firstAttribute="height" constant="200" id="KUH-GG-71x"/>
+                                                            <constraint firstAttribute="width" constant="210" id="dD3-xl-hBR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="原型预览时，摇一摇调出菜单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qj9-CB-S5B">
-                                                        <rect key="frame" x="20" y="25" width="280" height="24"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="原型预览时，摇一摇调出菜单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qj9-CB-S5B">
+                                                        <rect key="frame" x="20" y="253" width="280" height="24"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="4Kg-ro-4iL"/>
-                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="摇出的菜单可退出预览或快速设置" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="cgF-mw-k4N">
-                                                        <rect key="frame" x="20" y="334" width="280" height="53"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="cgF-mw-k4N">
+                                                        <rect key="frame" x="20" y="277" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <string key="text">预览时摇一摇，可退出预览，或快速设置
+ </string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(现在就摇一摇吧！)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWJ-o6-hzL">
+                                                        <rect key="frame" x="20" y="305" width="280" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="qj9-CB-S5B" firstAttribute="top" secondItem="wm6-1A-mUe" secondAttribute="top" constant="25" id="IwH-Fg-1c7"/>
-                                                    <constraint firstAttribute="centerX" secondItem="SwH-co-4eY" secondAttribute="centerX" id="So5-Is-6UU"/>
-                                                    <constraint firstAttribute="centerY" secondItem="SwH-co-4eY" secondAttribute="centerY" id="bu0-QD-Q25"/>
-                                                    <constraint firstAttribute="centerX" secondItem="cgF-mw-k4N" secondAttribute="centerX" id="iTV-Vv-Tvx"/>
-                                                    <constraint firstAttribute="bottom" secondItem="cgF-mw-k4N" secondAttribute="bottom" id="jhQ-LC-SBg"/>
-                                                </constraints>
-                                            </view>
-                                            <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijc-3S-Mdn" userLabel="3.View">
-                                                <rect key="frame" x="640" y="0.0" width="320" height="420"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="supports.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cfg-DA-KcL">
-                                                        <rect key="frame" x="56" y="50" width="209" height="210"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="220" id="Lbj-Jh-mbD"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="多平台支持" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjh-t6-i3W">
-                                                        <rect key="frame" x="20" y="25" width="280" height="24"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="XFK-Fc-5Of"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="兼容多个平台，支持任何HTML原型" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="NOF-as-ss0">
-                                                        <rect key="frame" x="20" y="280" width="280" height="53"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="centerX" secondItem="NOF-as-ss0" secondAttribute="centerX" id="NOp-5v-AbD"/>
-                                                    <constraint firstAttribute="bottom" secondItem="NOF-as-ss0" secondAttribute="bottom" id="OYc-6a-9Mp"/>
-                                                    <constraint firstAttribute="centerX" secondItem="Cfg-DA-KcL" secondAttribute="centerX" id="brm-zp-EIS"/>
-                                                    <constraint firstItem="fjh-t6-i3W" firstAttribute="top" secondItem="Ijc-3S-Mdn" secondAttribute="top" constant="25" id="kji-0R-DdY"/>
-                                                    <constraint firstAttribute="centerY" secondItem="Cfg-DA-KcL" secondAttribute="centerY" id="qf8-FT-zdu"/>
-                                                </constraints>
-                                            </view>
-                                            <view tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZlU-3B-KiT" userLabel="2.View">
-                                                <rect key="frame" x="320" y="0.0" width="320" height="420"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="itunesconnect.png" translatesAutoresizingMaskIntoConstraints="NO" id="fUS-BY-xnS">
-                                                        <rect key="frame" x="40" y="80" width="240" height="200"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="220" id="tK5-sy-SXS"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="通过电脑itunes输送文件" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXs-aH-DEw">
-                                                        <rect key="frame" x="20" y="25" width="280" height="24"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="fqc-HF-fUR"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="20" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="不进行联网，不担忧泄密" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="L61-44-cpk">
-                                                        <rect key="frame" x="20" y="280" width="280" height="53"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="centerX" secondItem="fUS-BY-xnS" secondAttribute="centerX" id="P5h-vc-qVX"/>
-                                                    <constraint firstAttribute="bottom" secondItem="L61-44-cpk" secondAttribute="bottom" id="bvU-wt-O7a"/>
-                                                    <constraint firstItem="WXs-aH-DEw" firstAttribute="top" secondItem="ZlU-3B-KiT" secondAttribute="top" constant="25" id="e0t-eS-BfK"/>
-                                                    <constraint firstAttribute="centerX" secondItem="L61-44-cpk" secondAttribute="centerX" id="lT6-WL-QJX"/>
-                                                    <constraint firstAttribute="centerY" secondItem="fUS-BY-xnS" secondAttribute="centerY" id="uT9-EG-Lg5"/>
-                                                </constraints>
-                                            </view>
-                                            <view tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-I9-cad" userLabel="1.View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="unzip.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYQ-Ei-lLG">
-                                                        <rect key="frame" x="40" y="80" width="240" height="200"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="qoD-A5-7W8"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="原型打包传输，解压预览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRh-oh-rZK">
-                                                        <rect key="frame" x="20" y="25" width="280" height="24"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="FBV-aC-Bzo"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="A4D-RR-NhO">
-                                                        <rect key="frame" x="20" y="280" width="280" height="54"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <string key="text">压缩打包便于传输，自动解压为同名原型，简化操作
-(目前仅支持ZIP文件解压)</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="A4D-RR-NhO" secondAttribute="bottom" id="1Pa-Jc-vW2"/>
-                                                    <constraint firstAttribute="centerX" secondItem="kYQ-Ei-lLG" secondAttribute="centerX" id="48t-IH-dVm"/>
-                                                    <constraint firstAttribute="centerX" secondItem="A4D-RR-NhO" secondAttribute="centerX" id="C0A-Jc-77q"/>
-                                                    <constraint firstItem="TRh-oh-rZK" firstAttribute="top" secondItem="e1I-I9-cad" secondAttribute="top" constant="25" id="Q4p-9q-wGq"/>
-                                                    <constraint firstAttribute="centerY" secondItem="kYQ-Ei-lLG" secondAttribute="centerY" id="sTs-jq-4XT"/>
+                                                    <constraint firstAttribute="centerX" secondItem="SwH-co-4eY" secondAttribute="centerX" id="OJI-qD-HDF"/>
+                                                    <constraint firstAttribute="centerY" secondItem="SwH-co-4eY" secondAttribute="centerY" constant="40" id="ueR-4Y-XEV"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="e1I-I9-cad" firstAttribute="top" secondItem="ai7-oZ-SSh" secondAttribute="top" id="7Me-JC-16O"/>
-                                            <constraint firstItem="wm6-1A-mUe" firstAttribute="top" secondItem="ai7-oZ-SSh" secondAttribute="top" id="G1g-02-eXY"/>
-                                            <constraint firstItem="ZlU-3B-KiT" firstAttribute="top" secondItem="ai7-oZ-SSh" secondAttribute="top" id="QpK-m6-7WB"/>
-                                            <constraint firstItem="Ijc-3S-Mdn" firstAttribute="top" secondItem="ai7-oZ-SSh" secondAttribute="top" id="wGI-DB-6fb"/>
+                                            <constraint firstAttribute="centerY" secondItem="Ijc-3S-Mdn" secondAttribute="centerY" constant="20" id="EQ3-Dr-35Q"/>
+                                            <constraint firstAttribute="centerY" secondItem="ZlU-3B-KiT" secondAttribute="centerY" constant="20" id="HyZ-xD-epR"/>
+                                            <constraint firstAttribute="centerY" secondItem="e1I-I9-cad" secondAttribute="centerY" constant="20" id="IKE-er-BkA"/>
+                                            <constraint firstAttribute="centerY" secondItem="wm6-1A-mUe" secondAttribute="centerY" constant="20" id="jeZ-Qb-ETG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="ai7-oZ-SSh" secondAttribute="centerY" id="Hgf-QZ-0Fi"/>
+                                </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="p3q-CR-h7x">
                                 <rect key="frame" x="140" y="531" width="39" height="37"/>
@@ -295,14 +294,11 @@
                         <constraints>
                             <constraint firstItem="Xwi-tG-IPn" firstAttribute="leading" secondItem="W2i-O1-NF2" secondAttribute="leading" id="4xw-9E-ohd"/>
                             <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="p3q-CR-h7x" secondAttribute="bottom" id="Tkq-Xh-me2"/>
-                            <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="ZlU-3B-KiT" secondAttribute="bottom" constant="30" id="UuY-hi-dHD"/>
                             <constraint firstItem="Xwi-tG-IPn" firstAttribute="top" secondItem="W2i-O1-NF2" secondAttribute="top" id="Zj3-B0-vLq"/>
+                            <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="ai7-oZ-SSh" secondAttribute="bottom" constant="20" id="kQu-Xe-YD6"/>
                             <constraint firstAttribute="centerX" secondItem="p3q-CR-h7x" secondAttribute="centerX" id="l2D-jR-U1o"/>
-                            <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="e1I-I9-cad" secondAttribute="bottom" constant="30" id="mhB-Kw-iwb"/>
-                            <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="wm6-1A-mUe" secondAttribute="bottom" constant="30" id="ojK-2P-3V0"/>
                             <constraint firstAttribute="trailing" secondItem="Xwi-tG-IPn" secondAttribute="trailing" id="r2R-Op-KFF"/>
                             <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="Xwi-tG-IPn" secondAttribute="bottom" id="tSl-mx-HlE"/>
-                            <constraint firstItem="IVS-Dt-HCr" firstAttribute="top" secondItem="Ijc-3S-Mdn" secondAttribute="bottom" constant="30" id="vXx-tu-fJk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="帮助" id="1nZ-Fc-aSY"/>

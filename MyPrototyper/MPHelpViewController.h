@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MPHelpViewController : UIViewController<UIScrollViewDelegate>
+@interface MPHelpViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
 
 @property (assign,nonatomic) BOOL isFirstUse;
 
