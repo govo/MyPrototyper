@@ -16,6 +16,8 @@
 #define kSettingStatusBar @"statusBar"
 #define kSettingLandSpace @"landSpace"
 #define kSettingAppVersion @"appVersion"
+#define kSettingIsFirstUse @"firstUse"
+#define kSettingGlobalSetting @"globalSetting.out"
 
 @interface MPSettingUtils : NSObject
 
@@ -23,4 +25,6 @@
 +(void)saveSettings:(NSDictionary *)dict;
 +(NSDictionary *)settingsFromDirectory:(NSString *)path;
 +(void)saveSettings:(NSDictionary *)dict toDirectory:(NSString *)path;
++(NSDictionary *)globalSetting;
++(void)saveGlobalSetting:(NSDictionary *)dict;
 @end

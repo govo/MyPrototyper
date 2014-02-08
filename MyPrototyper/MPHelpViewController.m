@@ -9,7 +9,7 @@
 #import "MPHelpViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MBProgressHUD.h"
-
+#import "MPSettingUtils.h"
 
 @interface MPHelpViewController (){
     NSInteger _shakePhoneCount;
@@ -76,8 +76,11 @@
     self.mainScrollView.showsHorizontalScrollIndicator = NO;
     self.mainScrollView.bounces = NO;
 
-    self.pageControl.numberOfPages = 4;
+    self.pageControl.numberOfPages = _isFirstUse ? 5 :4;
     
+    if (_isFirstUse) {
+        [self setupFirstUse];
+    }
 
     self.mainScrollView.translatesAutoresizingMaskIntoConstraints  = NO;
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -95,10 +98,8 @@
 
 
 
-
-
 }
-
+/*
 -(void)prepareSubViews
 {
     [self.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -110,14 +111,14 @@
         [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|" options:0 metrics:0 views:viewsDictionary]];
     }];
 }
-
+*/
 -(void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
 }
 -(void)viewDidLayoutSubviews
 {
-    self.mainScrollView.contentSize = CGSizeMake(320*4, self.view.frame.size.height - 70);
+    self.mainScrollView.contentSize = CGSizeMake(320*( _isFirstUse ? 5:4 ), self.view.frame.size.height - 70);
     [self.view layoutSubviews];
 
 }
@@ -126,17 +127,6 @@
 {
     [super viewDidAppear:animated];
     
-    if (self.isFirstUse) {
-//        //TODO:对首次使用，应该进行更细致的规划
-//        [HUD hide:NO];
-//        HUD = [self whiteHUD];
-//        HUD.mode = MBProgressHUDModeText;
-//        HUD.labelText = @"欢迎！";
-////        HUD.detailsLabelText = @"首次使用请先花十来秒看一下帮助哦！";
-//        HUD.detailsLabelColor = [UIColor blackColor];
-//        [HUD show:YES];
-//        [HUD hide:YES afterDelay:3];
-    }
     [self becomeFirstResponder];
 //    
 //    NSLog(@"viewDidAppear:%@,%@",NSStringFromCGRect(self.mainScrollView.frame),NSStringFromCGSize(self.mainScrollView.contentSize));
@@ -154,7 +144,7 @@
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (self.pageControl.currentPage==3) {
+    if (self.pageControl.currentPage==(_isFirstUse?4:3)) {
         [self animateShakePhone];
     }
 }
@@ -165,7 +155,7 @@
     }
     UIView *view = [self.view viewWithTag:4];
     UIImageView *imageView = (UIImageView *)[view viewWithTag:20];
-    UILabel *desLabel = (UILabel *)[view viewWithTag:30];
+//    UILabel *desLabel = (UILabel *)[view viewWithTag:30];
     
 
     imageView.transform = CGAffineTransformMakeRotation(0);
@@ -228,13 +218,16 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         
         SystemSoundID soundID;
         
-        NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Tock" ofType:@"aiff"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+        
+//        NSLog(@"sound path :%@ ",path);
         if (path) {
             SystemSoundID theSoundID;
             OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
             if (error == kAudioServicesNoError) {
                 soundID = theSoundID;
                 AudioServicesPlaySystemSound(soundID);
+//                AudioServicesDisposeSystemSoundID(soundID);
             }else {
                 NSLog(@"Failed to create sound ");
             }
@@ -247,18 +240,46 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 {
     switch (buttonIndex) {
         case 0:
+        {
             if (self.navigationController) {
                 [self.navigationController popViewControllerAnimated:YES];
             }else{
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            NSDictionary *globalSetting = [MPSettingUtils globalSetting];
+            [globalSetting setValue:[NSNumber numberWithBool:NO] forKey:kSettingIsFirstUse];
+            [MPSettingUtils saveGlobalSetting:globalSetting];
             break;
+        }
         case 1:
         {
             
         }
             
     }
+}
+
+#pragma mark - FirstUse
+-(void)setupFirstUse
+{
+    int count = self.contentView.subviews.count;
+    [self.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        UIView *view = (UIView *)obj;
+        view.hidden = NO;
+        CGRect frame = view.frame;
+        frame.origin.x=(count-idx-1)*frame.size.width;
+        view.frame = frame;
+        UIView *contentView = self.contentView;
+        NSLog(@"setupFirstUse:%f,%@",frame.origin.x,view);
+        
+        
+        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view,contentView);
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[view]",frame.origin.x ] options:0 metrics:0 views:viewsDictionary]];
+    }];
+//    CGRect frame = self.contentView.frame;
+//    frame.size.width = self.contentView.subviews.count*320;
+//    self.contentView.frame = frame;
 }
 
 @end

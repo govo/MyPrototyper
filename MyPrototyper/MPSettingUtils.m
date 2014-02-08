@@ -40,4 +40,27 @@
         }
     }
 }
++(NSDictionary *)globalSetting
+{
+    NSString *baseSettingPath = [kSettingGlobalDirectory stringByAppendingPathComponent:kSettingGlobalSetting];
+    NSDictionary *baseSetting = [NSDictionary dictionaryWithContentsOfFile:baseSettingPath];
+    if (baseSetting==nil) {
+        baseSetting = @{kSettingIsFirstUse: [NSNumber numberWithBool:YES],@"appVersion":kAppVersion};
+        [baseSetting writeToFile:baseSettingPath atomically:YES];
+    }
+    return baseSetting;
+}
++(void)saveGlobalSetting:(NSDictionary *)dict
+{
+    NSString *baseSettingPath = [kSettingGlobalDirectory stringByAppendingPathComponent:kSettingGlobalSetting];
+    NSLog(@"path :%@",dict);
+    if (dict!=nil) {
+        [dict writeToFile:baseSettingPath atomically:YES];
+    }else{
+        NSFileManager *fileManager = [[NSFileManager alloc]init];
+        if ([fileManager fileExistsAtPath:baseSettingPath]) {
+            [fileManager removeItemAtPath:baseSettingPath error:nil];
+        }
+    }
+}
 @end

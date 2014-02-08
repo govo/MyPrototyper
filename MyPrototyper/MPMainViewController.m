@@ -60,14 +60,12 @@
     [super viewDidLoad];
     NSLog(@"APP PATH:%@",kDocumentDictory);
     
-    NSDictionary *baseSetting = [NSDictionary dictionaryWithContentsOfFile:[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject]];
-    if (baseSetting==nil) {
-        baseSetting = @{@"knowShaking": [NSNumber numberWithBool:NO],@"appVersion":kAppVersion};
-    }
-    if (![[baseSetting objectForKey:@"knowShaking"] boolValue]) {
+    NSDictionary *globalSetting = [MPSettingUtils globalSetting];
+    NSLog(@"global:%@",globalSetting);
+    if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
         MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
         helpController.isFirstUse = YES;
-//        [self presentViewController:helpController animated:NO completion:nil];
+        [self presentViewController:helpController animated:NO completion:nil];
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -78,7 +76,11 @@
     MPStorage *storage = [[MPStorage alloc]init];
     _segmentIndex = 0;
     _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:10]];
-    
+    if (_datas.count == 0) {
+        _segmentIndex = 1;
+        [self switchToTableList:_segmentIndex];
+        self.segment.selectedSegmentIndex = _segmentIndex;
+    }
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
 }
@@ -325,10 +327,10 @@
                 if ([rs next]) {
 
                     _lastUnZip = [rs objectForColumnName:FIELD_PATH];
-                    title = @"重新生成";
-                    message = [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新生成将覆盖原有文件，\n是否重新生成？"];
+                    title = @"重新解压";
+                    message = [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
                     
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新生成",@"直接预览", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新解压",@"直接预览", nil];
                     alert.tag = 30;
                     [alert show];
                     
@@ -341,7 +343,7 @@
                     [HUD hide:NO];
                     HUD = [self whiteHUDWithIndeterminate];
 
-                    HUD.labelText = @"正在生成";
+                    HUD.labelText = @"正在解压";
                     [HUD show:YES];
                     
                     [self unZipFile:_unZipFile withPassword:nil];
@@ -519,7 +521,7 @@
                     NSLog(@"unzip successed! row id:%ld",(long)rowId);
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"生成成功" message:@"马上去预览吧！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:@"去预览", nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解压成功" message:@"马上去预览吧！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:@"去预览", nil];
                         alert.tag = 10;
                         _lastUnZip = currentProjectPath;
                         [alert show];
@@ -622,7 +624,7 @@
                 
                 [HUD hide:NO];
                 HUD = [self whiteHUDWithIndeterminate];
-                HUD.labelText = @"正在生成";
+                HUD.labelText = @"正在解压";
                 [HUD show:YES];
                 
                 [self unZipFile:_zipNeedPassword withPassword:[alertView textFieldAtIndex:0].text];
@@ -631,7 +633,7 @@
                 
                 [HUD hide:NO];
                 HUD = [self whiteHUDWithIndeterminate];
-                HUD.labelText = @"正在生成";
+                HUD.labelText = @"正在解压";
                 [HUD show:YES];
                 
                 [self unZipFile:_unZipFile withPassword:nil];

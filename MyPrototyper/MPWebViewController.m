@@ -94,7 +94,8 @@
         
         SystemSoundID soundID;
         
-        NSString *path = [[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Tock" ofType:@"aiff"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+
         if (path) {
             SystemSoundID theSoundID;
             OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);

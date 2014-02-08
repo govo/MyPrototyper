@@ -67,6 +67,9 @@
 		94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */; };
 		94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */; };
 		94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */; };
+		94CD406218A69FF8000E93AA /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406018A69FF8000E93AA /* welcome.png */; };
+		94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406118A69FF8000E93AA /* welcome@2x.png */; };
+		94CD406518A6AF6E000E93AA /* Tock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406418A6AF6E000E93AA /* Tock.aiff */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +169,9 @@
 		94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingViewController.m; sourceTree = "<group>"; };
 		94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingUtils.h; sourceTree = "<group>"; };
 		94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingUtils.m; sourceTree = "<group>"; };
+		94CD406018A69FF8000E93AA /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
+		94CD406118A69FF8000E93AA /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
+		94CD406418A6AF6E000E93AA /* Tock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tock.aiff; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
 		94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLandespaceSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -334,6 +340,9 @@
 		9486715918A09B82002165CF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				94CD406418A6AF6E000E93AA /* Tock.aiff */,
+				94CD406018A69FF8000E93AA /* welcome.png */,
+				94CD406118A69FF8000E93AA /* welcome@2x.png */,
 				9486717118A33CC1002165CF /* unzip.png */,
 				9486717218A33CC1002165CF /* unzip@2x.png */,
 				9486716D18A29DA4002165CF /* supports.png */,
@@ -481,10 +490,13 @@
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
 				9486717D18A544FC002165CF /* icon-114.png in Resources */,
 				9486715E18A0B345002165CF /* help.png in Resources */,
+				94CD406518A6AF6E000E93AA /* Tock.aiff in Resources */,
 				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
+				94CD406218A69FF8000E93AA /* welcome.png in Resources */,
 				9486718418A547EF002165CF /* icon-29.png in Resources */,
 				9486716818A103AC002165CF /* itunesconnect.png in Resources */,
 				9486717018A29DA4002165CF /* supports@2x.png in Resources */,
+				94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				9486718118A5476E002165CF /* icon-58.png in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
