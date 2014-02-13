@@ -224,15 +224,13 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 {
     NSLog(@"motionEnded:%@",event);
     if (motion==UIEventSubtypeMotionShake) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles: nil];
-        [actionSheet showInView:self.view];
-        
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         
         SystemSoundID soundID;
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
         
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"xiaohuangrenxiasheng_02" ofType:@"mp3"];
 //        NSLog(@"sound path :%@ ",path);
         if (path) {
             SystemSoundID theSoundID;
@@ -245,6 +243,9 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
                 NSLog(@"Failed to create sound ");
             }
         }
+        
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles: nil];
+        [actionSheet showInView:self.view];
     }
 }
 
@@ -293,6 +294,19 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 //    CGRect frame = self.contentView.frame;
 //    frame.size.width = self.contentView.subviews.count*320;
 //    self.contentView.frame = frame;
+}
+#pragma mark - rotation
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
