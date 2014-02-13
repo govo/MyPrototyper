@@ -46,10 +46,47 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
+    // Request to turn on accelerometer and begin receiving accelerometer events
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [self loadWebView:_filePath];
 }
 
+-(void)loadHtmlAtPath:(NSString *)path
+{
+    _filePath = path;
+}
+-(void)loadWebView:(NSString *)path
+{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    __block NSString *html = [path stringByAppendingPathComponent:@"index.html"];
+    if (![fileManager fileExistsAtPath:html]) {
+        html = nil;
+        NSArray *array = [fileManager contentsOfDirectoryAtPath:path error:nil];
+        //判断index.html是否不在第一层文件夹，最多只多做一层文件夹搜索
+        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSString *innerPath =[path stringByAppendingPathComponent:(NSString *)obj];
+            BOOL isDirectory = NO;
+            [fileManager fileExistsAtPath:innerPath isDirectory:&isDirectory];
+            if (isDirectory) {
+                html = [innerPath stringByAppendingPathComponent:@"index.html"];
+                
+                if ([fileManager fileExistsAtPath:html]) {
+                    *stop = YES;
+                }
+            }
+        }];
+    }
+    
+    if (html==nil) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"找不到index.html" message:@"请确保第一层文件夹中包含index.html" delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:html]]];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,20 +109,28 @@
     self.webview.scrollView.showsHorizontalScrollIndicator = _scrollBar;
     self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
 
-
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    
     [self becomeFirstResponder];
 }
 -(BOOL)canBecomeFirstResponder
 {
     return YES;
 }
-#pragma mark - handshake event;
+
+#pragma mark - handshake event
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"motionBegan:%@",event);
+}
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"motionCancelled:%@",event);
+}
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
+    NSLog(@"motionEnded:%@",event);
     if (motion==UIEventSubtypeMotionShake) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles:@"设置", nil];
         [actionSheet showInView:self.view];
@@ -107,44 +152,9 @@
             }
         }
     }
-}
-
--(void)loadHtmlAtPath:(NSString *)path
-{
-    _filePath = path;
-}
--(void)loadWebView:(NSString *)path
-{
-
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    __block NSString *html = [path stringByAppendingPathComponent:@"index.html"];
-    if (![fileManager fileExistsAtPath:html]) {
-        html = nil;
-        NSArray *array = [fileManager contentsOfDirectoryAtPath:path error:nil];
-        //判断index.html是否不在第一层文件夹，最多只多做一层文件夹搜索
-        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            NSString *innerPath =[path stringByAppendingPathComponent:(NSString *)obj];
-            BOOL isDirectory = NO;
-            [fileManager fileExistsAtPath:innerPath isDirectory:&isDirectory];
-            if (isDirectory) {
-                html = [innerPath stringByAppendingPathComponent:@"index.html"];
-
-                if ([fileManager fileExistsAtPath:html]) {
-                    *stop = YES;
-                }
-            }
-        }];
-    }
-
-    if (html==nil) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"找不到index.html" message:@"请确保第一层文件夹中包含index.html" delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
-        [alert show];
-        return;
-    }
-    
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:html]]];
     
 }
+
 
 #pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

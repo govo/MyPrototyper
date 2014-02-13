@@ -45,7 +45,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6N6-1I-Rde">
-                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <rect key="frame" x="120" y="7" width="81" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="原型"/>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJF-cz-ErA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="-205"/>
+            <point key="canvasLocation" x="1555" y="-205"/>
         </scene>
         <!--Help View Controller - 帮助-->
         <scene sceneID="ihi-4L-4FT">
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJS-T2-ClO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="-205"/>
+            <point key="canvasLocation" x="1959" y="-205"/>
         </scene>
         <!--Setting View Controller - 设置-->
         <scene sceneID="Rlv-j0-XZ0">
@@ -551,21 +551,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovR-jR-GYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="498"/>
-        </scene>
-        <!--Navigation Controller - 帮助-->
-        <scene sceneID="B1l-P7-msm">
-            <objects>
-                <navigationController storyboardIdentifier="helpNavigation" title="帮助" automaticallyAdjustsScrollViewInsets="NO" id="I5i-hp-Vp7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oSd-Aw-dB8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kjU-fk-Gao" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1936" y="-205"/>
         </scene>
     </scenes>
     <resources>

@@ -96,7 +96,8 @@
 
 //    NSLog(@"size:%@,%@",NSStringFromCGRect(self.contentView.frame),NSStringFromCGSize(self.mainScrollView.bounds.size));
 
-
+    
+    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
 
 }
 /*
@@ -123,12 +124,15 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
     [self becomeFirstResponder];
-//    
+
 //    NSLog(@"viewDidAppear:%@,%@",NSStringFromCGRect(self.mainScrollView.frame),NSStringFromCGSize(self.mainScrollView.contentSize));
 
 }
@@ -207,9 +211,18 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 {
     return YES;
 }
-#pragma mark - handshake event;
+#pragma mark - handshake event
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"motionBegan:%@",event);
+}
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    NSLog(@"motionCancelled:%@",event);
+}
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
+    NSLog(@"motionEnded:%@",event);
     if (motion==UIEventSubtypeMotionShake) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles: nil];
         [actionSheet showInView:self.view];
@@ -262,7 +275,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 #pragma mark - FirstUse
 -(void)setupFirstUse
 {
-    int count = self.contentView.subviews.count;
+    int count = (int)self.contentView.subviews.count;
     [self.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         UIView *view = (UIView *)obj;
@@ -271,7 +284,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         frame.origin.x=(count-idx-1)*frame.size.width;
         view.frame = frame;
         UIView *contentView = self.contentView;
-        NSLog(@"setupFirstUse:%f,%@",frame.origin.x,view);
+//        NSLog(@"setupFirstUse:%f,%@",frame.origin.x,view);
         
         
         NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view,contentView);

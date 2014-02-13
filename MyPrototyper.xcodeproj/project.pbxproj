@@ -15,6 +15,7 @@
 		9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34E187AF93C00F8C9EC /* FMResultSet.m */; };
 		9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9416A355187AF96D00F8C9EC /* libsqlite3.dylib */; };
 		9416A359187B005900F8C9EC /* MPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A358187B005900F8C9EC /* MPProject.m */; };
+		943A0C1218AC7AD5004AF08E /* Prototyper Example.zip in Resources */ = {isa = PBXBuildFile; fileRef = 943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */; };
 		9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C591187AEA6B001074DD /* Foundation.framework */; };
 		9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C593187AEA6B001074DD /* CoreGraphics.framework */; };
 		9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C595187AEA6B001074DD /* UIKit.framework */; };
@@ -99,6 +100,7 @@
 		9416A355187AF96D00F8C9EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9416A357187B005900F8C9EC /* MPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProject.h; sourceTree = "<group>"; };
 		9416A358187B005900F8C9EC /* MPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProject.m; sourceTree = "<group>"; };
+		943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Prototyper Example.zip"; sourceTree = "<group>"; };
 		9483C58E187AEA6B001074DD /* MyPrototyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPrototyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9483C591187AEA6B001074DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9483C593187AEA6B001074DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -221,6 +223,14 @@
 			path = MyPrototyper/fmdb;
 			sourceTree = "<group>";
 		};
+		943A0C1018AC7AD5004AF08E /* example */ = {
+			isa = PBXGroup;
+			children = (
+				943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */,
+			);
+			path = example;
+			sourceTree = "<group>";
+		};
 		9483C585187AEA6B001074DD = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +350,7 @@
 		9486715918A09B82002165CF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				943A0C1018AC7AD5004AF08E /* example */,
 				94CD406418A6AF6E000E93AA /* Tock.aiff */,
 				94CD406018A69FF8000E93AA /* welcome.png */,
 				94CD406118A69FF8000E93AA /* welcome@2x.png */,
@@ -503,6 +514,7 @@
 				9486717E18A544FC002165CF /* icon-120.png in Resources */,
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
 				9486715F18A0B345002165CF /* help@2x.png in Resources */,
+				943A0C1218AC7AD5004AF08E /* Prototyper Example.zip in Resources */,
 				9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */,
 				9486716F18A29DA4002165CF /* supports.png in Resources */,
 			);

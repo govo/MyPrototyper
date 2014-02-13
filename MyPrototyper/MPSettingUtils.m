@@ -23,7 +23,7 @@
     NSString *fullPath =[path stringByAppendingPathComponent:kSettingFileName];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fullPath];
     if (dict==nil) {
-        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:YES],kSettingLandSpace:[NSNumber numberWithInteger:UIInterfaceOrientationMaskPortrait],kSettingAppVersion:kAppVersion};
+        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:NO],kSettingLandSpace:[NSNumber numberWithInteger:UIInterfaceOrientationMaskPortrait],kSettingAppVersion:kAppVersion};
         [dict writeToFile:fullPath atomically:YES];
     }
     return dict;

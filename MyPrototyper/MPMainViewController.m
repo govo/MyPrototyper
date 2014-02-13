@@ -61,11 +61,19 @@
     NSLog(@"APP PATH:%@",kDocumentDictory);
     
     NSDictionary *globalSetting = [MPSettingUtils globalSetting];
-    NSLog(@"global:%@",globalSetting);
+//    NSLog(@"global:%@",globalSetting);
     if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
         MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
         helpController.isFirstUse = YES;
         [self presentViewController:helpController animated:NO completion:nil];
+        
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+
+        NSString *examplePath =[kDocumentDictory stringByAppendingPathComponent:@"Prototyper Example.zip"];
+        if (![fileManager fileExistsAtPath:examplePath]) {
+            [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"Prototyper Example" ofType:@"zip"] toPath:examplePath error:nil];
+        }
+        
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -335,7 +343,7 @@
                     [alert show];
                     
                     [storage.db closeOpenResultSets];
-                    NSLog(@"last:%@",_lastUnZip);
+//                    NSLog(@"last:%@",_lastUnZip);
                 }else{
                     
                     [storage.db closeOpenResultSets];
