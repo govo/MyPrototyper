@@ -1,0 +1,84 @@
+
+/* Class = "IBUINavigationItem"; title = "帮助"; ObjectID = "1nZ-Fc-aSY"; */
+"1nZ-Fc-aSY.title" = "帮助";
+
+/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[0] = "原型"; ObjectID = "6N6-1I-Rde"; */
+"6N6-1I-Rde.segmentTitles[0]" = "预  览";
+
+/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[1] = "本地"; ObjectID = "6N6-1I-Rde"; */
+"6N6-1I-Rde.segmentTitles[1]" = "压缩包";
+
+/* Class = "IBUILabel"; text = "压缩便于文件传输，解压即可预览，方便快捷\n(目前仅支持ZIP文件解压)"; ObjectID = "A4D-RR-NhO"; */
+"A4D-RR-NhO.text" = "压缩便于文件传输，解压即可预览，方便快捷\n(目前仅支持ZIP文件解压)";
+
+/* Class = "IBUILabel"; text = "(跳过本帮助？请摇一摇手机)"; ObjectID = "AF9-Yu-7RA"; */
+"AF9-Yu-7RA.text" = "(跳过本帮助？请摇一摇手机)";
+
+/* Class = "IBUILabel"; text = "横屏"; ObjectID = "B0i-lj-YOM"; */
+"B0i-lj-YOM.text" = "横屏";
+
+/* Class = "IBUILabel"; text = "状态条"; ObjectID = "DYq-cb-gQJ"; */
+"DYq-cb-gQJ.text" = "状态条";
+
+/* Class = "IBUILabel"; text = "竖屏"; ObjectID = "HZE-SP-Wrl"; */
+"HZE-SP-Wrl.text" = "竖屏";
+
+/* Class = "IBUILabel"; text = "(摇一摇可退出，现在就摇一摇吧！)"; ObjectID = "JWJ-o6-hzL"; */
+"JWJ-o6-hzL.text" = "(摇一摇可退出，现在就摇一摇吧！)";
+
+/* Class = "IBUINavigationItem"; title = "横屏设置"; ObjectID = "Jyw-E3-NW6"; */
+"Jyw-E3-NW6.title" = "横屏设置";
+
+/* Class = "IBUILabel"; text = "不进行联网，完全私人定制，减小泄密风险\n "; ObjectID = "L61-44-cpk"; */
+"L61-44-cpk.text" = "不进行联网，完全私人定制，减小泄密风险\n ";
+
+/* Class = "IBUILabel"; text = "坚屏"; ObjectID = "LVP-Y8-cxs"; */
+"LVP-Y8-cxs.text" = "坚屏";
+
+/* Class = "IBUILabel"; text = "兼容多个平台，支持任何HTML原型\n "; ObjectID = "NOF-as-ss0"; */
+"NOF-as-ss0.text" = "兼容多个平台，支持任何HTML原型\n ";
+
+/* Class = "IBUILabel"; text = "欢迎使用原型助手！"; ObjectID = "PIX-mj-lTM"; */
+"PIX-mj-lTM.text" = "欢迎使用原型助手！";
+
+/* Class = "IBUINavigationItem"; title = "设置"; ObjectID = "Rqz-47-lzX"; */
+"Rqz-47-lzX.title" = "设置";
+
+/* Class = "IBUILabel"; text = "原型压缩传输，解压预览"; ObjectID = "TRh-oh-rZK"; */
+"TRh-oh-rZK.text" = "原型压缩传输，解压预览";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "U7D-uK-8dN"; */
+"U7D-uK-8dN.text" = "Title";
+
+/* Class = "IBUIBarButtonItem"; title = "返回"; ObjectID = "WEk-Uy-PXl"; */
+"WEk-Uy-PXl.title" = "返回";
+
+/* Class = "IBUILabel"; text = "通过电脑iTunes输送文件"; ObjectID = "WXs-aH-DEw"; */
+"WXs-aH-DEw.text" = "通过电脑iTunes输送文件";
+
+/* Class = "IBUILabel"; text = "在开始之前，请花几分钟了解必要知识→\n "; ObjectID = "Xxx-ZU-0FC"; */
+"Xxx-ZU-0FC.text" = "在开始之前，请花几分钟了解必要知识→\n ";
+
+/* Class = "IBUITabBarItem"; title = "Setting"; ObjectID = "Z7h-1E-pvt"; */
+"Z7h-1E-pvt.title" = "Setting";
+
+/* Class = "IBUILabel"; text = "滚动条"; ObjectID = "ZUI-1D-Ddc"; */
+"ZUI-1D-Ddc.text" = "滚动条";
+
+/* Class = "IBUILabel"; text = "横屏设置"; ObjectID = "aRC-Mv-App"; */
+"aRC-Mv-App.text" = "横屏设置";
+
+/* Class = "IBUILabel"; text = "预览时摇一摇，可退出预览，或快速设置\n "; ObjectID = "cgF-mw-k4N"; */
+"cgF-mw-k4N.text" = "预览时摇一摇，可退出预览，或快速设置\n ";
+
+/* Class = "IBUILabel"; text = "多平台支持"; ObjectID = "fjh-t6-i3W"; */
+"fjh-t6-i3W.text" = "多平台支持";
+
+/* Class = "IBUILabel"; text = "原型预览时，摇一摇调出菜单"; ObjectID = "qj9-CB-S5B"; */
+"qj9-CB-S5B.text" = "原型预览时，摇一摇调出菜单";
+
+/* Class = "IBUITabBarItem"; title = "Prototpype"; ObjectID = "vo7-2n-otQ"; */
+"vo7-2n-otQ.title" = "Prototpype";
+
+/* Class = "IBUILabel"; text = "自由"; ObjectID = "wiI-Ag-lPr"; */
+"wiI-Ag-lPr.text" = "自由";

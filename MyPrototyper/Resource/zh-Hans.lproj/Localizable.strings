@@ -1,0 +1,34 @@
+{
+	Back = "\U8fd4\U56de";
+	List = "\U5217\U8868";
+	Edit = "\U7f16\U8f91";
+	Done = "\U5b8c\U6210";
+	Cancel = "\U53d6\U6d88";
+	Unzip = "\U89e3\U538b";
+	"Unzip Successful!" = "\U89e3\U538b\U6210\U529f";
+	"Go to Preview?" = "\U9a6c\U4e0a\U53bb\U9884\U89c8\Uff1f";
+	"Do Preview" = "\U53bb\U9884\U89c8";
+	Later = "\U7a0d\U540e";
+	Unziping = "\U6b63\U5728\U89e3\U538b";
+	"Re-Unzip" = "\U91cd\U65b0\U89e3\U538b";
+	"\"%@\" exists,\nOverwrite?" = "\U5df2\U6709\U539f\U578b\U201c%@\U201d\Uff0c\n\U662f\U5426\U8986\U76d6\U5df2\U6709\U6587\U4ef6\Uff1f";
+	"Just Preview" = "\U76f4\U63a5\U9884\U89c8";
+	Deleting = "\U6b63\U5728\U5220\U9664";
+	"Deleting Error occurred" = "\U5220\U9664\U51fa\U9519";
+	"Password Protection" = "\U5bc6\U7801\U4fdd\U62a4";
+	"Please Input Password" = "\U8bf7\U8f93\U5165\U89e3\U538b\U5bc6\U7801";
+	passwordError = "\U5bc6\U7801\U9519\U8bef";
+	"Please Input the Correct Password" = "\U8bf7\U8f93\U5165\U6b63\U786e\U7684\U89e3\U538b\U5bc6\U7801";
+	"Unzip Error occurred" = "\U89e3\U538b\U51fa\U9519";
+	"Unable To Unzip File" = "\U6587\U4ef6\U65e0\U6cd5\U89e3\U538b";
+	OK = "\U597d";
+	Help = "\U5e2e\U52a9";
+	"No index.html found" = "\U627e\U4e0d\U5230index.html";
+	"Make sure the root folder contains index.html" = "\U8bf7\U786e\U4fdd\U7b2c\U4e00\U5c42\U6587\U4ef6\U5939\U4e2d\U5305\U542bindex.html";
+	Operation = "\U8bf7\U9009\U62e9\U64cd\U4f5c";
+	Settings = "\U8bbe\U7f6e";
+	Portrait = "\U7ad6\U5c4f";
+	Landscape = "\U6a2a\U5c4f";
+	"All (but upside down)" = "\U81ea\U7531";
+	"Prototyper Example" = "\U9ad8\U4fdd\U771f\U539f\U578b\U6837\U4f8b";
+}

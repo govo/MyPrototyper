@@ -69,7 +69,9 @@
         
         NSFileManager *fileManager = [NSFileManager defaultManager];
 
-        NSString *examplePath =[kDocumentDictory stringByAppendingPathComponent:@"Prototyper Example.zip"];
+        NSString *exampleFilename = NSLocalizedString(@"Prototyper Example", nil);
+        
+        NSString *examplePath =[kDocumentDictory stringByAppendingPathComponent:[exampleFilename stringByAppendingPathExtension:@"zip"]];
         if (![fileManager fileExistsAtPath:examplePath]) {
             [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"Prototyper Example" ofType:@"zip"] toPath:examplePath error:nil];
         }
@@ -90,7 +92,7 @@
         self.segment.selectedSegmentIndex = _segmentIndex;
     }
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -238,7 +240,7 @@
                     [HUD hide:NO];
                     
                     HUD = [self whiteHUDWithIndeterminate];
-                    HUD.labelText = @"正在删除";
+                    HUD.labelText = NSLocalizedString(@"Deleting", nil);
                     [HUD show:YES];
                     
                     [filemanager removeItemAtPath:project.path error:&error];
@@ -246,7 +248,7 @@
                         [HUD hide:NO];
                         
                         HUD = [self whiteHUD];
-                        HUD.labelText = @"删除出错";
+                        HUD.labelText = NSLocalizedString(@"Deleting Error occurred", nil);
                         HUD.detailsLabelText = [NSString stringWithFormat:@"%@",error];
                         HUD.customView =[[UIImageView alloc] initWithImage: [UIImage imageNamed:@"SVProgressHUD.bundle/error-black.png"]];
                         HUD.mode = MBProgressHUDModeCustomView;
@@ -280,7 +282,7 @@
                 [HUD hide:NO];
                 
                 HUD = [self whiteHUDWithIndeterminate];
-                HUD.labelText = @"正在删除";
+                HUD.labelText = NSLocalizedString(@"Deleting", nill);
                 [HUD show:YES];
                 
                 [self stopListenDocumentChange];
@@ -335,10 +337,12 @@
                 if ([rs next]) {
 
                     _lastUnZip = [rs objectForColumnName:FIELD_PATH];
-                    title = @"重新解压";
-                    message = [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
+                    title = NSLocalizedString(@"Re-Unzip",nil);
+                    message =
+                    [NSString stringWithFormat:NSLocalizedString(@"\"%@\" exists,\nOverwrite?",nil),[file stringByDeletingPathExtension] ,nil];
+//                    [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
                     
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新解压",@"直接预览", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Re-Unzip",nil),NSLocalizedString(@"Just Preview",nil), nil];
                     alert.tag = 30;
                     [alert show];
                     
@@ -351,7 +355,7 @@
                     [HUD hide:NO];
                     HUD = [self whiteHUDWithIndeterminate];
 
-                    HUD.labelText = @"正在解压";
+                    HUD.labelText = NSLocalizedString(@"Unziping",nil);
                     [HUD show:YES];
                     
                     [self unZipFile:_unZipFile withPassword:nil];
@@ -470,7 +474,7 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码保护" message:@"请输入解压密码" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"解压", nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Password Protection",nil) message:NSLocalizedString(@"Please Input Password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip","@Unzip"), nil];
                         alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
                         [alert show];
                     });
@@ -480,7 +484,7 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解压错误" message:@"文件无法解压" delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Error occurred", nil) message:NSLocalizedString(@"Unable To Unzip File",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"好") otherButtonTitles: nil];
                         [alert show];
                     });
                 }
@@ -492,7 +496,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [HUD hide:YES];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解压密码错误" message:@"请输入正确的解压密码" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"解压", nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"passwordError", @"Wrong Password") message:NSLocalizedString(@"Please Input the Correct Password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip", @"Unzip"), nil];
                     alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
                     [alert show];
                 });
@@ -529,7 +533,7 @@
                     NSLog(@"unzip successed! row id:%ld",(long)rowId);
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解压成功" message:@"马上去预览吧！" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:@"去预览", nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Successful!",nil) message:NSLocalizedString(@"Go to Preview?", @"Preview it!") delegate:self cancelButtonTitle:NSLocalizedString(@"Later", nil) otherButtonTitles:NSLocalizedString(@"Do Preview", nil), nil];
                         alert.tag = 10;
                         _lastUnZip = currentProjectPath;
                         [alert show];
@@ -620,6 +624,7 @@
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSString *unziping = NSLocalizedString(@"Unziping",nil);
     if(_lastUnZip && alertView.tag == 30 && buttonIndex ==2){
         [self showWebView:_lastUnZip];
         _lastUnZip = nil;
@@ -632,7 +637,7 @@
                 
                 [HUD hide:NO];
                 HUD = [self whiteHUDWithIndeterminate];
-                HUD.labelText = @"正在解压";
+                HUD.labelText = unziping;
                 [HUD show:YES];
                 
                 [self unZipFile:_zipNeedPassword withPassword:[alertView textFieldAtIndex:0].text];
@@ -641,7 +646,7 @@
                 
                 [HUD hide:NO];
                 HUD = [self whiteHUDWithIndeterminate];
-                HUD.labelText = @"正在解压";
+                HUD.labelText = unziping;
                 [HUD show:YES];
                 
                 [self unZipFile:_unZipFile withPassword:nil];
@@ -680,13 +685,11 @@
 
 - (void)editPressed:(id)sender {
     if (self.tableView.editing) {
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
-        self.navigationItem.rightBarButtonItem.title = @"编辑";
+        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit",@"Edit");
         [self.tableView setEditing:NO animated:YES];
     }else{
         [self.tableView setEditing:YES animated:YES];
-        self.navigationItem.rightBarButtonItem.title = @"完成";
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
+        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done",@"Done");
     }
 }
 @end

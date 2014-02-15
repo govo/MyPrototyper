@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
 		9416A342187AF90000F8C9EC /* MPStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A341187AF90000F8C9EC /* MPStorage.m */; };
 		9416A34F187AF93C00F8C9EC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A345187AF93C00F8C9EC /* FMDatabase.m */; };
 		9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A347187AF93C00F8C9EC /* FMDatabaseAdditions.m */; };
@@ -90,6 +91,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94149BAD18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
+		94149BAE18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
+		94149BAF18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94149BB018AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		94149BCA18AF526C005182A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		94149BCC18AF5273005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9416A340187AF90000F8C9EC /* MPStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStorage.h; sourceTree = "<group>"; };
 		9416A341187AF90000F8C9EC /* MPStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStorage.m; sourceTree = "<group>"; };
 		9416A344187AF93C00F8C9EC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -388,6 +395,7 @@
 				9486715C18A0B345002165CF /* help.png */,
 				9486715D18A0B345002165CF /* help@2x.png */,
 				9486715A18A09B82002165CF /* SVProgressHUD.bundle */,
+				94149BCB18AF526C005182A0 /* Localizable.strings */,
 			);
 			name = Resource;
 			path = MyPrototyper/Resource;
@@ -493,6 +501,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9483C585187AEA6B001074DD;
 			productRefGroup = 9483C58F187AEA6B001074DD /* Products */;
@@ -523,6 +532,7 @@
 				9486717C18A544FC002165CF /* icon-60.png in Resources */,
 				9486717318A33CC1002165CF /* unzip.png in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
+				94149BC918AF526C005182A0 /* Localizable.strings in Resources */,
 				9486718218A5476E002165CF /* icon-80.png in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
 				943F6BA618AD24B400253DF1 /* icon-72.png in Resources */,
@@ -609,10 +619,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		94149BCB18AF526C005182A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94149BCA18AF526C005182A0 /* Base */,
+				94149BCC18AF5273005182A0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		9483C59A187AEA6B001074DD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9483C59B187AEA6B001074DD /* en */,
+				94149BAF18AE8A44005182A0 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -621,6 +641,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9483C5A4187AEA6B001074DD /* Base */,
+				94149BAD18AE8A44005182A0 /* zh-Hans */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -629,6 +650,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9483C5A7187AEA6B001074DD /* Base */,
+				94149BAE18AE8A44005182A0 /* zh-Hans */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -637,6 +659,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9483C5C0187AEA6B001074DD /* en */,
+				94149BB018AE8A44005182A0 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

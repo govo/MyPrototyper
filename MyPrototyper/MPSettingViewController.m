@@ -40,7 +40,7 @@
     
     UIViewController *parentController = self.presentingViewController;
     if (parentController!=nil) {
-        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Back", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(done:)];
         
         NSDictionary *settings = self.path?[MPSettingUtils settingsFromDirectory:self.path]: MPSettingUtils.settings;
         [self shouldRotateSetting:settings];
@@ -147,16 +147,16 @@
 {
     switch (orientation) {
         case UIInterfaceOrientationMaskPortrait:
-            self.landspaceType.text = @"竖屏";
+            self.landspaceType.text = NSLocalizedString(@"Portrait",nil);
             break;
         case UIInterfaceOrientationMaskLandscape:
         case UIInterfaceOrientationMaskLandscapeLeft:
         case UIInterfaceOrientationMaskLandscapeRight:
-            self.landspaceType.text = @"横屏";
+            self.landspaceType.text = NSLocalizedString(@"Landscape",nil);
             break;
         case UIInterfaceOrientationMaskAllButUpsideDown:
         case UIInterfaceOrientationMaskAll:
-            self.landspaceType.text = @"自由";
+            self.landspaceType.text = NSLocalizedString(@"All (but upside down)", nil);
             break;
     }
 }

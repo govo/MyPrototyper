@@ -79,7 +79,7 @@
     }
     
     if (html==nil) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"找不到index.html" message:@"请确保第一层文件夹中包含index.html" delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"No index.html found", nil) message:NSLocalizedString(@"Make sure the root folder contains index.html", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles: nil];
         [alert show];
         return;
     }
@@ -132,7 +132,7 @@
 {
     NSLog(@"motionEnded:%@",event);
     if (motion==UIEventSubtypeMotionShake) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"请选择操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"返回" otherButtonTitles:@"设置", nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
         [actionSheet showInView:self.view];
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
