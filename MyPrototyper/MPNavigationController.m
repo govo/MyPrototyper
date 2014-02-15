@@ -22,14 +22,21 @@
     }
     return self;
 }
+-(BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.orientationSupport = UIInterfaceOrientationMaskPortrait;
+}
+-(void)viewWillAppear:(BOOL)animated{
     if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
         self.navigationBar.barStyle = UIBarStyleBlack;
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
     }
 }
 

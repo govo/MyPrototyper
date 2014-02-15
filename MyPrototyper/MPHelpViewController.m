@@ -127,6 +127,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//    if (_isFirstUse && NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+//    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -307,6 +310,11 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+#pragma mark - statusbar
+-(BOOL)prefersStatusBarHidden
+{
+    return _isFirstUse;
 }
 
 @end

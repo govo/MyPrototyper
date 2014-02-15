@@ -99,14 +99,14 @@
     if (_segmentIndex==1) {
         [self listenDocumentChange];
     }
-    self.title = @"列表";
+    self.title = NSLocalizedString(@"List", nil);
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
     if (_segmentIndex==1) {
         [self stopListenDocumentChange];
     }
-    self.title = @"返回";
+    self.title = NSLocalizedString(@"Back", nil);
 }
 
 - (void)didReceiveMemoryWarning
@@ -533,7 +533,7 @@
                     NSLog(@"unzip successed! row id:%ld",(long)rowId);
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Successful!",nil) message:NSLocalizedString(@"Go to Preview?", @"Preview it!") delegate:self cancelButtonTitle:NSLocalizedString(@"Later", nil) otherButtonTitles:NSLocalizedString(@"Do Preview", nil), nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Successful!",nil) message:NSLocalizedString(@"Preview now?", @"Preview it!") delegate:self cancelButtonTitle:NSLocalizedString(@"Later", nil) otherButtonTitles:NSLocalizedString(@"Do Preview", nil), nil];
                         alert.tag = 10;
                         _lastUnZip = currentProjectPath;
                         [alert show];

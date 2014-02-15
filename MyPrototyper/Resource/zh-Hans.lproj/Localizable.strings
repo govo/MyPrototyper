@@ -6,12 +6,12 @@
 	Cancel = "\U53d6\U6d88";
 	Unzip = "\U89e3\U538b";
 	"Unzip Successful!" = "\U89e3\U538b\U6210\U529f";
-	"Go to Preview?" = "\U9a6c\U4e0a\U53bb\U9884\U89c8\Uff1f";
+	"Preview now?" = "\U9a6c\U4e0a\U53bb\U9884\U89c8\Uff1f";
 	"Do Preview" = "\U53bb\U9884\U89c8";
 	Later = "\U7a0d\U540e";
 	Unziping = "\U6b63\U5728\U89e3\U538b";
 	"Re-Unzip" = "\U91cd\U65b0\U89e3\U538b";
-	"\"%@\" exists,\nOverwrite?" = "\U5df2\U6709\U539f\U578b\U201c%@\U201d\Uff0c\n\U662f\U5426\U8986\U76d6\U5df2\U6709\U6587\U4ef6\Uff1f";
+	"\"%@\" exists,\nOverwrite?" = "\U201c%@\U201d\U5df2\U5b58\U5728\Uff0c\n\U662f\U5426\U91cd\U65b0\U89e3\U538b\U5e76\U8986\U76d6\Uff1f";
 	"Just Preview" = "\U76f4\U63a5\U9884\U89c8";
 	Deleting = "\U6b63\U5728\U5220\U9664";
 	"Deleting Error occurred" = "\U5220\U9664\U51fa\U9519";
