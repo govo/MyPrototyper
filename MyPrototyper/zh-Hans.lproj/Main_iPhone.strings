@@ -24,7 +24,7 @@
 "HZE-SP-Wrl.text" = "竖屏";
 
 /* Class = "IBUILabel"; text = "(摇一摇可退出，现在就摇一摇吧！)"; ObjectID = "JWJ-o6-hzL"; */
-"JWJ-o6-hzL.text" = "(摇一摇可退出，现在就摇一摇吧！)";
+"JWJ-o6-hzL.text" = "(我们现在就摇一摇吧！)";
 
 /* Class = "IBUINavigationItem"; title = "横屏设置"; ObjectID = "Jyw-E3-NW6"; */
 "Jyw-E3-NW6.title" = "横屏设置";
@@ -48,7 +48,7 @@
 "TRh-oh-rZK.text" = "原型压缩传输，解压预览";
 
 /* Class = "IBUILabel"; text = "Title"; ObjectID = "U7D-uK-8dN"; */
-"U7D-uK-8dN.text" = "Title";
+"U7D-uK-8dN.text" = "标题";
 
 /* Class = "IBUIBarButtonItem"; title = "返回"; ObjectID = "WEk-Uy-PXl"; */
 "WEk-Uy-PXl.title" = "返回";
@@ -69,16 +69,16 @@
 "aRC-Mv-App.text" = "横屏设置";
 
 /* Class = "IBUILabel"; text = "预览时摇一摇，可退出预览，或快速设置\n "; ObjectID = "cgF-mw-k4N"; */
-"cgF-mw-k4N.text" = "预览时摇一摇，可退出预览，或快速设置\n ";
+"cgF-mw-k4N.text" = "预览时摇一摇，可离开预览，或快速设置\n ";
 
 /* Class = "IBUILabel"; text = "多平台支持"; ObjectID = "fjh-t6-i3W"; */
 "fjh-t6-i3W.text" = "多平台支持";
 
 /* Class = "IBUILabel"; text = "原型预览时，摇一摇调出菜单"; ObjectID = "qj9-CB-S5B"; */
-"qj9-CB-S5B.text" = "原型预览时，摇一摇调出菜单";
+"qj9-CB-S5B.text" = "原型预览时，摇一摇呼出菜单";
 
 /* Class = "IBUITabBarItem"; title = "Prototpype"; ObjectID = "vo7-2n-otQ"; */
-"vo7-2n-otQ.title" = "Prototpype";
+"vo7-2n-otQ.title" = "原型";
 
 /* Class = "IBUILabel"; text = "自由"; ObjectID = "wiI-Ag-lPr"; */
 "wiI-Ag-lPr.text" = "自由";

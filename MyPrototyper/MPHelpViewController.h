@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface MPHelpViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
+#define kReadyToRateTag  888
+#define kFirstUseTag     102
+
+@interface MPHelpViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate,UINavigationControllerDelegate>
 
 @property (assign,nonatomic) BOOL isFirstUse;
 

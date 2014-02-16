@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kSettingFileName @"setting.out"
+#define kSettingFileName @".unziped_project_setting.out"
 #define kSettingGlobalDirectory [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 #define kAppVersion @"1.0.0"

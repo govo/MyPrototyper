@@ -7,6 +7,7 @@
 //
 
 #import "MPAppDelegate.h"
+#import "iRate.h"
 
 @implementation MPAppDelegate
 
@@ -14,6 +15,8 @@
 {
     // Override point for customization after application launch.
     [application setApplicationSupportsShakeToEdit:YES];
+    
+    
     return YES;
 }
 							
@@ -42,6 +45,15 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++(void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].appStoreID = 822214463;
+    [iRate sharedInstance].daysUntilPrompt = 2;
+    [iRate sharedInstance].usesUntilPrompt = 8;
+//    [iRate sharedInstance].previewMode = YES;
 }
 
 @end

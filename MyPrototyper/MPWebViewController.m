@@ -73,6 +73,9 @@
                 
                 if ([fileManager fileExistsAtPath:html]) {
                     *stop = YES;
+                }else{
+                    
+                    html = nil;
                 }
             }
         }];
@@ -113,6 +116,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self becomeFirstResponder];
+    [self performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.3f];
 }
 -(BOOL)canBecomeFirstResponder
 {

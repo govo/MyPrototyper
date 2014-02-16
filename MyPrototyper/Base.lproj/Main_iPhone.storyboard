@@ -141,7 +141,7 @@
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="30" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="cgF-mw-k4N">
                                                         <rect key="frame" x="20" y="290" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <string key="text">Shake to call Menu when previewing
+                                                        <string key="text">Shake to call menu when previewing
  </string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -551,6 +551,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovR-jR-GYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1555" y="498"/>
+        </scene>
+        <!--Simple Web View Controller-->
+        <scene sceneID="s9I-pS-dWa">
+            <objects>
+                <viewController storyboardIdentifier="SimpleWebview" id="mKU-aJ-gEW" customClass="MPSimpleWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HIP-na-hJ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="PXz-gL-Jyt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yFw-od-vsl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UX0-dq-fJo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UX0-dq-fJo" firstAttribute="leading" secondItem="yFw-od-vsl" secondAttribute="leading" id="44y-n5-hMD"/>
+                            <constraint firstAttribute="trailing" secondItem="UX0-dq-fJo" secondAttribute="trailing" id="EYZ-Z6-nmV"/>
+                            <constraint firstItem="UX0-dq-fJo" firstAttribute="top" secondItem="yFw-od-vsl" secondAttribute="top" id="sDD-1a-okb"/>
+                            <constraint firstAttribute="bottom" secondItem="UX0-dq-fJo" secondAttribute="bottom" id="vUB-RA-j02"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tY5-8c-JuW"/>
+                    <connections>
+                        <outlet property="webview" destination="UX0-dq-fJo" id="phY-fQ-DXK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zw-hb-DY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2485" y="498"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OiI-o4-2Vw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2k-ew-j8r" customClass="MPNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lK1-I7-rYJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mKU-aJ-gEW" kind="relationship" relationship="rootViewController" id="QYz-tT-tHS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWT-88-IFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1959" y="498"/>
         </scene>
     </scenes>
     <resources>

@@ -1,4 +1,18 @@
 {
 	"Do Preview" = Yes;
 	"Re-Unzip" = "Unzip And Overwrite";
+	twitter = "Twitter: @MyPrototyper";
+	twitterUrl = "https://twitter.com/MyPrototyper";
+	twitterName = "@MyPrototyper";
+	twitterMessage = "Link:%@ \nUsername:%@";
+	twitterScheme = "twitter://";
+	"Thanks for feedback" = "Thank You";
+	"Email me" = "Email Me";
+	emailErrorTitle = "Can not post email";
+	emailErrorMessage = "Please setup your email accound first.";
+	emailSubject = "[MyPrototyper feedback]:";
+	rateMe = "Rate MyPrototyper";
+	passwordTips = "The file was protected with a password when it was created.Please input that password.";
+	emptyList = "List is Empty";
+	canNotUnzip = "Can not unzip file. Please make sure it is a correct zip file.";
 }

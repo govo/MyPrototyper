@@ -61,7 +61,7 @@
     NSLog(@"APP PATH:%@",kDocumentDictory);
     
     NSDictionary *globalSetting = [MPSettingUtils globalSetting];
-//    NSLog(@"global:%@",globalSetting);
+    
     if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
         MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
         helpController.isFirstUse = YES;
@@ -78,6 +78,9 @@
         
     }
     
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
  
@@ -93,6 +96,25 @@
     }
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
+    
+    
+    
+    /*
+    
+    NSInteger luanchCount = [[NSUserDefaults standardUserDefaults] integerForKey:@"luanchCount"];
+    luanchCount ++;
+    NSInteger appVersion = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] intValue];
+    NSInteger lastCommentVersion = [[NSUserDefaults standardUserDefaults] integerForKey:@"lastCommentVersion"];
+    [[NSUserDefaults standardUserDefaults]setInteger:luanchCount forKey:@"luanchCount"];
+    if (luanchCount>0 && luanchCount%8==0 && lastCommentVersion<appVersion) {
+        NSLog(@"luanch count:%ld",(long)luanchCount);
+        
+    }
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"rateTitle", nil) message:NSLocalizedString(@"rateMessage", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"rateNotNow", nil) otherButtonTitles:NSLocalizedString(@"rateYes",nil),NSLocalizedString(@"rateRefuce", nil), nil];
+    alert.tag = 8888;
+    [alert show];
+    NSLog(@"luanch count:%ld,version:%d,%d",(long)luanchCount,appVersion,lastCommentVersion);
+    */
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -159,6 +181,28 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
+
+-(void)addEmptyHeader:(UITableView *)tableView
+{
+    return;
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)];
+    label.backgroundColor = [UIColor colorWithWhite:.95 alpha:1];
+    UIFont *font = [UIFont fontWithName:label.font.fontName size:12];
+    label.font = font;
+    
+    label.text = NSLocalizedString(@"emptyList", nil);
+    label.textColor = [UIColor grayColor];
+    label.hidden = NO;
+    label.textAlignment = NSTextAlignmentCenter;
+    [tableView setTableHeaderView:label];
+    [tableView reloadData];
+    
+}
+-(void)removeEmptyHeader:(UITableView *)tableView
+{
+    return;
+    tableView.tableHeaderView = nil;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -188,7 +232,7 @@
 //            [formatter setDateStyle:NSDateFormatterMediumStyle];
 //            [formatter setTimeStyle:NSDateFormatterMediumStyle];
 //            cell.detailTextLabel.text = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:project.modifiedTime]];
-            cell.detailTextLabel.textColor = [UIColor grayColor];
+//            cell.detailTextLabel.textColor = [UIColor grayColor];
 
             if (NSFoundationVersionNumber>NSFoundationVersionNumber_iOS_6_1) {
                 //iOS 7 and later
@@ -295,7 +339,13 @@
             }
                 break;
         }
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        if (_datas.count==0) {
+            [tableView reloadData];
+            [self addEmptyHeader:tableView];
+        }else{
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -388,10 +438,10 @@
 
     }
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 48.0f;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 52.0f;
+}
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -429,6 +479,8 @@
     
     NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
+    
+    
 /*
 //    NSLog(@"LISTING ALL FILES FOUND");
     int count;
@@ -438,7 +490,7 @@
         NSLog(@"File %d :%@", (count + 1), file);
     }
 */
-    return directoryContent;
+    return [directoryContent filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF ENDSWITH[c] %@",@"zip"]];
 }
 -(void)unZipFile:(NSString *)file withPassword:(NSString *)password
 {
@@ -450,9 +502,9 @@
     NSString *projectPath = kProjectDictory;
 //    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
     
-    if (_segmentIndex==1) {
-        [self stopListenDocumentChange];
-    }
+
+    [self stopListenDocumentChange];
+
     
     dispatch_queue_t queue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue, ^{
@@ -461,49 +513,35 @@
         ZipArchive *zip = [[ZipArchive alloc] init];
         _zipNeedPassword = nil;
         if ([[file pathExtension] isEqualToString:@"zip"]) {
+            
+
             if (password) {
                 isUnZiped = [zip UnzipOpenFile:file Password:password];
             }else{
                 isUnZiped = [zip UnzipOpenFile:file];
             }
-            if (!isUnZiped && !password) {
-                if ([zip UnzipIsEncrypted]) {
+            NSLog(@"Do here?%@",isUnZiped?@"yes":@"no");
+            if (isUnZiped) {
+                BOOL needPassworld =[zip UnzipIsEncrypted];
+                if (needPassworld && !password) {
                     NSLog(@"needPassword:%@",file);
                     _zipNeedPassword = file;
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Password Protection",nil) message:NSLocalizedString(@"Please Input Password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip","@Unzip"), nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Password Protection",nil) message:NSLocalizedString(@"passwordTips", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip","@Unzip"), nil];
                         alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
                         [alert show];
-                    });
-                }else{
-                    NSLog(@"unzip failed");
-                    
-                    dispatch_async(dispatch_get_main_queue(), ^{
                         
-                        [HUD hide:YES];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Error occurred", nil) message:NSLocalizedString(@"Unable To Unzip File",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"好") otherButtonTitles: nil];
-                        [alert show];
+                        [self listenDocumentChange];
                     });
+                    return;
                 }
-            }else if(!isUnZiped && password){
-                
-                NSLog(@"retype password:%@",file);
-                _zipNeedPassword = file;
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    [HUD hide:YES];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"passwordError", @"Wrong Password") message:NSLocalizedString(@"Please Input the Correct Password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip", @"Unzip"), nil];
-                    alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-                    [alert show];
-                });
-            }else{
+                //Unzip to File
                 NSString *currentProjectPath = [projectPath stringByAppendingPathComponent:[self MD5:file]];
-                if([zip UnzipFileTo:currentProjectPath overWrite:YES])
-                {
+                
+                if([zip UnzipFileTo:currentProjectPath overWrite:YES]){
                     NSString *fileName = [file lastPathComponent];
                     
                     MPProject *project = [[MPProject alloc]init];
@@ -512,12 +550,12 @@
                     project.zip = file;
                     project.modifiedTime = [[NSDate date] timeIntervalSince1970];
                     MPStorage *storage = [[MPStorage alloc] init];
-//                    NSLog(@"project:%@",project);
+                    //                    NSLog(@"project:%@",project);
                     
                     NSInteger rowId=0;
                     NSString *query = [NSString stringWithFormat:@"select * from %@ where %@ = ? limit 1;",TABLE_NAME,FIELD_ZIP];
                     FMResultSet *rs = [storage.db executeQuery:query,file];
-
+                    
                     if ([rs next]) {
                         project.idx = [rs longForColumn:FIELD_ID];
                         rowId = [storage updateData:project];
@@ -529,7 +567,7 @@
                         }
                     }
                     [storage.db closeOpenResultSets];
-//                    [self listFileAtPath:currentProjectPath];// FOR testing
+                    //                    [self listFileAtPath:currentProjectPath];// FOR testing
                     NSLog(@"unzip successed! row id:%ld",(long)rowId);
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [HUD hide:YES];
@@ -537,13 +575,49 @@
                         alert.tag = 10;
                         _lastUnZip = currentProjectPath;
                         [alert show];
+                        
+                        [self listenDocumentChange];
                     });
-//                    NSLog(@"UnZipFile %@ to %@", file,currentProjectPath);
+                    //                    NSLog(@"UnZipFile %@ to %@", file,currentProjectPath);
+                }else if(needPassworld && password){
+                    
+                    NSLog(@"retype password:%@",file);
+                    _zipNeedPassword = file;
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        [HUD hide:YES];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Password not correct", @"Wrong Password") message:NSLocalizedString(@"Please Input the Correct Password", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Unzip", @"Unzip"), nil];
+                        alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+                        [alert show];
+                        
+                        [self listenDocumentChange];
+                    });
+                    return;
+                    
+                }else{
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        [HUD hide:YES];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Error occurred", nil) message:NSLocalizedString(@"Unable To Unzip File",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"好") otherButtonTitles: nil];
+                        [alert show];
+                        
+                        [self listenDocumentChange];
+                    });
+                    return;
                 }
+            }else{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [HUD hide:YES];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Error occurred", nil) message:NSLocalizedString(@"canNotUnzip", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"好") otherButtonTitles: nil];
+                    [alert show];
+                    
+                    [self listenDocumentChange];
+                });
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self listenDocumentChange];
-            });
+         
         }
     
     });
@@ -599,7 +673,6 @@
 }
 -(void)switchToTableList:(NSInteger)tag
 {
-    
     switch (tag) {
         case 0:
         {
@@ -617,6 +690,12 @@
             break;
     }
     _segmentIndex = tag;
+    if (_datas.count==0) {
+        [self addEmptyHeader:self.tableView];
+    }else{
+        [self removeEmptyHeader:self.tableView];
+    }
+    [self.tableView reloadData];
     NSInteger animation = _segmentIndex==0? UITableViewRowAnimationRight:UITableViewRowAnimationLeft;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:animation];
 }
@@ -624,6 +703,10 @@
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (alertView.tag==8888) {
+        return;
+    }
+    
     NSString *unziping = NSLocalizedString(@"Unziping",nil);
     if(_lastUnZip && alertView.tag == 30 && buttonIndex ==2){
         [self showWebView:_lastUnZip];

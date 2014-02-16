@@ -11,13 +11,14 @@
 	Later = "\U7a0d\U540e";
 	Unziping = "\U6b63\U5728\U89e3\U538b";
 	"Re-Unzip" = "\U91cd\U65b0\U89e3\U538b";
+	canNotUnzip = "\U8bf7\U68c0\U67e5\U6587\U4ef6\U683c\U5f0f\U662f\U5426\U6b63\U786e";
 	"\"%@\" exists,\nOverwrite?" = "\U201c%@\U201d\U5df2\U5b58\U5728\Uff0c\n\U662f\U5426\U91cd\U65b0\U89e3\U538b\U5e76\U8986\U76d6\Uff1f";
 	"Just Preview" = "\U76f4\U63a5\U9884\U89c8";
 	Deleting = "\U6b63\U5728\U5220\U9664";
 	"Deleting Error occurred" = "\U5220\U9664\U51fa\U9519";
 	"Password Protection" = "\U5bc6\U7801\U4fdd\U62a4";
-	"Please Input Password" = "\U8bf7\U8f93\U5165\U89e3\U538b\U5bc6\U7801";
-	passwordError = "\U5bc6\U7801\U9519\U8bef";
+	passwordTips = "\U8bf7\U8f93\U5165\U89e3\U538b\U5bc6\U7801";
+	"Password not correct" = "\U5bc6\U7801\U9519\U8bef";
 	"Please Input the Correct Password" = "\U8bf7\U8f93\U5165\U6b63\U786e\U7684\U89e3\U538b\U5bc6\U7801";
 	"Unzip Error occurred" = "\U89e3\U538b\U51fa\U9519";
 	"Unable To Unzip File" = "\U6587\U4ef6\U65e0\U6cd5\U89e3\U538b";
@@ -31,4 +32,19 @@
 	Landscape = "\U6a2a\U5c4f";
 	"All (but upside down)" = "\U81ea\U7531";
 	"Prototyper Example" = "\U9ad8\U4fdd\U771f\U539f\U578b\U6837\U4f8b";
+	twitter = "\U5b98\U65b9\U5fae\U535a\Uff1a@MyPrototyper";
+	twitterUrl = "http://weibo.com/myprototyper";
+	twitterName = "@MyPrototyper";
+	twitterMessage = "\U94fe\U63a5\Uff1a%@ \n\U7528\U6237\U540d\Uff1a%@";
+	twitterScheme = "sinaweibo://";
+	"Email me" = "\U7ed9\U6211\U53d1\U90ae\U4ef6";
+	"Copy Link" = "\U590d\U5236\U94fe\U63a5";
+	"Copy Username" = "\U590d\U5236\U7528\U6237\U540d";
+	"Copy Username and Go" = "\U590d\U5236\U7528\U6237\U540d\Uff0c\U5e76\U6253\U5f00\U5fae\U535a\U5ba2\U6237\U7aef";
+	emailSubject = "\U300a\U539f\U578b\U52a9\U624b\U300b\U7528\U6237\U53cd\U9988\Uff1a";
+	emailErrorTitle = "\U6ca1\U6709\U90ae\U4ef6\U8d26\U6237";
+	emailErrorMessage = "\U8bf7\U4e3a\U5f53\U524d\U624b\U673a\U8bbe\U7f6e\U90ae\U4ef6\U8d26\U6237";
+	"Thanks for feedback" = "\U611f\U8c22\U60a8\U7684\U53cd\U9988";
+	rateMe = "\U7ed9\U6211\U8bc4\U5206";
+	emptyList = "\U5217\U8868\U4e3a\U7a7a";
 }

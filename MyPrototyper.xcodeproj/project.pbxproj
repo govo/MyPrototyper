@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
+		94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */; };
+		94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BD218AFA160005182A0 /* MessageUI.framework */; };
+		94149BD818AFCCCE005182A0 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94149BD518AFCCCE005182A0 /* iRate.bundle */; };
+		94149BD918AFCCCE005182A0 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD718AFCCCE005182A0 /* iRate.m */; };
+		94149BDB18B0E4AD005182A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BDA18B0E4AD005182A0 /* CoreMotion.framework */; };
 		9416A342187AF90000F8C9EC /* MPStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A341187AF90000F8C9EC /* MPStorage.m */; };
 		9416A34F187AF93C00F8C9EC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A345187AF93C00F8C9EC /* FMDatabase.m */; };
 		9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A347187AF93C00F8C9EC /* FMDatabaseAdditions.m */; };
@@ -97,6 +102,13 @@
 		94149BB018AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94149BCC18AF5273005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		94149BCE18AF75E8005182A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		94149BCF18AF8DC2005182A0 /* MPSimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSimpleWebViewController.h; sourceTree = "<group>"; };
+		94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSimpleWebViewController.m; sourceTree = "<group>"; };
+		94149BD218AFA160005182A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		94149BD518AFCCCE005182A0 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		94149BD618AFCCCE005182A0 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		94149BD718AFCCCE005182A0 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		94149BDA18B0E4AD005182A0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9416A340187AF90000F8C9EC /* MPStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStorage.h; sourceTree = "<group>"; };
 		9416A341187AF90000F8C9EC /* MPStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStorage.m; sourceTree = "<group>"; };
 		9416A344187AF93C00F8C9EC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -200,6 +212,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94149BDB18B0E4AD005182A0 /* CoreMotion.framework in Frameworks */,
+				94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */,
 				94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */,
 				94ABB1AF187C3918004F19F9 /* libz.1.2.5.dylib in Frameworks */,
 				9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */,
@@ -222,6 +236,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94149BD418AFCCCE005182A0 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				94149BD518AFCCCE005182A0 /* iRate.bundle */,
+				94149BD618AFCCCE005182A0 /* iRate.h */,
+				94149BD718AFCCCE005182A0 /* iRate.m */,
+			);
+			name = iRate;
+			path = MyPrototyper/iRate;
+			sourceTree = "<group>";
+		};
 		9416A343187AF93C00F8C9EC /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +316,9 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94149BDA18B0E4AD005182A0 /* CoreMotion.framework */,
+				94149BD418AFCCCE005182A0 /* iRate */,
+				94149BD218AFA160005182A0 /* MessageUI.framework */,
 				9486715518A09685002165CF /* MBProgressHUD */,
 				94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */,
 				94ABB1AE187C3918004F19F9 /* libz.1.2.5.dylib */,
@@ -322,6 +350,8 @@
 				9486716B18A164BA002165CF /* MPHelpViewController.m */,
 				94ABB1BB187DA6E4004F19F9 /* MPSettingViewController.h */,
 				94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */,
+				94149BCF18AF8DC2005182A0 /* MPSimpleWebViewController.h */,
+				94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */,
 				94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */,
 				94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */,
 				9486711D18A083AF002165CF /* MPNavigationController.h */,
@@ -547,6 +577,7 @@
 				94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				9486718118A5476E002165CF /* icon-58.png in Resources */,
+				94149BD818AFCCCE005182A0 /* iRate.bundle in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
 				9486717E18A544FC002165CF /* icon-120.png in Resources */,
 				943F6B9918AD0E6800253DF1 /* Default@2x.png in Resources */,
@@ -585,10 +616,12 @@
 				9416A351187AF93C00F8C9EC /* FMDatabasePool.m in Sources */,
 				9416A352187AF93C00F8C9EC /* FMDatabaseQueue.m in Sources */,
 				94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */,
+				94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */,
 				94ABB1B8187D61EC004F19F9 /* MPWebViewController.m in Sources */,
 				94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */,
 				9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */,
 				9416A342187AF90000F8C9EC /* MPStorage.m in Sources */,
+				94149BD918AFCCCE005182A0 /* iRate.m in Sources */,
 				9486711F18A083AF002165CF /* MPNavigationController.m in Sources */,
 				9416A359187B005900F8C9EC /* MPProject.m in Sources */,
 				9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */,

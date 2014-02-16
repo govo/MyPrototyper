@@ -10,6 +10,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "MBProgressHUD.h"
 #import "MPSettingUtils.h"
+#import "MPSimpleWebViewController.h"
+#import "MPNavigationController.h"
+#import "iRate.h"
+
+
 
 @interface MPHelpViewController (){
     NSInteger _shakePhoneCount;
@@ -246,31 +251,105 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
                 NSLog(@"Failed to create sound ");
             }
         }
-        
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles: nil];
+        UIActionSheet *actionSheet = nil;
+        if(_isFirstUse){
+            
+            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:nil];
+            
+        }else if (YES || [[iRate sharedInstance] shouldPromptForRating]) {
+            
+            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil),NSLocalizedString(@"rateMe", nil), nil];
+            actionSheet.tag = kReadyToRateTag;
+            
+        }else{
+            
+            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil), nil];
+            
+        }
         [actionSheet showInView:self.view];
     }
 }
-
+-(void)dismissHelp
+{
+    
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    if (_isFirstUse) {
+        
+        NSDictionary *globalSetting = [MPSettingUtils globalSetting];
+        [globalSetting setValue:[NSNumber numberWithBool:NO] forKey:kSettingIsFirstUse];
+        [MPSettingUtils saveGlobalSetting:globalSetting];
+        _isFirstUse = NO;
+        
+    }
+    
+}
 #pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
+    NSLog(@"buttonindex:%d",buttonIndex);
+    if (_isFirstUse) {
+        switch (buttonIndex) {
+            case 0:
+                [self dismissHelp];
+                break;
+        }
+        return;
+    }
     switch (buttonIndex) {
         case 0:
         {
-            if (self.navigationController) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }else{
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-            NSDictionary *globalSetting = [MPSettingUtils globalSetting];
-            [globalSetting setValue:[NSNumber numberWithBool:NO] forKey:kSettingIsFirstUse];
-            [MPSettingUtils saveGlobalSetting:globalSetting];
+            [self dismissHelp];
             break;
         }
         case 1:
         {
+            NSString *twitterURL = NSLocalizedString(@"twitterUrl", nil);
             
+            NSURL *URL = [NSURL URLWithString:NSLocalizedString(@"twitterScheme", nil)];
+            
+            NSString *copyString = nil;
+            
+            BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:URL];
+            if (canOpen) {
+                copyString = NSLocalizedString(@"Copy Username and Go", nil);
+            }else{
+                copyString = NSLocalizedString(@"Copy Username", nil);
+            }
+            NSString *message = [NSString stringWithFormat:NSLocalizedString(@"twitterMessage", nil),twitterURL,NSLocalizedString(@"twitterName", nil)];
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"twitter", nil) message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Copy Link", nil),copyString, nil];
+            if (canOpen) {
+                alert.tag = 11;
+            }
+            [alert show];
+            break;
+        }
+        case 2:
+        {
+            if (![MFMailComposeViewController canSendMail]) {
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"emailErrorTitle", nil) message:NSLocalizedString(@"emailErrorMessage", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles: nil];
+                [alertView show];
+                return;
+            }
+            MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+            mailController.mailComposeDelegate = self;
+            [mailController setSubject:NSLocalizedString(@"emailSubject", nil)];
+            [mailController setToRecipients:@[@"govomusic@gmail.com"]];
+            
+            [self presentViewController:mailController animated:YES completion:nil];
+            
+            break;
+        }
+        case 3:
+        {
+            if (actionSheet.tag == kReadyToRateTag) {
+                [[iRate sharedInstance] openRatingsPageInAppStore];
+            }
         }
             
     }
@@ -315,6 +394,49 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 -(BOOL)prefersStatusBarHidden
 {
     return _isFirstUse;
+}
+
+#pragma mark AlertView
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+    switch (buttonIndex) {
+        case 1:
+            [UIPasteboard generalPasteboard].string = NSLocalizedString(@"twitterUrl", nil);
+            break;
+        case 2:
+            
+            [UIPasteboard generalPasteboard].string = NSLocalizedString(@"twitterName", nil);
+            if (alertView.tag==11) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:NSLocalizedString(@"twitterScheme", nil)]];
+            }
+            
+        default:
+            break;
+    }
+}
+#pragma mark - MFMail Delegate
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    NSLog(@" mailComposeController didfinish");
+    [self dismissViewControllerAnimated:YES completion:nil];
+    switch (result) {
+        case MFMailComposeResultSent:
+        {
+            MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.navigationController.view];
+            [self.navigationController.view addSubview:hud];
+            hud.color = [UIColor colorWithWhite:.95 alpha:1];
+            hud.labelColor = [UIColor colorWithWhite:.1 alpha:1];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = NSLocalizedString(@"Thanks for feedback", nil);
+            [hud show:YES];
+            [hud hide:YES afterDelay:3];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
