@@ -9,13 +9,13 @@
 #import "MPAppDelegate.h"
 #import "iRate.h"
 
+
 @implementation MPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [application setApplicationSupportsShakeToEdit:YES];
-    
+
     
     return YES;
 }

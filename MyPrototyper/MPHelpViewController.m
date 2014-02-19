@@ -8,6 +8,8 @@
 
 #import "MPHelpViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <CoreMotion/CoreMotion.h>
+#import "MPAppDelegate.h"
 #import "MBProgressHUD.h"
 #import "MPSettingUtils.h"
 #import "MPSimpleWebViewController.h"
@@ -20,12 +22,14 @@
     NSInteger _shakePhoneCount;
     MBProgressHUD *HUD;
     BOOL _isShaking;
+    BOOL _motionEnabled;
 }
+
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-
-
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (strong,nonatomic) CMMotionManager *motionManager;
 
 @end
 
@@ -101,9 +105,12 @@
 
 //    NSLog(@"size:%@,%@",NSStringFromCGRect(self.contentView.frame),NSStringFromCGSize(self.mainScrollView.bounds.size));
 
+//    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     
-    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = .1;
 
+    
 }
 /*
 -(void)prepareSubViews
@@ -126,7 +133,6 @@
 {
     self.mainScrollView.contentSize = CGSizeMake(320*( _isFirstUse ? 5:4 ), self.view.frame.size.height - 70);
     [self.view layoutSubviews];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -135,14 +141,33 @@
 //    if (_isFirstUse && NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
 //        [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    }
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [self setMotionEnabled:YES];
+    [self motionStart];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
+                                                 name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
+
+#if TARGET_IPHONE_SIMULATOR
     [self becomeFirstResponder];
+#endif
+    
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
 
-//    NSLog(@"viewDidAppear:%@,%@",NSStringFromCGRect(self.mainScrollView.frame),NSStringFromCGSize(self.mainScrollView.contentSize));
-
+    [self.motionManager stopAccelerometerUpdates];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -167,8 +192,6 @@
     }
     UIView *view = [self.view viewWithTag:4];
     UIImageView *imageView = (UIImageView *)[view viewWithTag:20];
-//    UILabel *desLabel = (UILabel *)[view viewWithTag:30];
-    
 
     imageView.transform = CGAffineTransformMakeRotation(0);
 
@@ -215,63 +238,51 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
+
 #pragma mark - handshake event
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+
+-(void)handShaked
 {
-    NSLog(@"motionBegan:%@",event);
-}
--(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"motionCancelled:%@",event);
-}
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"motionEnded:%@",event);
-    if (motion==UIEventSubtypeMotionShake) {
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        
-        SystemSoundID soundID;
-        
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"xiaohuangrenxiasheng_02" ofType:@"mp3"];
-//        NSLog(@"sound path :%@ ",path);
-        if (path) {
-            SystemSoundID theSoundID;
-            OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
-            if (error == kAudioServicesNoError) {
-                soundID = theSoundID;
-                AudioServicesPlaySystemSound(soundID);
-//                AudioServicesDisposeSystemSoundID(soundID);
-            }else {
-                NSLog(@"Failed to create sound ");
-            }
+    [self setMotionEnabled:NO];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    SystemSoundID soundID;
+    
+    //        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"xiaohuangrenxiasheng_02" ofType:@"mp3"];
+    //        NSLog(@"sound path :%@ ",path);
+    if (path) {
+        SystemSoundID theSoundID;
+        OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
+        if (error == kAudioServicesNoError) {
+            soundID = theSoundID;
+            AudioServicesPlaySystemSound(soundID);
+        }else {
+            NSLog(@"Failed to create sound ");
         }
-        UIActionSheet *actionSheet = nil;
-        if(_isFirstUse){
-            
-            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:nil];
-            
-        }else if (YES || [[iRate sharedInstance] shouldPromptForRating]) {
-            
-            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil),NSLocalizedString(@"rateMe", nil), nil];
-            actionSheet.tag = kReadyToRateTag;
-            
-        }else{
-            
-            actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil), nil];
-            
-        }
-        [actionSheet showInView:self.view];
     }
+    UIActionSheet *actionSheet = nil;
+    if(_isFirstUse){
+        
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:nil];
+        
+    }else if (YES || [[iRate sharedInstance] shouldPromptForRating]) {
+        
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil),NSLocalizedString(@"rateMe", nil), nil];
+        actionSheet.tag = kReadyToRateTag;
+        
+    }else{
+        
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil), nil];
+        
+    }
+    [actionSheet showInView:self.view];
+
 }
+
 -(void)dismissHelp
 {
-    
     if (self.navigationController) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{
@@ -287,15 +298,20 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     }
     
 }
+
+
+
 #pragma mark - UIActionSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
-    NSLog(@"buttonindex:%d",buttonIndex);
     if (_isFirstUse) {
         switch (buttonIndex) {
             case 0:
                 [self dismissHelp];
+                break;
+            default:
+                [self setMotionEnabled:YES];
+                [self motionStart];
                 break;
         }
         return;
@@ -326,6 +342,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
             if (canOpen) {
                 alert.tag = 11;
             }
+
             [alert show];
             break;
         }
@@ -342,15 +359,21 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
             [mailController setToRecipients:@[@"govomusic@gmail.com"]];
             
             [self presentViewController:mailController animated:YES completion:nil];
-            
+
             break;
         }
         case 3:
         {
+            [self setMotionEnabled:YES];
+            [self motionStart];
             if (actionSheet.tag == kReadyToRateTag) {
                 [[iRate sharedInstance] openRatingsPageInAppStore];
             }
+            break;
         }
+        default:
+            [self setMotionEnabled:YES];
+            [self motionStart];
             
     }
 }
@@ -396,10 +419,11 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     return _isFirstUse;
 }
 
-#pragma mark AlertView
+#pragma mark - AlertView
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-
+    [self setMotionEnabled:YES];
+    [self motionStart];
     switch (buttonIndex) {
         case 1:
             [UIPasteboard generalPasteboard].string = NSLocalizedString(@"twitterUrl", nil);
@@ -410,6 +434,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
             if (alertView.tag==11) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:NSLocalizedString(@"twitterScheme", nil)]];
             }
+            break;
             
         default:
             break;
@@ -438,5 +463,63 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
             break;
     }
 }
+
+#pragma mark - Motions
+-(void)motionStart{
+    if (!_motionEnabled) {
+        return;
+    }
+    NSLog(@"start it");
+    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        [self outputAccelertionData:accelerometerData.acceleration];
+        if (error) {
+            NSLog(@"motion error:%@",error);
+            return;
+        }
+        
+    }];
+}
+-(void)setMotionEnabled:(BOOL)enable
+{
+    _motionEnabled = enable;
+    if (!enable) {
+        [self.motionManager stopAccelerometerUpdates];
+    }
+}
+-(void)receiveNotification:(NSNotification *)notification
+{
+    if ([notification.name isEqualToString:UIApplicationDidEnterBackgroundNotification]) {
+        [self.motionManager stopAccelerometerUpdates];
+    }else{
+        [self motionStart];
+    }
+}
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
+//    NSLog(@"acceleration:%f",accelerameter);
+    if (accelerameter>2.3f) {
+        [self setMotionEnabled:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handShaked];
+        });
+    }
+    
+}
+
+
+#if TARGET_IPHONE_SIMULATOR
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.subtype==UIEventSubtypeMotionShake) {
+        [self handShaked];
+    }
+}
+#endif
+
 
 @end

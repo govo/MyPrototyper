@@ -8,6 +8,7 @@
 
 #import "MPWebViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <CoreMotion/CoreMotion.h>
 #import "MPSettingUtils.h"
 #import "MPNavigationController.h"
 
@@ -16,7 +17,10 @@
     BOOL _statusBar;
     BOOL _scrollBar;
     NSInteger _landSpace;
+    BOOL _motionEnabled;
 }
+
+@property(strong,nonatomic) CMMotionManager *motionManager;
 
 @end
 
@@ -49,6 +53,31 @@
     // Request to turn on accelerometer and begin receiving accelerometer events
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     [self loadWebView:_filePath];
+    
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = .1;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self setMotionEnabled:YES];
+    [self motionStart];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
+                                                 name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
+                                                 name:UIApplicationWillEnterForegroundNotification object:nil];
+
+#if TARGET_IPHONE_SIMULATOR
+    [self becomeFirstResponder];
+#endif
+
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [self.motionManager stopAccelerometerUpdates];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 -(void)loadHtmlAtPath:(NSString *)path
@@ -113,50 +142,29 @@
     self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
 
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    [self becomeFirstResponder];
-    [self performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:.3f];
-}
--(BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
 #pragma mark - handshake event
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+-(void)handShaked
 {
-    NSLog(@"motionBegan:%@",event);
-}
--(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"motionCancelled:%@",event);
-}
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"motionEnded:%@",event);
-    if (motion==UIEventSubtypeMotionShake) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
-        [actionSheet showInView:self.view];
-        
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        
-        SystemSoundID soundID;
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
-
-        if (path) {
-            SystemSoundID theSoundID;
-            OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
-            if (error == kAudioServicesNoError) {
-                soundID = theSoundID;
-                AudioServicesPlaySystemSound(soundID);
-            }else {
-                NSLog(@"Failed to create sound ");
-            }
+    [self setMotionEnabled:NO];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
+    [actionSheet showInView:self.view];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    SystemSoundID soundID;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+    
+    if (path) {
+        SystemSoundID theSoundID;
+        OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
+        if (error == kAudioServicesNoError) {
+            soundID = theSoundID;
+            AudioServicesPlaySystemSound(soundID);
+        }else {
+            NSLog(@"Failed to create sound ");
         }
     }
-    
 }
 
 
@@ -180,10 +188,14 @@
             [self presentViewController:controller animated:YES completion:nil];
 
         }
+            break;
+        default:
+            [self setMotionEnabled:YES];
+            [self motionStart];
 
     }
 }
-
+#pragma mark - Rotations
 -(void)shouldSettingControllerRotateBySetting:(NSDictionary *)settings withNav:(UINavigationController *)nav
 {
     
@@ -270,4 +282,59 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Motions
+-(void)motionStart{
+    if (!_motionEnabled) {
+        return;
+    }
+    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        [self outputAccelertionData:accelerometerData.acceleration];
+        if (error) {
+            NSLog(@"motion error:%@",error);
+            return;
+        }
+        
+    }];
+}
+-(void)setMotionEnabled:(BOOL)enable
+{
+    _motionEnabled = enable;
+    if (!enable) {
+        [self.motionManager stopAccelerometerUpdates];
+    }
+}
+-(void)receiveNotification:(NSNotification *)notification
+{
+    if ([notification.name isEqualToString:UIApplicationDidEnterBackgroundNotification]) {
+        [self.motionManager stopAccelerometerUpdates];
+    }else{
+        [self motionStart];
+    }
+}
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
+    if (accelerameter>2.7f) {
+        [self setMotionEnabled:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handShaked];
+        });
+    }
+}
+
+
+#if TARGET_IPHONE_SIMULATOR
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.subtype==UIEventSubtypeMotionShake) {
+        [self handShaked];
+    }
+}
+#endif
+
 @end
