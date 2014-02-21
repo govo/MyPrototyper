@@ -21,6 +21,7 @@
 		9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A34E187AF93C00F8C9EC /* FMResultSet.m */; };
 		9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9416A355187AF96D00F8C9EC /* libsqlite3.dylib */; };
 		9416A359187B005900F8C9EC /* MPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A358187B005900F8C9EC /* MPProject.m */; };
+		94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94357A4F18B722B80001C0EA /* EmptyView.xib */; };
 		943A0C1218AC7AD5004AF08E /* Prototyper Example.zip in Resources */ = {isa = PBXBuildFile; fileRef = 943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */; };
 		943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */; };
 		943F6B9818AD0E6800253DF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9518AD0E6800253DF1 /* Default.png */; };
@@ -100,7 +101,7 @@
 		94149BAE18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
 		94149BAF18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94149BB018AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		94149BCC18AF5273005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		94149BCC18AF5273005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		94149BCE18AF75E8005182A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94149BCF18AF8DC2005182A0 /* MPSimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSimpleWebViewController.h; sourceTree = "<group>"; };
 		94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSimpleWebViewController.m; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		9416A355187AF96D00F8C9EC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9416A357187B005900F8C9EC /* MPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProject.h; sourceTree = "<group>"; };
 		9416A358187B005900F8C9EC /* MPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProject.m; sourceTree = "<group>"; };
+		94357A4E18B722B80001C0EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyView.xib; sourceTree = "<group>"; };
 		943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Prototyper Example.zip"; sourceTree = "<group>"; };
 		943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "MyPrototyper/Default-568h@2x.png"; sourceTree = "<group>"; };
 		943F6B9518AD0E6800253DF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = MyPrototyper/Default.png; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		9486717F18A5476E002165CF /* icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-58.png"; path = "MyPrototyper/icon-58.png"; sourceTree = "<group>"; };
 		9486718018A5476E002165CF /* icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-80.png"; path = "MyPrototyper/icon-80.png"; sourceTree = "<group>"; };
 		9486718318A547EF002165CF /* icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29.png"; path = "MyPrototyper/icon-29.png"; sourceTree = "<group>"; };
+		948D4E8118B722F700645CC5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyView.strings"; sourceTree = "<group>"; };
 		94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
 		94ABB191187C2ACE004F19F9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		94ABB192187C2ACE004F19F9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -338,6 +341,7 @@
 			children = (
 				9483C5A0187AEA6B001074DD /* MPAppDelegate.h */,
 				9483C5A1187AEA6B001074DD /* MPAppDelegate.m */,
+				94357A4F18B722B80001C0EA /* EmptyView.xib */,
 				9483C5A3187AEA6B001074DD /* Main_iPhone.storyboard */,
 				9483C5A6187AEA6B001074DD /* Main_iPad.storyboard */,
 				9486711A189E856E002165CF /* MPTabBarController.h */,
@@ -559,6 +563,7 @@
 				943F6BA018AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
+				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
 				9486717C18A544FC002165CF /* icon-60.png in Resources */,
 				9486717318A33CC1002165CF /* unzip.png in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
@@ -659,6 +664,15 @@
 				94149BCE18AF75E8005182A0 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		94357A4F18B722B80001C0EA /* EmptyView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94357A4E18B722B80001C0EA /* Base */,
+				948D4E8118B722F700645CC5 /* zh-Hans */,
+			);
+			name = EmptyView.xib;
 			sourceTree = "<group>";
 		};
 		9483C59A187AEA6B001074DD /* InfoPlist.strings */ = {

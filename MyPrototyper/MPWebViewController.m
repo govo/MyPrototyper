@@ -147,7 +147,12 @@
 {
     [self setMotionEnabled:NO];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
-    [actionSheet showInView:self.view];
+    
+    if ([UIApplication sharedApplication].windows.firstObject) {
+        [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
+    }else{
+        [actionSheet showInView:self.view];
+    }
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
@@ -316,7 +321,7 @@
 {
 //    NSLog(@"x:%f,y:%f,z:%f",acceleration.x,acceleration.y,acceleration.z);
     double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
-    if (accelerameter>2.7f) {
+    if (accelerameter>2.7f && _motionEnabled) {
         [self setMotionEnabled:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self handShaked];

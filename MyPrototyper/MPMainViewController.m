@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *help;
 - (IBAction)helpPressed:(id)sender;
 
+@property (strong,nonatomic) UIView *emptyView;
 
 @end
 
@@ -96,8 +97,7 @@
     }
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
-    
-    
+
     
     /*
     
@@ -181,27 +181,50 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-
+-(void)emptyButtonTouched:(id)sender
+{
+    self.segment.selectedSegmentIndex=1;
+    [self switchToTableList:1];
+}
 -(void)addEmptyHeader:(UITableView *)tableView
 {
-    return;
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)];
-    label.backgroundColor = [UIColor colorWithWhite:.95 alpha:1];
-    UIFont *font = [UIFont fontWithName:label.font.fontName size:12];
-    label.font = font;
-    
-    label.text = NSLocalizedString(@"emptyList", nil);
-    label.textColor = [UIColor grayColor];
-    label.hidden = NO;
-    label.textAlignment = NSTextAlignmentCenter;
-    [tableView setTableHeaderView:label];
-    [tableView reloadData];
+
+    UIView *emptyView = [[[NSBundle mainBundle] loadNibNamed:@"EmptyView" owner:self options:nil] firstObject];
+    tableView.scrollEnabled = NO;
+    emptyView.frame = CGRectMake(0, 0, tableView.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height);
+
+    switch (_segmentIndex) {
+        case 0:
+        {
+            if (_localFilesArray==nil) {
+                _localFilesArray = [NSMutableArray arrayWithArray:[self listFileAtPath:kDocumentDictory]];
+            }
+            if (_localFilesArray!=nil && _localFilesArray.count==0) {
+                
+                [emptyView viewWithTag:1].hidden = YES;
+            }else{
+                
+                [emptyView viewWithTag:2].hidden = YES;
+                UIView *view = [[emptyView viewWithTag:1] viewWithTag:3];
+                if ([view isKindOfClass:[UIButton class]]) {
+                    UIButton *button = (UIButton *)view;
+                    [button addTarget:self action:@selector(emptyButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+                }
+            }
+            
+        }
+            break;
+        case 1:
+            [emptyView viewWithTag:1].hidden = YES;
+
+    }
+    [tableView setTableHeaderView:emptyView];
     
 }
 -(void)removeEmptyHeader:(UITableView *)tableView
 {
-    return;
     tableView.tableHeaderView = nil;
+    tableView.scrollEnabled = YES;
 }
 #pragma mark - Table view data source
 
@@ -346,7 +369,7 @@
         }else{
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
-    }   
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -440,7 +463,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 52.0f;
+    return 58.0f;
 }
 /*
 // Override to support rearranging the table view.
@@ -652,6 +675,9 @@
             _localFilesArray = [NSMutableArray arrayWithArray:newArray];
             _datas = _localFilesArray;
             dispatch_sync(dispatch_get_main_queue(), ^{
+                if (_localFilesArray.count>0) {
+                    [self removeEmptyHeader:self.tableView];
+                }
                 [self.tableView reloadData];
             });
         }

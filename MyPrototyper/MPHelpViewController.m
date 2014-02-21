@@ -277,11 +277,16 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil), nil];
         
     }
-    [actionSheet showInView:self.view];
+//    NSLog(@"self.view:%@\n======\nscollview:%@\n=====\nsubviews:%@",self.view,self.mainScrollView,self.view.subviews);
+    if ([UIApplication sharedApplication].windows.firstObject) {
+        [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
+    }else{
+        [actionSheet showInView:self.view];
+    }
 
 }
 
--(void)dismissHelp
+-(void)dismissMe
 {
     if (self.navigationController) {
         [self.navigationController popViewControllerAnimated:YES];
@@ -307,7 +312,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     if (_isFirstUse) {
         switch (buttonIndex) {
             case 0:
-                [self dismissHelp];
+                [self dismissMe];
                 break;
             default:
                 [self setMotionEnabled:YES];
@@ -319,7 +324,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     switch (buttonIndex) {
         case 0:
         {
-            [self dismissHelp];
+            [self dismissMe];
             break;
         }
         case 1:
@@ -377,6 +382,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
             
     }
 }
+
 
 #pragma mark - FirstUse
 -(void)setupFirstUse
@@ -498,7 +504,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 {
     double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
 //    NSLog(@"acceleration:%f",accelerameter);
-    if (accelerameter>2.3f) {
+    if (accelerameter>2.3f && _motionEnabled) {
         [self setMotionEnabled:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self handShaked];
