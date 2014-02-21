@@ -314,6 +314,7 @@
 }
 -(void)outputAccelertionData:(CMAcceleration)acceleration
 {
+//    NSLog(@"x:%f,y:%f,z:%f",acceleration.x,acceleration.y,acceleration.z);
     double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
     if (accelerameter>2.7f) {
         [self setMotionEnabled:NO];
