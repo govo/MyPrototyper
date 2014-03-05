@@ -19,7 +19,13 @@
 #import "MPAVObject.h"
 
 
+
 #define kLocalFileNameColor [UIColor colorWithRed:0.f green:110.f/256.f blue:255.f/256.f alpha:1]
+
+#define kAlertTagReUnzip            30
+#define kAlertTagUnzipSuccessed     10
+
+
 
 @interface MPMainViewController (){
     NSMutableArray *_datas;
@@ -32,6 +38,7 @@
     
     NSString *_zipNeedPassword;
     NSString *_unZipFile;
+    BOOL _isReunzip;
     
     MBProgressHUD *HUD;
 }
@@ -117,18 +124,9 @@
     //企业证书不能保存keychain
     //http://blog.k-res.net/archives/1081.html
     //http://www.cnblogs.com/smileEvday/p/UDID.html
-    
-    /*
-    AVObject *previewCounter = [MPAVObject previewCounter];
-    [previewCounter incrementKey:KEY_AV_COUNT];
-    [previewCounter saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            NSLog(@"increased");
-        }else{
-            NSLog(@"increase failed:%@",error);
-        }
-    }];
-     */
+//    
+//    [MPAVObject previewCounterWithEvent:kAVObjectPreviewCounterEventFromZip];
+//    [MPAVObject unzipCounterWithEvent:kAVObjectReUnzip hasPwd:NO];
     
 }
 
@@ -403,6 +401,8 @@
 
             if (project.path) {
                 
+                [self updateOVAObjectPreviewWithEvent:kAVObjectPreviewCounterEventFromRow];
+                
                 [self showWebView:project.path];
             }
 
@@ -436,7 +436,7 @@
 //                    [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
                     
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Re-Unzip",nil),NSLocalizedString(@"Just Preview",nil), nil];
-                    alert.tag = 30;
+                    alert.tag = kAlertTagReUnzip;
                     [alert show];
                     
                     [storage.db closeOpenResultSets];
@@ -514,6 +514,10 @@
  */
 
 #pragma mark - utils
+-(void)updateOVAObjectPreviewWithEvent:(NSString *)event
+{
+    [MPAVObject previewCounterWithEvent:event];
+}
 
 -(NSArray *)listFileAtPath:(NSString *)path
 {
@@ -539,29 +543,30 @@
 {
     
     NSString *projectPath = kProjectDictory;
+    BOOL hasPwd = password !=nil;
 
     [self stopListenDocumentChange];
-
     
     dispatch_queue_t queue = dispatch_queue_create("session queue", DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue, ^{
     
-        BOOL isUnZiped = NO;
+        BOOL isUnZipOpened = NO;
         ZipArchive *zip = [[ZipArchive alloc] init];
         _zipNeedPassword = nil;
         if ([[file pathExtension] isEqualToString:@"zip"]) {
             
 
             if (password) {
-                isUnZiped = [zip UnzipOpenFile:file Password:password];
+                isUnZipOpened = [zip UnzipOpenFile:file Password:password];
             }else{
-                isUnZiped = [zip UnzipOpenFile:file];
+                isUnZipOpened = [zip UnzipOpenFile:file];
             }
-            NSLog(@"Do here?%@",isUnZiped?@"yes":@"no");
-            if (isUnZiped) {
+            NSLog(@"Do here?%@",isUnZipOpened?@"yes":@"no");
+            if (isUnZipOpened) {
                 BOOL needPassworld =[zip UnzipIsEncrypted];
                 if (needPassworld && !password) {
-                    NSLog(@"needPassword:%@",file);
+                    //need password but no password,then popup password input
+                    
                     _zipNeedPassword = file;
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -575,10 +580,13 @@
                     });
                     return;
                 }
-                //Unzip to File
+                
+                //Unzip to Disk
                 NSString *currentProjectPath = [projectPath stringByAppendingPathComponent:[self MD5:file]];
                 
                 if([zip UnzipFileTo:currentProjectPath overWrite:YES]){
+                    //unzip successed!
+                    
                     NSString *fileName = [file lastPathComponent];
                     
                     MPProject *project = [[MPProject alloc]init];
@@ -587,7 +595,6 @@
                     project.zip = file;
                     project.modifiedTime = [[NSDate date] timeIntervalSince1970];
                     MPStorage *storage = [[MPStorage alloc] init];
-                    //                    NSLog(@"project:%@",project);
                     
                     NSInteger rowId=0;
                     NSString *query = [NSString stringWithFormat:@"select * from %@ where %@ = ? limit 1;",TABLE_NAME,FIELD_ZIP];
@@ -604,19 +611,26 @@
                         }
                     }
                     [storage.db closeOpenResultSets];
-                    //                    [self listFileAtPath:currentProjectPath];// FOR testing
+                    //[self listFileAtPath:currentProjectPath];// FOR testing
                     NSLog(@"unzip successed! row id:%ld",(long)rowId);
+                    
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [HUD hide:YES];
                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unzip Successful!",nil) message:NSLocalizedString(@"Preview now?", @"Preview it!") delegate:self cancelButtonTitle:NSLocalizedString(@"Later", nil) otherButtonTitles:NSLocalizedString(@"Do Preview", nil), nil];
-                        alert.tag = 10;
+                        alert.tag = kAlertTagUnzipSuccessed;
                         _lastUnZip = currentProjectPath;
                         [alert show];
                         
                         [self listenDocumentChange];
                     });
-                    //                    NSLog(@"UnZipFile %@ to %@", file,currentProjectPath);
+                    //NSLog(@"UnZipFile %@ to %@", file,currentProjectPath);
+                    
+                    //AVOCloud
+                    [MPAVObject unzipCounterWithEvent:(_isReunzip?kAVObjectReUnzip:kAVObjectUnzip) result:kAVObjectResultSuccessed hasPwd:hasPwd];
+                    _isReunzip = NO;//RESULT
+                    
                 }else if(needPassworld && password){
+                    //Need password but failed, then popup input again;
                     
                     NSLog(@"retype password:%@",file);
                     _zipNeedPassword = file;
@@ -642,9 +656,15 @@
                         
                         [self listenDocumentChange];
                     });
+                    
+                    //AVOCloud
+                    [MPAVObject unzipCounterWithEvent:(_isReunzip?kAVObjectReUnzip:kAVObjectUnzip) result:kAVObjectResultFailed hasPwd:hasPwd];
+                    _isReunzip = NO;//RESET;
+                    
                     return;
                 }
-            }else{
+            }else
+            {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                     [HUD hide:YES];
@@ -653,6 +673,8 @@
                     
                     [self listenDocumentChange];
                 });
+                [MPAVObject unzipCounterWithEvent:(_isReunzip?kAVObjectReUnzip:kAVObjectUnzip) result:kAVObjectResultFailed hasPwd:hasPwd];
+                _isReunzip = NO;//RESET
             }
          
         }
@@ -743,14 +765,12 @@
 #pragma mark - UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (alertView.tag==8888) {
-        return;
-    }
     
     NSString *unziping = NSLocalizedString(@"Unziping",nil);
-    if(_lastUnZip && alertView.tag == 30 && buttonIndex ==2){
+    if(_lastUnZip && alertView.tag == kAlertTagReUnzip && buttonIndex ==2){
         [self showWebView:_lastUnZip];
         _lastUnZip = nil;
+        [self updateOVAObjectPreviewWithEvent:kAVObjectPreviewCounterEventFromZip];
         return;
     }
     switch (buttonIndex) {
@@ -765,19 +785,21 @@
                 
                 [self unZipFile:_zipNeedPassword withPassword:[alertView textFieldAtIndex:0].text];
                 _zipNeedPassword = nil;
-            }else if(_unZipFile && (alertView.tag == 20 || alertView.tag == 30)){
+            }else if(_unZipFile && (alertView.tag == kAlertTagReUnzip)){
                 
                 [HUD hide:NO];
                 HUD = [self whiteHUDWithIndeterminate];
                 HUD.labelText = unziping;
                 [HUD show:YES];
-                
+                _isReunzip = YES;
                 [self unZipFile:_unZipFile withPassword:nil];
+                
                 _unZipFile = nil;
                 
-            }else if(_lastUnZip && alertView.tag ==10){
+            }else if(_lastUnZip && alertView.tag == kAlertTagUnzipSuccessed){
 
                 [self showWebView:_lastUnZip];
+                [self updateOVAObjectPreviewWithEvent:kAVObjectPreviewCounterEventFromUnZip];
             }
         }
             break;
