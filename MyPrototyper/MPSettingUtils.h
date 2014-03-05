@@ -8,16 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kSettingFileName @".unziped_project_setting.out"
-#define kSettingGlobalDirectory [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-
-#define kAppVersion @"1.0.0"
-#define kSettingScrollBar @"scrollBar"
-#define kSettingStatusBar @"statusBar"
-#define kSettingLandSpace @"landSpace"
-#define kSettingAppVersion @"appVersion"
-#define kSettingIsFirstUse @"firstUse"
-#define kSettingGlobalSetting @"globalSetting.out"
 
 @interface MPSettingUtils : NSObject
 

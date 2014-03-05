@@ -7,16 +7,24 @@
 //
 
 #import "MPAppDelegate.h"
+#import <AVOSCloud/AVOSCloud.h>
 #import "iRate.h"
+#import "MPDevice.h"
 
+#define appID @"yxjbxbhr0erk12pp42ldwtdjvt821s9ymuolx4zi6tyqtajt"
+#define appKey @"eorarbsk3043lzqsrpxde8p1nfkcorhd09hamnygysco6468"
 
 @implementation MPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
     
+    [AVOSCloud setApplicationId:appID
+                      clientKey:appKey];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [AVUser enableAutomaticUser];
     return YES;
 }
 							

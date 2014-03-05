@@ -14,3 +14,20 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+#define PROJECT_PATH @"PROJECTS"
+
+#define kDocumentDictory    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define kProjectDictory     [kDocumentDictory stringByAppendingPathComponent:PROJECT_PATH]
+
+#define kGlobalMetaDirectory [kDocumentDictory stringByAppendingPathComponent:@"_META"]
+
+#define kAppVersion         [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]
+#define kSettingScrollBar   @"scrollBar"
+#define kSettingStatusBar   @"statusBar"
+#define kSettingLandSpace   @"landSpace"
+#define kSettingAppVersion  @"appVersion"
+#define kSettingIsFirstUse  @"firstUse"
+#define kSettingFileName    @"unziped_project_setting.out"
+#define kSettingGlobalSettingFileName @"globalSetting.out"

@@ -15,12 +15,10 @@
 #import "MBProgressHUD.h"
 #import "MPSettingUtils.h"
 #import "MPHelpViewController.h"
+#import "MPDevice.h"
+#import "MPAVObject.h"
 
 
-#define PROJECT_PATH @"PROJECTS"
-
-#define kDocumentDictory    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
-#define kProjectDictory [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:PROJECT_PATH]
 #define kLocalFileNameColor [UIColor colorWithRed:0.f green:110.f/256.f blue:255.f/256.f alpha:1]
 
 @interface MPMainViewController (){
@@ -80,8 +78,6 @@
     }
     
     
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
  
@@ -115,6 +111,25 @@
     [alert show];
     NSLog(@"luanch count:%ld,version:%d,%d",(long)luanchCount,appVersion,lastCommentVersion);
     */
+    
+    //UUID:http://www.doubleencore.com/2013/04/unique-identifiers/
+    //http://kensou.blog.51cto.com/3495587/1249734
+    //企业证书不能保存keychain
+    //http://blog.k-res.net/archives/1081.html
+    //http://www.cnblogs.com/smileEvday/p/UDID.html
+    
+    /*
+    AVObject *previewCounter = [MPAVObject previewCounter];
+    [previewCounter incrementKey:KEY_AV_COUNT];
+    [previewCounter saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"increased");
+        }else{
+            NSLog(@"increase failed:%@",error);
+        }
+    }];
+     */
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -350,7 +365,7 @@
                 
                 HUD = [self whiteHUDWithIndeterminate];
                 HUD.labelText = NSLocalizedString(@"Deleting", nill);
-                [HUD show:YES];
+                [HUD show:NO];
                 
                 [self stopListenDocumentChange];
                 filemanager = [[NSFileManager alloc] init];
@@ -364,6 +379,9 @@
         }
         
         if (_datas.count==0) {
+            if (self.tableView.isEditing) {
+                [self editPressed:self.navigationItem.rightBarButtonItem];
+            }
             [tableView reloadData];
             [self addEmptyHeader:tableView];
         }else{
@@ -381,8 +399,10 @@
         case 0:
         {
             MPProject *project = (MPProject *)[_projectListArray objectAtIndex:indexPath.row];
-            
+
+
             if (project.path) {
+                
                 [self showWebView:project.path];
             }
 
@@ -517,14 +537,8 @@
 }
 -(void)unZipFile:(NSString *)file withPassword:(NSString *)password
 {
-//    __block int count;
-    
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-//    NSString *projectPath = [[paths firstObject] stringByAppendingPathComponent:PROJECT_PATH];
     
     NSString *projectPath = kProjectDictory;
-//    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
-    
 
     [self stopListenDocumentChange];
 
@@ -691,11 +705,11 @@
 }
 
 - (IBAction)segmentedChange:(id)sender {
-    UISegmentedControl *segmented = (UISegmentedControl *) sender;
-    [self switchToTableList:segmented.selectedSegmentIndex];
     if (self.tableView.isEditing) {
         [self editPressed:self.navigationItem.rightBarButtonItem];
     }
+    UISegmentedControl *segmented = (UISegmentedControl *) sender;
+    [self switchToTableList:segmented.selectedSegmentIndex];
 }
 -(void)switchToTableList:(NSInteger)tag
 {

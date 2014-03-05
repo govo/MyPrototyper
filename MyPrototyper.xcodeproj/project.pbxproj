@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64513C4C6791463E93095C6C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF9BF068654A4CBC99CFEA /* libPods.a */; };
 		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
 		94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */; };
 		94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BD218AFA160005182A0 /* MessageUI.framework */; };
@@ -29,6 +30,10 @@
 		943F6BA018AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9C18AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 */; };
 		943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 943F6BA318AD1D5800253DF1 /* Tock.aiff */; };
 		943F6BA618AD24B400253DF1 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6BA518AD24B400253DF1 /* icon-72.png */; };
+		9480D51418C6067E00B67B2E /* MPKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51318C6067E00B67B2E /* MPKeyChain.m */; };
+		9480D51818C62B6E00B67B2E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9480D51718C62B6E00B67B2E /* AdSupport.framework */; };
+		9480D51B18C62C3900B67B2E /* MPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51A18C62C3900B67B2E /* MPDevice.m */; };
+		9480D52018C630A500B67B2E /* MPAVObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51F18C630A500B67B2E /* MPAVObject.m */; };
 		9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C591187AEA6B001074DD /* Foundation.framework */; };
 		9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C593187AEA6B001074DD /* CoreGraphics.framework */; };
 		9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C595187AEA6B001074DD /* UIKit.framework */; };
@@ -97,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		290B1BF725634156952384E5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		4FFF9BF068654A4CBC99CFEA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94149BAD18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
 		94149BAE18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
 		94149BAF18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -133,6 +140,13 @@
 		943F6B9C18AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiaohuangrenxiasheng_02.mp3; sourceTree = "<group>"; };
 		943F6BA318AD1D5800253DF1 /* Tock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tock.aiff; sourceTree = "<group>"; };
 		943F6BA518AD24B400253DF1 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72.png"; path = "MyPrototyper/icon-72.png"; sourceTree = "<group>"; };
+		9480D51218C6067E00B67B2E /* MPKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKeyChain.h; path = KeyChain/MPKeyChain.h; sourceTree = "<group>"; };
+		9480D51318C6067E00B67B2E /* MPKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPKeyChain.m; path = KeyChain/MPKeyChain.m; sourceTree = "<group>"; };
+		9480D51718C62B6E00B67B2E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9480D51918C62C3900B67B2E /* MPDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPDevice.h; path = Utils/MPDevice.h; sourceTree = "<group>"; };
+		9480D51A18C62C3900B67B2E /* MPDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPDevice.m; path = Utils/MPDevice.m; sourceTree = "<group>"; };
+		9480D51E18C630A500B67B2E /* MPAVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPAVObject.h; path = Utils/MPAVObject.h; sourceTree = "<group>"; };
+		9480D51F18C630A500B67B2E /* MPAVObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPAVObject.m; path = Utils/MPAVObject.m; sourceTree = "<group>"; };
 		9483C58E187AEA6B001074DD /* MyPrototyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPrototyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9483C591187AEA6B001074DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9483C593187AEA6B001074DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -215,6 +229,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9480D51818C62B6E00B67B2E /* AdSupport.framework in Frameworks */,
 				94149BDB18B0E4AD005182A0 /* CoreMotion.framework in Frameworks */,
 				94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */,
 				94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */,
@@ -223,6 +238,7 @@
 				9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */,
 				9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */,
 				9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */,
+				64513C4C6791463E93095C6C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +301,26 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
+		9480D51C18C62C6100B67B2E /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				9480D51218C6067E00B67B2E /* MPKeyChain.h */,
+				9480D51318C6067E00B67B2E /* MPKeyChain.m */,
+			);
+			name = KeyChain;
+			sourceTree = "<group>";
+		};
+		9480D51D18C62C7200B67B2E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9480D51918C62C3900B67B2E /* MPDevice.h */,
+				9480D51A18C62C3900B67B2E /* MPDevice.m */,
+				9480D51E18C630A500B67B2E /* MPAVObject.h */,
+				9480D51F18C630A500B67B2E /* MPAVObject.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		9483C585187AEA6B001074DD = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +340,7 @@
 				9483C5BC187AEA6B001074DD /* MyPrototyperTests */,
 				9483C590187AEA6B001074DD /* Frameworks */,
 				9483C58F187AEA6B001074DD /* Products */,
+				290B1BF725634156952384E5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,6 +356,7 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9480D51718C62B6E00B67B2E /* AdSupport.framework */,
 				94149BDA18B0E4AD005182A0 /* CoreMotion.framework */,
 				94149BD418AFCCCE005182A0 /* iRate */,
 				94149BD218AFA160005182A0 /* MessageUI.framework */,
@@ -332,6 +370,7 @@
 				9483C593187AEA6B001074DD /* CoreGraphics.framework */,
 				9483C595187AEA6B001074DD /* UIKit.framework */,
 				9483C5B6187AEA6B001074DD /* XCTest.framework */,
+				4FFF9BF068654A4CBC99CFEA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -339,6 +378,8 @@
 		9483C597187AEA6B001074DD /* MyPrototyper */ = {
 			isa = PBXGroup;
 			children = (
+				9480D51D18C62C7200B67B2E /* Utils */,
+				9480D51C18C62C6100B67B2E /* KeyChain */,
 				9483C5A0187AEA6B001074DD /* MPAppDelegate.h */,
 				9483C5A1187AEA6B001074DD /* MPAppDelegate.m */,
 				94357A4F18B722B80001C0EA /* EmptyView.xib */,
@@ -474,9 +515,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9483C5C6187AEA6B001074DD /* Build configuration list for PBXNativeTarget "MyPrototyper" */;
 			buildPhases = (
+				A999FC3CC1FE4D4DAE1D7E07 /* Check Pods Manifest.lock */,
 				9483C58A187AEA6B001074DD /* Sources */,
 				9483C58B187AEA6B001074DD /* Frameworks */,
 				9483C58C187AEA6B001074DD /* Resources */,
+				F1DFF860D2604BD197E2B55A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -604,6 +647,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A999FC3CC1FE4D4DAE1D7E07 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F1DFF860D2604BD197E2B55A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9483C58A187AEA6B001074DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -619,9 +695,11 @@
 				9416A34F187AF93C00F8C9EC /* FMDatabase.m in Sources */,
 				94ABB1AC187C2ACE004F19F9 /* zip.c in Sources */,
 				9416A351187AF93C00F8C9EC /* FMDatabasePool.m in Sources */,
+				9480D51418C6067E00B67B2E /* MPKeyChain.m in Sources */,
 				9416A352187AF93C00F8C9EC /* FMDatabaseQueue.m in Sources */,
 				94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */,
 				94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */,
+				9480D52018C630A500B67B2E /* MPAVObject.m in Sources */,
 				94ABB1B8187D61EC004F19F9 /* MPWebViewController.m in Sources */,
 				94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */,
 				9416A354187AF93C00F8C9EC /* FMResultSet.m in Sources */,
@@ -634,6 +712,7 @@
 				94ABB1AD187C2ACE004F19F9 /* ZipArchive.m in Sources */,
 				94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */,
 				9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */,
+				9480D51B18C62C3900B67B2E /* MPDevice.m in Sources */,
 				9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,7 +797,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -759,7 +838,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -792,6 +871,7 @@
 		};
 		9483C5C7187AEA6B001074DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -805,6 +885,7 @@
 		};
 		9483C5C8187AEA6B001074DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

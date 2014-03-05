@@ -37,9 +37,9 @@
     */
     
     if (_db==nil) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-        NSString *documentDirectory = [paths objectAtIndex:0];
-        NSString *dbPath = [documentDirectory stringByAppendingPathComponent:@"storage.db"];
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *documentDirectory = [paths objectAtIndex:0];
+        NSString *dbPath = [kGlobalMetaDirectory stringByAppendingPathComponent:@"storage.db"];
 //        NSLog(@"path: %@",dbPath);
         
         _db = [FMDatabase databaseWithPath:dbPath] ;
