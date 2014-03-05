@@ -234,7 +234,7 @@
                                                         <rect key="frame" x="20" y="290" width="280" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <string key="text">Zip for transmission,and unzip for preview.
-(Zip file only for now)</string>
+(Zip file only for now;Encryption zip is supported)</string>
                                                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -613,7 +613,7 @@
         <image name="second" width="30" height="30"/>
         <image name="shakephone.png" width="126" height="181"/>
         <image name="supports.png" width="250" height="283"/>
-        <image name="unzip.png" width="85" height="257"/>
+        <image name="unzip.png" width="170" height="250"/>
         <image name="welcome.png" width="150" height="250"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
