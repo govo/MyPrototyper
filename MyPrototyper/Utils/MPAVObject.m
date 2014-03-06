@@ -7,6 +7,7 @@
 //
 
 #import "MPAVObject.h"
+#import "MPDevice.h"
 
 NSString * const kAVObjectPreviewCounterEventFromRow = @"R";
 NSString * const kAVObjectPreviewCounterEventFromZip = @"Z";
@@ -95,6 +96,58 @@ NSString * const kAVObjectResultFailed = @"0";
         NSLog(@"objects:%@",obj);
     }];
      */
+}
+
++(void)onTapedWithEvent:(NSString *)event data:(NSString *)data
+{
+    if (!event) {
+        return;
+    }
+    AVObject *obj = [AVObject objectWithClassName:KEY_AV_TAPED_COUNTER];
+    [obj setObject:event forKey:KEY_AV_EVENT];
+    if (data) {
+        [obj setObject:data forKey:KEY_AV_DATA];
+    }
+    [obj saveEventually];
+}
+
++(void)userAutoLogin
+{
+    
+    if ([AVUser currentUser]==nil) {
+        AVUser *user = [AVUser user];
+        
+        user.username = [MPDevice advertiserIdentifier];
+        user.password = @"";
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"signUp user:Successed");
+            }else{
+                NSLog(@"signUp error:%@",error);
+            }
+            [AVUser logInWithUsernameInBackground:user.username password:user.password block:^(AVUser *user, NSError *error) {
+                NSLog(@"login:%@,:%@",user,error);
+            }];
+            
+        }];
+    }else{
+        NSLog(@"aready logined");
+    }
+}
+
++(void)sentFeedback:(NSString *)feedback contact:(NSString *)contact resultBlock:(AVBooleanResultBlock)block
+{
+    
+    if (!feedback) {
+        return;
+    }
+    AVObject *obj = [AVObject objectWithClassName:KEY_AV_FEEDBACK_OBJECT];
+    [obj setObject:feedback forKey:KEY_AV_FEEDBACK_CONTENT];
+    if (contact) {
+        [obj setObject:contact forKey:KEY_AV_CONTACT];
+    }
+    [obj saveInBackgroundWithBlock:block];
+    
 }
 
 @end

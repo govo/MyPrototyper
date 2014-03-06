@@ -15,6 +15,7 @@
 #import "MPSimpleWebViewController.h"
 #import "MPNavigationController.h"
 #import "iRate.h"
+#import "MPAVObject.h"
 
 
 
@@ -23,6 +24,7 @@
     MBProgressHUD *HUD;
     BOOL _isShaking;
     BOOL _motionEnabled;
+    int _maxPageIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -30,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @property (strong,nonatomic) CMMotionManager *motionManager;
+
+@property (weak,nonatomic) UIActionSheet *globalActionSheet;
 
 @end
 
@@ -94,6 +98,10 @@
     self.mainScrollView.translatesAutoresizingMaskIntoConstraints  = NO;
     self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
+    if (self.navigationController) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More",@"more") style:UIBarButtonItemStylePlain target:self action:@selector(showMore:)];
+    }
+    
     // Set the constraints for the scroll view and the image view.
     NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_mainScrollView, _contentView);
 
@@ -102,15 +110,21 @@
 //    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mainScrollView]|" options:0 metrics: 0 views:viewsDictionary]];
     [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
     [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
-
-//    NSLog(@"size:%@,%@",NSStringFromCGRect(self.contentView.frame),NSStringFromCGSize(self.mainScrollView.bounds.size));
-
-//    [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .1;
 
+
     
+}
+-(void)showFeedback
+{
+    UIViewController *cv = [self.storyboard instantiateViewControllerWithIdentifier:@"Feedback"];
+    [self.navigationController pushViewController:cv animated:YES];
+}
+-(void)showMore:(id)sender
+{
+    [self handShaked];
 }
 /*
 -(void)prepareSubViews
@@ -184,6 +198,7 @@
     if (self.pageControl.currentPage==(_isFirstUse?4:3)) {
         [self animateShakePhone];
     }
+    _maxPageIndex = MAX(_maxPageIndex, self.pageControl.currentPage);
 }
 -(void)animateShakePhone
 {
@@ -203,8 +218,6 @@
     } completion:^(BOOL finished) {
     }];
     [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(stopShakePhone:) userInfo:imageView repeats:NO];
-
-
     
 }
 /*
@@ -245,6 +258,10 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 {
     [self setMotionEnabled:NO];
     
+    if (self.globalActionSheet) {
+        [self.globalActionSheet dismissWithClickedButtonIndex:100 animated:NO];
+    }
+    
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     SystemSoundID soundID;
     
@@ -269,14 +286,15 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         
     }else if (YES || [[iRate sharedInstance] shouldPromptForRating]) {
         
-        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil),NSLocalizedString(@"rateMe", nil), nil];
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Email me", nil),NSLocalizedString(@"rateMe", nil), nil];
         actionSheet.tag = kReadyToRateTag;
         
     }else{
         
-        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"twitter", nil),NSLocalizedString(@"Email me", nil), nil];
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Feedback", nil),NSLocalizedString(@"Email me", nil), nil];
         
     }
+    self.globalActionSheet = actionSheet;
 //    NSLog(@"self.view:%@\n======\nscollview:%@\n=====\nsubviews:%@",self.view,self.mainScrollView,self.view.subviews);
     if ([UIApplication sharedApplication].windows.firstObject) {
         [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
@@ -313,6 +331,10 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         switch (buttonIndex) {
             case 0:
                 [self dismissMe];
+                
+                //AVOCloud
+                [MPAVObject onTapedWithEvent:KEY_AV_HELP_PAGE data:[NSString stringWithFormat:@"%d",_maxPageIndex]];
+                
                 break;
             default:
                 [self setMotionEnabled:YES];
@@ -329,6 +351,12 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         }
         case 1:
         {
+            [self showFeedback];
+            break;
+        }
+        case -1:
+        {
+            return;
             NSString *twitterURL = NSLocalizedString(@"twitterUrl", nil);
             
             NSURL *URL = [NSURL URLWithString:NSLocalizedString(@"twitterScheme", nil)];

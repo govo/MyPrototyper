@@ -15,4 +15,11 @@
 	passwordTips = "The file was protected with a password when it was created.Please input that password.";
 	emptyList = "List is Empty";
 	canNotUnzip = "Can not unzip file. Please make sure it is a correct zip file.";
+	Feedback = Feedback;
+	errorContentResend = "Already send!";
+	Sent = Sent;
+	sending = Sending;
+	"feedbackSendSuccessed" = "Sending Successful! Thank you!";
+	feedbackSendFailed = "Sending Failed";
+	offlineAndLater = "Opps! The Internet connection appears to be offline.";
 }

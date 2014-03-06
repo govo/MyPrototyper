@@ -23,8 +23,7 @@
     [AVOSCloud setApplicationId:appID
                       clientKey:appKey];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    [AVUser enableAutomaticUser];
+
     return YES;
 }
 							

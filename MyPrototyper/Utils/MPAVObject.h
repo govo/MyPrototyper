@@ -11,11 +11,23 @@
 
 #define KEY_AV_PREVIEW_COUNTER      @"PreviewCounter"
 #define KEY_AV_UNZIP_COUNTER        @"UnzipCounter"
+#define KEY_AV_TAPED_COUNTER        @"TapedCounter"
+#define KEY_AV_FEEDBACK_OBJECT      @"Feedback"
 
 #define KEY_AV_EVENT                @"event"
 #define KEY_AV_COUNT                @"count"
 #define KEY_AV_RESULT               @"result"
 #define KEY_AV_HASPWD               @"hasPwd"
+#define KEY_AV_DATA                 @"data"
+#define KEY_AV_SEGMENTED            @"segmented"
+#define KEY_AV_HELP                 @"help"
+#define KEY_AV_EDIT                 @"edit"
+#define KEY_AV_HELP_PAGE            @"helpPage"
+#define KEY_AV_SET                  @"set"
+
+#define KEY_AV_CONTACT              @"contact"
+#define KEY_AV_FEEDBACK_CONTENT     @"feedback"
+
 
 extern NSString * const kAVObjectPreviewCounterEventFromRow;
 extern NSString * const kAVObjectPreviewCounterEventFromZip;
@@ -30,6 +42,9 @@ extern NSString * const kAVObjectResultFailed;
 
 +(void)previewCounterWithEvent:(NSString *)event;
 +(void)unzipCounterWithEvent:(NSString *)event result:(NSString *)result hasPwd:(BOOL)hasPwd;
++(void)onTapedWithEvent:(NSString *)event data:(NSString *)data;
++(void)userAutoLogin;
++(void)sentFeedback:(NSString *)feedback contact:(NSString *)contact resultBlock:(AVBooleanResultBlock)block;
 
 
 @end

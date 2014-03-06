@@ -58,13 +58,13 @@
             NSLog(@"save globalSetting error");
         }
     }
-    NSLog(@"path:%@",baseSettingPath);
+
     return baseSetting;
 }
 +(void)saveGlobalSetting:(NSDictionary *)dict
 {
     NSString *baseSettingPath = [kGlobalMetaDirectory stringByAppendingPathComponent:kSettingGlobalSettingFileName];
-    NSLog(@"path :%@",dict);
+
     if (dict!=nil) {
         [self createDirectory:kGlobalMetaDirectory];
         [dict writeToFile:baseSettingPath atomically:YES];

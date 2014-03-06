@@ -34,6 +34,7 @@
 		9480D51818C62B6E00B67B2E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9480D51718C62B6E00B67B2E /* AdSupport.framework */; };
 		9480D51B18C62C3900B67B2E /* MPDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51A18C62C3900B67B2E /* MPDevice.m */; };
 		9480D52018C630A500B67B2E /* MPAVObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51F18C630A500B67B2E /* MPAVObject.m */; };
+		9480D52318C83CAC00B67B2E /* MPFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D52218C83CAC00B67B2E /* MPFeedbackViewController.m */; };
 		9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C591187AEA6B001074DD /* Foundation.framework */; };
 		9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C593187AEA6B001074DD /* CoreGraphics.framework */; };
 		9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9483C595187AEA6B001074DD /* UIKit.framework */; };
@@ -104,12 +105,18 @@
 /* Begin PBXFileReference section */
 		290B1BF725634156952384E5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4FFF9BF068654A4CBC99CFEA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		940FD64818C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		940FD64918C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/EmptyView.strings"; sourceTree = "<group>"; };
+		940FD64A18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
+		940FD64B18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
+		940FD64C18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		940FD64D18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94149BAD18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
 		94149BAE18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
 		94149BAF18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94149BB018AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		94149BCC18AF5273005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		94149BCE18AF75E8005182A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		94149BCE18AF75E8005182A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; usesTabs = 0; };
 		94149BCF18AF8DC2005182A0 /* MPSimpleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSimpleWebViewController.h; sourceTree = "<group>"; };
 		94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSimpleWebViewController.m; sourceTree = "<group>"; };
 		94149BD218AFA160005182A0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -147,6 +154,8 @@
 		9480D51A18C62C3900B67B2E /* MPDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPDevice.m; path = Utils/MPDevice.m; sourceTree = "<group>"; };
 		9480D51E18C630A500B67B2E /* MPAVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPAVObject.h; path = Utils/MPAVObject.h; sourceTree = "<group>"; };
 		9480D51F18C630A500B67B2E /* MPAVObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPAVObject.m; path = Utils/MPAVObject.m; sourceTree = "<group>"; };
+		9480D52118C83CAC00B67B2E /* MPFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPFeedbackViewController.h; sourceTree = "<group>"; };
+		9480D52218C83CAC00B67B2E /* MPFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPFeedbackViewController.m; sourceTree = "<group>"; };
 		9483C58E187AEA6B001074DD /* MyPrototyper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPrototyper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9483C591187AEA6B001074DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9483C593187AEA6B001074DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -399,6 +408,8 @@
 				94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */,
 				94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */,
 				94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */,
+				9480D52118C83CAC00B67B2E /* MPFeedbackViewController.h */,
+				9480D52218C83CAC00B67B2E /* MPFeedbackViewController.m */,
 				9486711D18A083AF002165CF /* MPNavigationController.h */,
 				9486711E18A083AF002165CF /* MPNavigationController.m */,
 				94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */,
@@ -579,6 +590,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 9483C585187AEA6B001074DD;
 			productRefGroup = 9483C58F187AEA6B001074DD /* Products */;
@@ -687,6 +699,7 @@
 			files = (
 				9486711C189E856E002165CF /* MPTabBarController.m in Sources */,
 				94ABB1AB187C2ACE004F19F9 /* unzip.c in Sources */,
+				9480D52318C83CAC00B67B2E /* MPFeedbackViewController.m in Sources */,
 				9486715818A09685002165CF /* MBProgressHUD.m in Sources */,
 				94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */,
 				94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */,
@@ -741,6 +754,7 @@
 			children = (
 				94149BCC18AF5273005182A0 /* zh-Hans */,
 				94149BCE18AF75E8005182A0 /* en */,
+				940FD64818C8DC050033F499 /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -750,6 +764,7 @@
 			children = (
 				94357A4E18B722B80001C0EA /* Base */,
 				948D4E8118B722F700645CC5 /* zh-Hans */,
+				940FD64918C8DC050033F499 /* zh-Hant */,
 			);
 			name = EmptyView.xib;
 			sourceTree = "<group>";
@@ -759,6 +774,7 @@
 			children = (
 				9483C59B187AEA6B001074DD /* en */,
 				94149BAF18AE8A44005182A0 /* zh-Hans */,
+				940FD64C18C8DC050033F499 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -768,6 +784,7 @@
 			children = (
 				9483C5A4187AEA6B001074DD /* Base */,
 				94149BAD18AE8A44005182A0 /* zh-Hans */,
+				940FD64A18C8DC050033F499 /* zh-Hant */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -777,6 +794,7 @@
 			children = (
 				9483C5A7187AEA6B001074DD /* Base */,
 				94149BAE18AE8A44005182A0 /* zh-Hans */,
+				940FD64B18C8DC050033F499 /* zh-Hant */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -786,6 +804,7 @@
 			children = (
 				9483C5C0187AEA6B001074DD /* en */,
 				94149BB018AE8A44005182A0 /* zh-Hans */,
+				940FD64D18C8DC050033F499 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

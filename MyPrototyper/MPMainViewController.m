@@ -7,6 +7,7 @@
 //
 
 #import "MPMainViewController.h"
+#import <CoreMotion/CoreMotion.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "MPStorage.h"
 #import "MPProject.h"
@@ -41,10 +42,13 @@
     BOOL _isReunzip;
     
     MBProgressHUD *HUD;
+    
+
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *help;
 - (IBAction)helpPressed:(id)sender;
+
 
 @property (strong,nonatomic) UIView *emptyView;
 
@@ -124,11 +128,19 @@
     //企业证书不能保存keychain
     //http://blog.k-res.net/archives/1081.html
     //http://www.cnblogs.com/smileEvday/p/UDID.html
-//    
+//    TEST
 //    [MPAVObject previewCounterWithEvent:kAVObjectPreviewCounterEventFromZip];
 //    [MPAVObject unzipCounterWithEvent:kAVObjectReUnzip hasPwd:NO];
+//    [MPAVObject onTapedWithEvent:KEY_AV_RESULT data:@"good"];
+    
+    //user auto login
+    [MPAVObject userAutoLogin];
+    
+//    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Feedback"];
+//    [self.navigationController pushViewController:vc animated:YES];
     
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     if (_segmentIndex==1) {
@@ -193,6 +205,7 @@
     //    [self.navigationController pushViewController:controller animated:YES];
     [self presentViewController:controller animated:YES completion:nil];
 }
+
 
 -(void)emptyButtonTouched:(id)sender
 {
@@ -478,7 +491,9 @@
             controller.path = project.path;
         }
         [self.navigationController pushViewController:controller animated:YES];
-
+        
+        //AVOCloud
+        [MPAVObject onTapedWithEvent:KEY_AV_SET data:@"out"];
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -732,6 +747,9 @@
     }
     UISegmentedControl *segmented = (UISegmentedControl *) sender;
     [self switchToTableList:segmented.selectedSegmentIndex];
+    
+    //AVOCloud
+    [MPAVObject onTapedWithEvent:KEY_AV_SEGMENTED data:[NSString stringWithFormat:@"%d",segmented.selectedSegmentIndex]];
 }
 -(void)switchToTableList:(NSInteger)tag
 {
@@ -826,6 +844,9 @@
 - (IBAction)helpPressed:(id)sender {
     UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
     [self.navigationController pushViewController:controller animated:YES];
+    
+    //AVOCloud
+    [MPAVObject onTapedWithEvent:KEY_AV_HELP data:nil];
 }
 
 - (void)editPressed:(id)sender {
@@ -833,8 +854,14 @@
         self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit",@"Edit");
         [self.tableView setEditing:NO animated:YES];
     }else{
+        
         [self.tableView setEditing:YES animated:YES];
         self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done",@"Done");
+        
+        //AVOCloud
+        [MPAVObject onTapedWithEvent:KEY_AV_EDIT data:nil];
     }
+    
 }
+
 @end

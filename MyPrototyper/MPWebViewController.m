@@ -11,6 +11,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "MPSettingUtils.h"
 #import "MPNavigationController.h"
+#import "MPAVObject.h"
 
 @interface MPWebViewController (){
     NSString *_filePath;
@@ -21,6 +22,7 @@
 }
 
 @property(strong,nonatomic) CMMotionManager *motionManager;
+@property(weak,nonatomic) UIActionSheet *globalActionSheet;
 
 @end
 
@@ -146,8 +148,11 @@
 -(void)handShaked
 {
     [self setMotionEnabled:NO];
+    if (self.globalActionSheet!=nil) {
+        [self.globalActionSheet dismissWithClickedButtonIndex:100 animated:NO];
+    }
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
-    
+    self.globalActionSheet = actionSheet;
     if ([UIApplication sharedApplication].windows.firstObject) {
         [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
     }else{
@@ -191,6 +196,10 @@
                 settingController.path = _filePath;
             }
             [self presentViewController:controller animated:YES completion:nil];
+            
+            
+            //AVOCloud
+            [MPAVObject onTapedWithEvent:KEY_AV_SET data:@"in"];
 
         }
             break;
@@ -198,6 +207,12 @@
             [self setMotionEnabled:YES];
             [self motionStart];
 
+    }
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (self.globalActionSheet) {
+        self.globalActionSheet = nil;
     }
 }
 #pragma mark - Rotations
