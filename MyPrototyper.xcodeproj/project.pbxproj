@@ -897,6 +897,7 @@
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9F1A67F0-13E0-4AC0-A1BB-DA5B1C1DD3B2";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -911,6 +912,7 @@
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9F1A67F0-13E0-4AC0-A1BB-DA5B1C1DD3B2";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
