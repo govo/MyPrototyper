@@ -43,6 +43,10 @@
     
     MBProgressHUD *HUD;
     
+    NSString *_exampleZip;
+    NSString *_exampleName;
+    
+    NSString *_viewName;
 
 }
 
@@ -69,23 +73,33 @@
 {
     [super viewDidLoad];
     NSLog(@"APP PATH:%@",kDocumentDictory);
-    
+    _viewName = @"Main";
+
     NSDictionary *globalSetting = [MPSettingUtils globalSetting];
+    
+    //Example ready
+    NSString *exampleFilename = NSLocalizedString(@"Prototyper Example", nil);
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *examplePath =[cachePath stringByAppendingPathComponent:[exampleFilename stringByAppendingPathExtension:@"zip"]];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
     if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
         MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
         helpController.isFirstUse = YES;
         [self presentViewController:helpController animated:NO completion:nil];
         
-        NSFileManager *fileManager = [NSFileManager defaultManager];
 
-        NSString *exampleFilename = NSLocalizedString(@"Prototyper Example", nil);
+        _exampleName = exampleFilename;
+        _exampleZip = examplePath;
         
-        NSString *examplePath =[kDocumentDictory stringByAppendingPathComponent:[exampleFilename stringByAppendingPathExtension:@"zip"]];
         if (![fileManager fileExistsAtPath:examplePath]) {
             [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"Prototyper Example" ofType:@"zip"] toPath:examplePath error:nil];
         }
         
+    }else if([fileManager fileExistsAtPath:examplePath]){
+        
+        _exampleName = exampleFilename;
+        _exampleZip = examplePath;
     }
     
     
@@ -134,11 +148,24 @@
 //    [MPAVObject onTapedWithEvent:KEY_AV_RESULT data:@"good"];
     
     //user auto login
-    [MPAVObject userAutoLogin];
+//    [MPAVObject userAutoLogin];
     
 //    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Feedback"];
 //    [self.navigationController pushViewController:vc animated:YES];
     
+    
+#if 0
+    
+    Class cls = NSClassFromString(@"UMANUtil");
+    SEL deviceIDSelector = @selector(openUDIDString);
+    NSString *deviceID = nil;
+    if(cls && [cls respondsToSelector:deviceIDSelector]){
+        deviceID = [cls performSelector:deviceIDSelector];
+    }
+    NSLog(@"{\"oid\": \"%@\"}", deviceID);
+
+#endif
+
 }
 
 
@@ -147,6 +174,7 @@
         [self listenDocumentChange];
     }
     self.title = NSLocalizedString(@"List", nil);
+    [MPAVObject beginLogPageView:_viewName];
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -154,6 +182,7 @@
         [self stopListenDocumentChange];
     }
     self.title = NSLocalizedString(@"Back", nil);
+    [MPAVObject endLogPageView:_viewName];
 }
 
 - (void)didReceiveMemoryWarning
@@ -222,11 +251,14 @@
     switch (_segmentIndex) {
         case 0:
         {
+            //检查是否存在压缩包，如果存在，提示用户可以去解压，否则提示用户可以传输文件
             if (_localFilesArray==nil) {
                 _localFilesArray = [NSMutableArray arrayWithArray:[self listFileAtPath:kDocumentDictory]];
+                if (_exampleZip) {
+                    [_localFilesArray insertObject:_exampleZip atIndex:0];
+                }
             }
             if (_localFilesArray!=nil && _localFilesArray.count==0) {
-                
                 [emptyView viewWithTag:1].hidden = YES;
             }else{
                 
@@ -276,7 +308,11 @@
         {
             MPProject *project = (MPProject *)[_datas objectAtIndex:indexPath.row];
             cell.textLabel.text = project.name;
-            cell.textLabel.textColor=[UIColor blackColor];
+            if ([project.path rangeOfString:kProjectDictory].location!=NSNotFound) {
+                cell.textLabel.textColor=[UIColor blackColor];
+            }else{
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+            }
 //            NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
 //            [formatter setDateStyle:NSDateFormatterMediumStyle];
 //            [formatter setTimeStyle:NSDateFormatterMediumStyle];
@@ -294,14 +330,23 @@
             
         default:
         {
-            cell.textLabel.text = [_datas objectAtIndex:indexPath.row];
-            cell.textLabel.textColor=kLocalFileNameColor;
+            NSString *file = [_datas objectAtIndex:indexPath.row];
+            if (_exampleZip && [file isEqualToString:_exampleZip]) {
+                file = _exampleName;
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+            }else{
+                cell.textLabel.textColor=kLocalFileNameColor;
+            }
+            cell.textLabel.text = file;
 //            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ 文件", [cell.textLabel.text pathExtension]];
+            
             [cell setAccessoryType:UITableViewCellAccessoryNone];
         }
             break;
     }
-    
+    if (NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    }
     return cell;
 }
 
@@ -380,7 +425,14 @@
                 
                 [self stopListenDocumentChange];
                 filemanager = [[NSFileManager alloc] init];
-                [filemanager removeItemAtPath:[kDocumentDictory stringByAppendingPathComponent:[_localFilesArray objectAtIndex:indexPath.row]] error:&error];
+                NSString *filename = [_localFilesArray objectAtIndex:indexPath.row];
+                if (_exampleZip && [filename isEqualToString:_exampleZip]) {
+                    [filemanager removeItemAtPath:_exampleZip error:&error];
+                    _exampleZip = nil;
+                    _exampleName = nil;
+                }else{
+                    [filemanager removeItemAtPath:[kDocumentDictory stringByAppendingPathComponent:filename] error:&error];
+                }
                 [_localFilesArray removeObjectAtIndex:indexPath.row];
                 _datas = _localFilesArray;
                 [self listenDocumentChange];
@@ -424,15 +476,25 @@
             
         case 1:
         {
-            if (NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
-                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-                cell.textLabel.textColor = [UIColor whiteColor];
-            }
+//            if (NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
+//                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//                cell.textLabel.textColor = [UIColor darkGrayColor];
+//            }
             
             NSString *file = [_localFilesArray objectAtIndex:indexPath.row];
+            NSString *fileName = nil;
+//            if (_exampleZip && [file isEqualToString:_exampleZip]) {
+//                file = [_exampleName stringByAppendingPathExtension:@"zip"];
+//            }
+            
             if ([[file pathExtension] isEqualToString:@"zip"]) {
-                
-                _unZipFile = [kDocumentDictory stringByAppendingPathComponent:file];
+                if (_exampleZip && [file isEqualToString:_exampleZip]) {
+                    _unZipFile = _exampleZip;
+                    fileName = _exampleName;
+                }else{
+                    _unZipFile = [kDocumentDictory stringByAppendingPathComponent:file];
+                    fileName = [file stringByDeletingPathExtension];
+                }
                 
                 MPStorage *storage = [[MPStorage alloc] init];
                 
@@ -445,7 +507,7 @@
                     _lastUnZip = [rs objectForColumnName:FIELD_PATH];
                     title = NSLocalizedString(@"Re-Unzip",nil);
                     message =
-                    [NSString stringWithFormat:NSLocalizedString(@"\"%@\" exists,\nOverwrite?",nil),[file stringByDeletingPathExtension] ,nil];
+                    [NSString stringWithFormat:NSLocalizedString(@"\"%@\" exists,\nOverwrite?",nil),fileName ,nil];
 //                    [[@"已有原型“" stringByAppendingString:[file stringByDeletingPathExtension]] stringByAppendingString:@"”，\n重新解压将覆盖原有文件，\n是否重新解压？"];
                     
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"Re-Unzip",nil),NSLocalizedString(@"Just Preview",nil), nil];
@@ -557,7 +619,13 @@
 -(void)unZipFile:(NSString *)file withPassword:(NSString *)password
 {
     
-    NSString *projectPath = kProjectDictory;
+    NSString *projectPath = nil;
+    if (_exampleZip && [file isEqualToString:_exampleZip]) {
+        projectPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] ;
+    }else{
+        projectPath = kProjectDictory;
+    }
+    
     BOOL hasPwd = password !=nil;
 
     [self stopListenDocumentChange];
@@ -720,10 +788,17 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSArray *newArray = [self listFileAtPath:kDocumentDictory];
+        int count = [newArray count];
+        if (_exampleZip) {
+            count++;
+        }
         
 //        NSLog(@"file changed:%ld,%ld",(unsigned long)[newArray count],(unsigned long)[_localFilesArray count]);
-        if ([newArray count]!=[_localFilesArray count]) {
+        if (count!=[_localFilesArray count]) {
             _localFilesArray = [NSMutableArray arrayWithArray:newArray];
+            if (_exampleZip) {
+                [_localFilesArray insertObject:_exampleZip atIndex:0];
+            }
             _datas = _localFilesArray;
             dispatch_sync(dispatch_get_main_queue(), ^{
                 if (_localFilesArray.count>0) {
@@ -749,7 +824,7 @@
     [self switchToTableList:segmented.selectedSegmentIndex];
     
     //AVOCloud
-    [MPAVObject onTapedWithEvent:KEY_AV_SEGMENTED data:[NSString stringWithFormat:@"%d",segmented.selectedSegmentIndex]];
+    [MPAVObject onTapedWithEvent:KEY_AV_SEGMENTED data:[NSString stringWithFormat:@"%ld",(long)segmented.selectedSegmentIndex]];
 }
 -(void)switchToTableList:(NSInteger)tag
 {
@@ -762,8 +837,15 @@
             break;
             
         default:
+            
+//            if (NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
+//
+//            }
             if (_localFilesArray==nil) {
                 _localFilesArray = [NSMutableArray arrayWithArray:[self listFileAtPath:kDocumentDictory]];
+                if (_exampleZip) {
+                    [_localFilesArray insertObject:_exampleZip atIndex:0];
+                }
             }
             [self listenDocumentChange];
             _datas = _localFilesArray;
@@ -846,7 +928,7 @@
     [self.navigationController pushViewController:controller animated:YES];
     
     //AVOCloud
-    [MPAVObject onTapedWithEvent:KEY_AV_HELP data:nil];
+    [MPAVObject onTapedWithEvent:KEY_AV_TAPED_COUNTER data:KEY_AV_HELP];
 }
 
 - (void)editPressed:(id)sender {
@@ -859,7 +941,7 @@
         self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done",@"Done");
         
         //AVOCloud
-        [MPAVObject onTapedWithEvent:KEY_AV_EDIT data:nil];
+        [MPAVObject onTapedWithEvent:KEY_AV_TAPED_COUNTER data:KEY_AV_EDIT];
     }
     
 }

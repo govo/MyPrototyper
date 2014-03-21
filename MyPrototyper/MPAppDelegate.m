@@ -10,9 +10,13 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "iRate.h"
 #import "MPDevice.h"
+#import "MobClick.h"
+
 
 #define appID @"yxjbxbhr0erk12pp42ldwtdjvt821s9ymuolx4zi6tyqtajt"
 #define appKey @"eorarbsk3043lzqsrpxde8p1nfkcorhd09hamnygysco6468"
+
+#define UMENG_APPKEY @"53216e5a56240bbd1c002033"
 
 @implementation MPAppDelegate
 
@@ -20,9 +24,17 @@
 {
     // Override point for customization after application launch.
     
-    [AVOSCloud setApplicationId:appID
-                      clientKey:appKey];
-    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    //AVOSCloud
+    [AVOSCloud setApplicationId:appID clientKey:appKey];
+    
+    //友盟
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:SEND_INTERVAL channelId:nil];
+    [MobClick setAppVersion:XcodeAppVersion];
+    [MobClick checkUpdate];
+    
+//    [MobClick updateOnlineConfig];  //在线参数配置
+    
+//    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
 }

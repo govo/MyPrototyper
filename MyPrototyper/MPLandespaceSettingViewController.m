@@ -7,9 +7,11 @@
 //
 
 #import "MPLandespaceSettingViewController.h"
+#import "MPAVObject.h"
 
 @interface MPLandespaceSettingViewController (){
     NSInteger _lastSelected;
+    NSString *_viewName;
 }
 
 @end
@@ -28,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _viewName = @"OrientationSetting";
 
     switch (self.orientation) {
         case UIInterfaceOrientationMaskPortrait:
@@ -64,6 +67,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MPAVObject beginLogPageView:_viewName];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MPAVObject endLogPageView:_viewName];
 }
 
 

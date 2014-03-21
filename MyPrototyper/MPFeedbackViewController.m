@@ -20,6 +20,8 @@
     
     NSString *_feedbackContent;
     NSString *_feedbackContact;
+    
+    NSString *_viewName;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
@@ -65,6 +67,18 @@
     self.backgroundTextField.layer.borderColor=[[UIColor lightGrayColor]CGColor];
     self.backgroundTextField.layer.borderWidth= 1.0f;
 
+    _viewName = @"Feedback";
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MPAVObject beginLogPageView:_viewName];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MPAVObject endLogPageView:_viewName];
 }
 -(void)viewDidAppear:(BOOL)animated
 {

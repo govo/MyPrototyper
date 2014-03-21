@@ -12,7 +12,6 @@
 #import "MPAppDelegate.h"
 #import "MBProgressHUD.h"
 #import "MPSettingUtils.h"
-#import "MPSimpleWebViewController.h"
 #import "MPNavigationController.h"
 #import "iRate.h"
 #import "MPAVObject.h"
@@ -25,6 +24,7 @@
     BOOL _isShaking;
     BOOL _motionEnabled;
     int _maxPageIndex;
+    NSString *_viewName;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -93,6 +93,9 @@
     
     if (_isFirstUse) {
         [self setupFirstUse];
+        _viewName = @"FirstUseHelp";
+    }else{
+        _viewName = @"Help";
     }
 
     self.mainScrollView.translatesAutoresizingMaskIntoConstraints  = NO;
@@ -156,11 +159,18 @@
 //        [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    }
     
+    [MPAVObject beginLogPageView:_viewName];
     
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MPAVObject endLogPageView:_viewName];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self setMotionEnabled:YES];
     [self motionStart];
     
@@ -172,11 +182,12 @@
 #if TARGET_IPHONE_SIMULATOR
     [self becomeFirstResponder];
 #endif
+
     
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-
+    [super viewDidDisappear:animated];
     [self.motionManager stopAccelerometerUpdates];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -267,7 +278,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     
     //        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"xiaohuangrenxiasheng_02" ofType:@"mp3"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mytick" ofType:@"mp3"];
     //        NSLog(@"sound path :%@ ",path);
     if (path) {
         SystemSoundID theSoundID;
@@ -333,7 +344,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
                 [self dismissMe];
                 
                 //AVOCloud
-                [MPAVObject onTapedWithEvent:KEY_AV_HELP_PAGE data:[NSString stringWithFormat:@"%d",_maxPageIndex]];
+                [MPAVObject onTapedWithEvent:KEY_AV_HELP_FIRST_COUNTER data:[NSString stringWithFormat:@"%d",_maxPageIndex]];
                 
                 break;
             default:

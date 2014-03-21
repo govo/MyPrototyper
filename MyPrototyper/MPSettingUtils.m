@@ -44,8 +44,6 @@
 }
 +(NSDictionary *)globalSetting
 {
-    
-
     NSString *baseSettingPath = [kGlobalMetaDirectory stringByAppendingPathComponent:kSettingGlobalSettingFileName];
     NSDictionary *baseSetting = [NSDictionary dictionaryWithContentsOfFile:baseSettingPath];
     if (baseSetting==nil) {

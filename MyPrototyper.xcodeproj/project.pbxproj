@@ -27,7 +27,6 @@
 		943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */; };
 		943F6B9818AD0E6800253DF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9518AD0E6800253DF1 /* Default.png */; };
 		943F6B9918AD0E6800253DF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9618AD0E6800253DF1 /* Default@2x.png */; };
-		943F6BA018AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9C18AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 */; };
 		943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 943F6BA318AD1D5800253DF1 /* Tock.aiff */; };
 		943F6BA618AD24B400253DF1 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6BA518AD24B400253DF1 /* icon-72.png */; };
 		9480D51418C6067E00B67B2E /* MPKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9480D51318C6067E00B67B2E /* MPKeyChain.m */; };
@@ -87,6 +86,10 @@
 		94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */; };
 		94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */; };
 		94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */; };
+		94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */; };
+		94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */; };
+		94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2818DC42C100E32A49 /* libz.dylib */; };
+		94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */; };
 		94CD406218A69FF8000E93AA /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406018A69FF8000E93AA /* welcome.png */; };
 		94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406118A69FF8000E93AA /* welcome@2x.png */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
@@ -144,7 +147,6 @@
 		943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "MyPrototyper/Default-568h@2x.png"; sourceTree = "<group>"; };
 		943F6B9518AD0E6800253DF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = MyPrototyper/Default.png; sourceTree = "<group>"; };
 		943F6B9618AD0E6800253DF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "MyPrototyper/Default@2x.png"; sourceTree = "<group>"; };
-		943F6B9C18AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiaohuangrenxiasheng_02.mp3; sourceTree = "<group>"; };
 		943F6BA318AD1D5800253DF1 /* Tock.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tock.aiff; sourceTree = "<group>"; };
 		943F6BA518AD24B400253DF1 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-72.png"; path = "MyPrototyper/icon-72.png"; sourceTree = "<group>"; };
 		9480D51218C6067E00B67B2E /* MPKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPKeyChain.h; path = KeyChain/MPKeyChain.h; sourceTree = "<group>"; };
@@ -227,6 +229,11 @@
 		94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingViewController.m; sourceTree = "<group>"; };
 		94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingUtils.h; sourceTree = "<group>"; };
 		94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingUtils.m; sourceTree = "<group>"; };
+		94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary_armv6.a; sourceTree = "<group>"; };
+		94BFBD2518DC41DA00E32A49 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		94BFBD2818DC42C100E32A49 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytick.mp3; sourceTree = "<group>"; };
 		94CD406018A69FF8000E93AA /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
 		94CD406118A69FF8000E93AA /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
@@ -238,6 +245,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */,
+				94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */,
 				9480D51818C62B6E00B67B2E /* AdSupport.framework in Frameworks */,
 				94149BDB18B0E4AD005182A0 /* CoreMotion.framework in Frameworks */,
 				94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */,
@@ -247,6 +256,7 @@
 				9483C594187AEA6B001074DD /* CoreGraphics.framework in Frameworks */,
 				9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */,
 				9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */,
+				94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */,
 				64513C4C6791463E93095C6C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,8 +314,8 @@
 		943F6B9A18AD1AA800253DF1 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */,
 				943F6BA318AD1D5800253DF1 /* Tock.aiff */,
-				943F6B9C18AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -365,6 +375,8 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94BFBD2818DC42C100E32A49 /* libz.dylib */,
+				94BFBD2218DC41DA00E32A49 /* UMAnalytics_Sdk_2.2.1.OpenUDID */,
 				9480D51718C62B6E00B67B2E /* AdSupport.framework */,
 				94149BDA18B0E4AD005182A0 /* CoreMotion.framework */,
 				94149BD418AFCCCE005182A0 /* iRate */,
@@ -519,6 +531,16 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		94BFBD2218DC41DA00E32A49 /* UMAnalytics_Sdk_2.2.1.OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */,
+				94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */,
+				94BFBD2518DC41DA00E32A49 /* MobClick.h */,
+			);
+			path = UMAnalytics_Sdk_2.2.1.OpenUDID;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -609,13 +631,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
+				94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */,
 				9486717418A33CC1002165CF /* unzip@2x.png in Resources */,
 				9486716918A103AC002165CF /* itunesconnect@2x.png in Resources */,
 				943F6B9818AD0E6800253DF1 /* Default.png in Resources */,
 				9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */,
 				9486717B18A544FC002165CF /* icon-57.png in Resources */,
 				9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */,
-				943F6BA018AD1AA800253DF1 /* xiaohuangrenxiasheng_02.mp3 in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
 				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
@@ -829,7 +851,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -870,7 +893,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -892,12 +916,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9F1A67F0-13E0-4AC0-A1BB-DA5B1C1DD3B2";
+				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -907,12 +936,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9F1A67F0-13E0-4AC0-A1BB-DA5B1C1DD3B2";
+				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

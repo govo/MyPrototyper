@@ -9,9 +9,11 @@
 #import "MPSettingViewController.h"
 #import "MPSettingUtils.h"
 #import "MPNavigationController.h"
+#import "MPAVObject.h"
 
-
-@interface MPSettingViewController ()
+@interface MPSettingViewController (){
+    NSString *_viewName;
+}
 @property (weak, nonatomic) IBOutlet UILabel *landspaceType;
 
 @end
@@ -30,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _viewName = @"Setting";
 
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
@@ -60,13 +64,15 @@
 {
 //    NSLog(@"mypath:%@",self.path);
     [self setSettingForPath:self.path];
+    [MPAVObject beginLogPageView:_viewName];
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [MPAVObject endLogPageView:_viewName];
+}
 
 #pragma mark - Table view  source
-
-
 
 /*
 #pragma mark - Navigation

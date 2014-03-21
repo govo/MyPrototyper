@@ -83,12 +83,13 @@
 /* Class = "IBUILabel"; text = "自由"; ObjectID = "wiI-Ag-lPr"; */
 "wiI-Ag-lPr.text" = "自由";
 
-"Lj3-14-VnW" = "联系方式（Email/QQ/微博）：";
+"Lj3-14-VnW.text" = "联系方式（Email/QQ/微博）：";
 
-"0DP-yF-g2l" = "请输入联系方式";
+/*"0DP-yF-g2l.text" = "请输入联系方式";*/
+"0DP-yF-g2l.placeholder" = "请输入联系方式";
 
-"Cw3-rN-trn" = "内容：";
+"Cw3-rN-trn.text" = "内容：";
 
-"swi-0f-aC8" = "您的意见有助于我们做得更好";
+"swi-0f-aC8.text" = "您的意见有助于我们做得更好";
 
-"qZ0-V4-DU0" = "提交";
+"qZ0-V4-DU0.text" = "提交";

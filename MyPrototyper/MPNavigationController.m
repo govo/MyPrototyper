@@ -34,6 +34,7 @@
     self.orientationSupport = UIInterfaceOrientationMaskPortrait;
 }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_6_1) {
         self.navigationBar.barStyle = UIBarStyleBlack;
         [[UIApplication sharedApplication] setStatusBarHidden:NO];

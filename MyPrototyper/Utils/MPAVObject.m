@@ -27,10 +27,15 @@ NSString * const kAVObjectResultFailed = @"0";
         return;
     }
     
+    [MobClick event:KEY_AV_PREVIEW_COUNTER label:event];
+//    [AVAnalytics event:KEY_AV_PREVIEW_COUNTER label:event];
+    
+    /*
     AVObject *obj =  [AVObject objectWithClassName:KEY_AV_PREVIEW_COUNTER];
     [obj setObject:event forKey:KEY_AV_EVENT];
     [obj saveEventually];
     return;
+     */
     
     //使用上面的方式可以分时
     /*
@@ -60,7 +65,13 @@ NSString * const kAVObjectResultFailed = @"0";
     if (event==nil) {
         return;
     }
+//    [MobClick event:KEY_AV_UNZIP_COUNTER label:hasPwd?@"1":@"0"];
+    [MobClick event:KEY_AV_UNZIP_COUNTER attributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                     (hasPwd?@"yes":@"no"),@"hasPwd",event,@"type", nil]];
     
+//    [AVAnalytics event:KEY_AV_UNZIP_COUNTER label:hasPwd?@"1":@"0"];
+    
+    /*
     AVObject *obj = [AVObject objectWithClassName:KEY_AV_UNZIP_COUNTER];
     [obj setObject:event forKey:KEY_AV_EVENT];
     if (result) {
@@ -68,8 +79,8 @@ NSString * const kAVObjectResultFailed = @"0";
     }
     [obj setObject:[NSNumber numberWithBool:hasPwd] forKey:KEY_AV_HASPWD];
     [obj saveEventually];
-    
-    return;
+    */
+     
     
     //使用上面的方式可以分时
     /*
@@ -103,12 +114,18 @@ NSString * const kAVObjectResultFailed = @"0";
     if (!event) {
         return;
     }
+    
+    [MobClick event:event label:data];
+//    [AVAnalytics event:event label:data];
+    
+    /*
     AVObject *obj = [AVObject objectWithClassName:KEY_AV_TAPED_COUNTER];
     [obj setObject:event forKey:KEY_AV_EVENT];
     if (data) {
         [obj setObject:data forKey:KEY_AV_DATA];
     }
     [obj saveEventually];
+     */
 }
 
 +(void)userAutoLogin
@@ -148,6 +165,12 @@ NSString * const kAVObjectResultFailed = @"0";
     }
     [obj saveInBackgroundWithBlock:block];
     
+}
++(void)beginLogPageView:(NSString *)pageName{
+    [MobClick beginLogPageView:pageName];
+}
++(void)endLogPageView:(NSString *)pageName{
+    [MobClick endLogPageView:pageName];
 }
 
 @end

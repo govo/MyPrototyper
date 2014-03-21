@@ -21,7 +21,7 @@
 #define kDocumentDictory    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 #define kProjectDictory     [kDocumentDictory stringByAppendingPathComponent:PROJECT_PATH]
 
-#define kGlobalMetaDirectory [kDocumentDictory stringByAppendingPathComponent:@"_META"]
+#define kGlobalMetaDirectory [kDocumentDictory stringByAppendingPathComponent:@"SETTING"]
 
 #define kAppVersion         [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]
 #define kSettingScrollBar   @"scrollBar"

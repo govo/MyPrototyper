@@ -51,7 +51,7 @@
 	errorContentResend = "\U8acb\U52ff\U91cd\U8907\U63d0\U4ea4\U54e6\Uff01";
 	Sent = "\U63d0\U4ea4";
 	sending = "\U611f\U8b1d\Uff01\U6b63\U5728\U63d0\U4ea4";
-	"feedbackSendSuccessed" = "\U610f\U898b\U53cd\U994b\U5df2\U6536\U5230\U54af\Uff01\U591a\U8b1d\Uff01";
+	"feedbackSendSuccessed" = "\U610f\U898b\U53cd\U994b\U5df2\U53d1\U9001\Uff01";
 	feedbackSendFailed = "\U63d0\U4ea4\U5931\U6557";
 	offlineAndLater = "\U7db2\U7d61\U4e0d\U901a\Uff0c\U8acb\U7a0d\U5019\U518d\U8a66\U54e6T_T";
 	More = "\U66f4\U591a";

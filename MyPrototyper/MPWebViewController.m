@@ -19,6 +19,7 @@
     BOOL _scrollBar;
     NSInteger _landSpace;
     BOOL _motionEnabled;
+    NSString *_viewName;
 }
 
 @property(strong,nonatomic) CMMotionManager *motionManager;
@@ -51,6 +52,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    _viewName = @"Preview";
     
     // Request to turn on accelerometer and begin receiving accelerometer events
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -128,6 +131,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     NSDictionary *settings = [MPSettingUtils settingsFromDirectory:_filePath];
     _statusBar = [[settings objectForKey:kSettingStatusBar] boolValue];
     _scrollBar = [[settings objectForKey:kSettingScrollBar] boolValue];
@@ -142,7 +146,14 @@
     
     self.webview.scrollView.showsHorizontalScrollIndicator = _scrollBar;
     self.webview.scrollView.showsVerticalScrollIndicator = _scrollBar;
+    
+    [MPAVObject beginLogPageView:_viewName];
 
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MPAVObject endLogPageView:_viewName];
 }
 #pragma mark - handshake event
 -(void)handShaked
