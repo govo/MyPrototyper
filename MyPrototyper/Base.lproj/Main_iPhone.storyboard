@@ -125,11 +125,11 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="shakephone.png" translatesAutoresizingMaskIntoConstraints="NO" id="i5s-Mv-1R6">
-                                                        <rect key="frame" x="55" y="25" width="210" height="210"/>
+                                                        <rect key="frame" x="55" y="25" width="180" height="180"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="210" id="bfs-mb-90k"/>
-                                                            <constraint firstAttribute="height" constant="200" id="kAI-EB-iLe"/>
+                                                            <constraint firstAttribute="width" constant="180" id="bfs-mb-90k"/>
+                                                            <constraint firstAttribute="height" constant="180" id="kAI-EB-iLe"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake to Call Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgJ-CU-fJr">
@@ -159,7 +159,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="centerY" secondItem="i5s-Mv-1R6" secondAttribute="centerY" constant="40" id="Slh-I3-scc"/>
-                                                    <constraint firstAttribute="centerX" secondItem="i5s-Mv-1R6" secondAttribute="centerX" id="zOF-mj-pxQ"/>
+                                                    <constraint firstAttribute="centerX" secondItem="i5s-Mv-1R6" secondAttribute="centerX" constant="5" id="zOF-mj-pxQ"/>
                                                 </constraints>
                                             </view>
                                             <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TiI-7j-f70" userLabel="3.View">
@@ -216,7 +216,7 @@ the Prototype</string>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-yc-PBF" userLabel="2.View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                                                <rect key="frame" x="-320" y="0.0" width="320" height="410"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" tag="30" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howto2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yov-tJ-iwV">
@@ -828,7 +828,7 @@ Mobile Devices</string>
         <image name="howto2.png" width="320" height="480"/>
         <image name="howto3.png" width="320" height="480"/>
         <image name="second" width="30" height="30"/>
-        <image name="shakephone.png" width="116" height="161"/>
+        <image name="shakephone.png" width="150" height="211"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
