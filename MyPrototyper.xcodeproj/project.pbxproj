@@ -86,6 +86,7 @@
 		94BD4FF418DEC1C800DBB697 /* howto2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FED18DEC1C800DBB697 /* howto2@2x.png */; };
 		94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEE18DEC1C800DBB697 /* howto3.png */; };
 		94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */; };
+		94BD4FF818DEF62600DBB697 /* howto0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FF718DEF62600DBB697 /* howto0@2x.png */; };
 		94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */; };
 		94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */; };
 		94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2818DC42C100E32A49 /* libz.dylib */; };
@@ -227,6 +228,7 @@
 		94BD4FED18DEC1C800DBB697 /* howto2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto2@2x.png"; sourceTree = "<group>"; };
 		94BD4FEE18DEC1C800DBB697 /* howto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto3.png; sourceTree = "<group>"; };
 		94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto3@2x.png"; sourceTree = "<group>"; };
+		94BD4FF718DEF62600DBB697 /* howto0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto0@2x.png"; sourceTree = "<group>"; };
 		94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary_armv6.a; sourceTree = "<group>"; };
 		94BFBD2518DC41DA00E32A49 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 		9486715918A09B82002165CF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				94BD4FF718DEF62600DBB697 /* howto0@2x.png */,
 				94BD4FE918DEC1C800DBB697 /* howto0.png */,
 				94BD4FEA18DEC1C800DBB697 /* howto1.png */,
 				94BD4FEB18DEC1C800DBB697 /* howto1@2x.png */,
@@ -647,6 +650,7 @@
 				9486715E18A0B345002165CF /* help.png in Resources */,
 				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
 				943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */,
+				94BD4FF818DEF62600DBB697 /* howto0@2x.png in Resources */,
 				9486718418A547EF002165CF /* icon-29.png in Resources */,
 				94BD4FF218DEC1C800DBB697 /* howto1@2x.png in Resources */,
 				94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */,
