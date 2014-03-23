@@ -1,0 +1,21 @@
+描述:
+让你的保真原型可以在手机上演示。
+1、支持Justinmind Prototyper以及Axure生成的html原型，以及所有html格式的原型；
+2、无须上传文件到服务器，原型制作好即可传到手机。iTunes传输虽然原始，但减少机密文件的外泄可能；
+3、文件通过简单压缩成zip文件进行传输，app内一键解压演示，方便快捷；
+4、演示时摇一摇可呼出菜单，减少演示时的干扰；
+5、每个原型演示独立设置，互不干扰；
+
+
+Description:
+Show your prototyper on your phone.
+1.Multi-platform Support(Justinmind Prototyper and Axure). Compatible with ALL HTML prototyper.
+2.Transport by iTunes,Needn't internet for more business security.
+3.Zip for transmission, then Unzip to Show.
+4.Shake to call menu when Showing, less UI and easy to focus on your view.
+5.Setting is prepare for each Show separately.
+
+
+
+Support URL :http://myprototyper.lofter.com/
+
