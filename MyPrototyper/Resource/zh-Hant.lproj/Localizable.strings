@@ -27,7 +27,7 @@
 	"No index.html found" = "\U627e\U4e0d\U5230index.html";
 	"Make sure the root folder contains index.html" = "\U8acb\U78ba\U4fdd\U7b2c\U4e00\U5c64\U6587\U4ef6\U593e\U4e2d\U5305\U542bindex.html";
 	Operation = "\U8acb\U9078\U64c7\U64cd\U4f5c";
-	Settings = "\U8a2d\U7f6e";
+	Settings = "\U8a2d\U5b9a";
 	Portrait = "\U8c4e\U5c4f";
 	Landscape = "\U6a6b\U5c4f";
 	"All (but upside down)" = "\U81ea\U7531";

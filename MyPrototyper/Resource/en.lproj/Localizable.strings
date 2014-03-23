@@ -1,6 +1,10 @@
 {
-	"Do Preview" = Yes;
+    
+	"Preview now?" = "Show it now?";
+	"Do Preview" = "Yes";
+	"Just Preview" = "Only Show it";
 	"Re-Unzip" = "Unzip And Overwrite";
+	"\"%@\" exists,\nOverwrite?" = "\"%@\" exists,\noverwrite?";
 	twitter = "Twitter: @MyPrototyper";
 	twitterUrl = "https://twitter.com/MyPrototyper";
 	twitterName = "@MyPrototyper";

@@ -74,8 +74,19 @@
     [super viewDidLoad];
     NSLog(@"APP PATH:%@",kDocumentDictory);
     _viewName = @"Main";
-
+    
+    
+    _exampleName = nil;
+    _exampleZip = nil;
+    
     NSDictionary *globalSetting = [MPSettingUtils globalSetting];
+    
+    if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
+        MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
+        helpController.isFirstUse = YES;
+        [self presentViewController:helpController animated:NO completion:nil];
+    }
+#if 0
     
     //Example ready
     NSString *exampleFilename = NSLocalizedString(@"Prototyper Example", nil);
@@ -101,7 +112,7 @@
         _exampleName = exampleFilename;
         _exampleZip = examplePath;
     }
-    
+#endif
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
@@ -110,7 +121,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     MPStorage *storage = [[MPStorage alloc]init];
     _segmentIndex = 0;
-    _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:10]];
+    _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:500]];
     if (_datas.count == 0) {
         _segmentIndex = 1;
         [self switchToTableList:_segmentIndex];

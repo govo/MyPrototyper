@@ -71,6 +71,7 @@
 {
     [super viewDidLoad];
 
+    self.title = NSLocalizedString(@"Help", @"help");
     
 	// Do any additional setup after loading the view.
     self.mainScrollView.pagingEnabled = YES;
@@ -89,10 +90,10 @@
     self.mainScrollView.showsHorizontalScrollIndicator = NO;
     self.mainScrollView.bounces = NO;
 
-    self.pageControl.numberOfPages = _isFirstUse ? 5 :4;
+    self.pageControl.numberOfPages = 5;
     
+    [self setupFirstUse];
     if (_isFirstUse) {
-        [self setupFirstUse];
         _viewName = @"FirstUseHelp";
     }else{
         _viewName = @"Help";
@@ -148,7 +149,7 @@
 }
 -(void)viewDidLayoutSubviews
 {
-    self.mainScrollView.contentSize = CGSizeMake(320*( _isFirstUse ? 5:4 ), self.view.frame.size.height - 70);
+    self.mainScrollView.contentSize = CGSizeMake(320*( 5 ), self.view.frame.size.height - 70);
     [self.view layoutSubviews];
 }
 
@@ -206,7 +207,7 @@
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (self.pageControl.currentPage==(_isFirstUse?4:3)) {
+    if (self.pageControl.currentPage==(4)) {
         [self animateShakePhone];
     }
     _maxPageIndex = MAX(_maxPageIndex, self.pageControl.currentPage);

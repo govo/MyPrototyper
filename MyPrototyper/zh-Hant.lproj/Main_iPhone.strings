@@ -1,94 +1,49 @@
-
-/* Class = "IBUINavigationItem"; title = "幫助"; ObjectID = "1nZ-Fc-aSY"; */
-"1nZ-Fc-aSY.title" = "幫助";
-
-/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[0] = "原型"; ObjectID = "6N6-1I-Rde"; */
-"6N6-1I-Rde.segmentTitles[0]" = "預  覽";
-
-/* Class = "IBUISegmentedControl"; 6N6-1I-Rde.segmentTitles[1] = "本地"; ObjectID = "6N6-1I-Rde"; */
-"6N6-1I-Rde.segmentTitles[1]" = "壓縮包";
-
-/* Class = "IBUILabel"; text = "壓縮便于文件傳輸，解壓即可預覽，方便快捷\n(目前僅支持ZIP文件解壓)"; ObjectID = "A4D-RR-NhO"; */
-"A4D-RR-NhO.text" = "壓縮便于文件傳輸，解壓即可預覽\n(目前僅支持ZIP文件解壓；支持密碼解壓)";
-
-/* Class = "IBUILabel"; text = "(跳過本幫助？請搖一搖手機)"; ObjectID = "AF9-Yu-7RA"; */
-"AF9-Yu-7RA.text" = "(跳過本幫助？請搖一搖手機)";
-
-/* Class = "IBUILabel"; text = "橫屏"; ObjectID = "B0i-lj-YOM"; */
-"B0i-lj-YOM.text" = "橫屏";
-
-/* Class = "IBUILabel"; text = "狀態條"; ObjectID = "DYq-cb-gQJ"; */
-"DYq-cb-gQJ.text" = "狀態條";
-
-/* Class = "IBUILabel"; text = "豎屏"; ObjectID = "HZE-SP-Wrl"; */
-"HZE-SP-Wrl.text" = "豎屏";
-
-/* Class = "IBUILabel"; text = "(搖一搖可退出，現在就搖一搖吧！)"; ObjectID = "JWJ-o6-hzL"; */
-"JWJ-o6-hzL.text" = "(我們現在就搖一搖吧！)";
-
-/* Class = "IBUINavigationItem"; title = "橫屏設置"; ObjectID = "Jyw-E3-NW6"; */
-"Jyw-E3-NW6.title" = "橫屏設置";
-
-/* Class = "IBUILabel"; text = "不進行聯網，完全私人定制，減小泄密風險\n "; ObjectID = "L61-44-cpk"; */
-"L61-44-cpk.text" = "不進行聯網，減小泄密風險\n ";
-
-/* Class = "IBUILabel"; text = "堅屏"; ObjectID = "LVP-Y8-cxs"; */
-"LVP-Y8-cxs.text" = "堅屏";
-
-/* Class = "IBUILabel"; text = "兼容多個平台，支持任何HTML原型\n "; ObjectID = "NOF-as-ss0"; */
-"NOF-as-ss0.text" = "兼容多個平台，支持任何HTML原型\n ";
-
-/* Class = "IBUILabel"; text = "歡迎使用原型助手！"; ObjectID = "PIX-mj-lTM"; */
-"PIX-mj-lTM.text" = "歡迎使用原型助手！";
-
-/* Class = "IBUINavigationItem"; title = "設置"; ObjectID = "Rqz-47-lzX"; */
-"Rqz-47-lzX.title" = "設置";
-
-/* Class = "IBUILabel"; text = "原型壓縮傳輸，解壓預覽"; ObjectID = "TRh-oh-rZK"; */
-"TRh-oh-rZK.text" = "原型壓縮傳輸，解壓預覽";
-
-/* Class = "IBUILabel"; text = "Title"; ObjectID = "U7D-uK-8dN"; */
-"U7D-uK-8dN.text" = "標題";
-
-/* Class = "IBUIBarButtonItem"; title = "返回"; ObjectID = "WEk-Uy-PXl"; */
-"WEk-Uy-PXl.title" = "返回";
-
-/* Class = "IBUILabel"; text = "通過電腦iTunes輸送文件"; ObjectID = "WXs-aH-DEw"; */
-"WXs-aH-DEw.text" = "通過電腦iTunes輸送文件";
-
-/* Class = "IBUILabel"; text = "在開始之前，請花幾分鍾了解必要知識→\n "; ObjectID = "Xxx-ZU-0FC"; */
-"Xxx-ZU-0FC.text" = "在開始之前，請花幾分鍾了解必要知識→\n ";
-
-/* Class = "IBUITabBarItem"; title = "Setting"; ObjectID = "Z7h-1E-pvt"; */
-"Z7h-1E-pvt.title" = "Setting";
-
-/* Class = "IBUILabel"; text = "滾動條"; ObjectID = "ZUI-1D-Ddc"; */
-"ZUI-1D-Ddc.text" = "滾動條";
-
-/* Class = "IBUILabel"; text = "橫屏設置"; ObjectID = "aRC-Mv-App"; */
-"aRC-Mv-App.text" = "橫屏設置";
-
-/* Class = "IBUILabel"; text = "預覽時搖一搖，可退出預覽，或快速設置\n "; ObjectID = "cgF-mw-k4N"; */
-"cgF-mw-k4N.text" = "原型預覽時，搖一搖手機呼出菜單\n ";
-
-/* Class = "IBUILabel"; text = "多平台支持"; ObjectID = "fjh-t6-i3W"; */
-"fjh-t6-i3W.text" = "多平台支持";
-
-/* Class = "IBUILabel"; text = "原型預覽時，搖一搖調出菜單"; ObjectID = "qj9-CB-S5B"; */
-"qj9-CB-S5B.text" = "搖一搖呼出菜單";
-
-/* Class = "IBUITabBarItem"; title = "Prototpype"; ObjectID = "vo7-2n-otQ"; */
-"vo7-2n-otQ.title" = "原型";
-
-/* Class = "IBUILabel"; text = "自由"; ObjectID = "wiI-Ag-lPr"; */
-"wiI-Ag-lPr.text" = "自由";
-
-"Lj3-14-VnW.text" = "聯系方式（Email/QQ/微博）：";
-
-"0DP-yF-g2l.placeholder" = "請輸入聯系方式";
-
-"Cw3-rN-trn.text" = "內容：";
-
-"swi-0f-aC8.text" = "您的意見有助于我們做得更好";
-
-"qZ0-V4-DU0.text" = "提交";
+{
+	"1nZ-Fc-aSY.title" = "\U5e6b\U52a9";
+	"6N6-1I-Rde.segmentTitles[0]" = "\U6f14  \U793a";
+	"6N6-1I-Rde.segmentTitles[1]" = "\U58d3\U7e2e\U5305";
+	"A4D-RR-NhO.text" = "\U58d3\U7e2e\U4fbf\U4e8e\U6587\U4ef6\U50b3\U8f38\Uff0c\U89e3\U58d3\U5373\U53ef\U6f14\U793a\n(\U76ee\U524d\U50c5\U652f\U6301ZIP\U6587\U4ef6\U89e3\U58d3\Uff1b\U652f\U6301\U5bc6\U78bc\U89e3\U58d3)";
+	"AF9-Yu-7RA.text" = "(\U8df3\U904e\U672c\U5e6b\U52a9\Uff1f\U8acb\U6416\U4e00\U6416\U624b\U6a5f)";
+	"B0i-lj-YOM.text" = "\U6a6b\U5c4f";
+	"DYq-cb-gQJ.text" = "\U72c0\U614b\U689d";
+	"HZE-SP-Wrl.text" = "\U8c4e\U5c4f";
+	"NUB-gY-8hy.text" = "(\U73fe\U5728\U5c31\U6416\U4e00\U6416\U5427\Uff01)";
+	"Jyw-E3-NW6.title" = "\U6a6b\U5c4f\U8a2d\U7f6e";
+	"L61-44-cpk.text" = "\U4e0d\U9032\U884c\U806f\U7db2\Uff0c\U6e1b\U5c0f\U6cc4\U5bc6\U98a8\U96aa\n ";
+	"LVP-Y8-cxs.text" = "\U5805\U5c4f";
+	"NOF-as-ss0.text" = "\U517c\U5bb9\U591a\U500b\U5e73\U53f0\Uff0c\U652f\U6301\U4efb\U4f55HTML\U539f\U578b\n ";
+	"PIX-mj-lTM.text" = "\U6b61\U8fce\U4f7f\U7528\U539f\U578b\U52a9\U624b\Uff01";
+	"Rqz-47-lzX.title" = "\U8a2d\U7f6e";
+	"TRh-oh-rZK.text" = "\U539f\U578b\U58d3\U7e2e\U50b3\U8f38\Uff0c\U89e3\U58d3\U6f14\U793a";
+	"U7D-uK-8dN.text" = "\U6a19\U984c";
+	"WEk-Uy-PXl.title" = "\U8fd4\U56de";
+	"WXs-aH-DEw.text" = "\U901a\U904e\U96fb\U8166iTunes\U8f38\U9001\U6587\U4ef6";
+	"Xxx-ZU-0FC.text" = "\U5728\U958b\U59cb\U4e4b\U524d\Uff0c\U8acb\U82b1\U5e7e\U5206\U937e\U4e86\U89e3\U5fc5\U8981\U77e5\U8b58\U2192\n ";
+	"Z7h-1E-pvt.title" = "\U8a2d\U5b9a";
+	"ZUI-1D-Ddc.text" = "\U6efe\U52d5\U689d";
+	"aRC-Mv-App.text" = "\U6a6b\U5c4f\U8a2d\U7f6e";
+	"B93-PQ-ipc.text" = "\U539f\U578b\U6f14\U793a\U6642\Uff0c\U6416\U4e00\U6416\U624b\U6a5f\U547c\U51fa\U83dc\U55ae\n ";
+	"fjh-t6-i3W.text" = "\U591a\U5e73\U53f0\U652f\U6301";
+	"zgJ-CU-fJr.text" = "\U6416\U4e00\U6416\U547c\U51fa\U83dc\U55ae";
+	"vo7-2n-otQ.title" = "\U539f\U578b";
+	"wiI-Ag-lPr.text" = "\U81ea\U7531";
+	"Lj3-14-VnW.text" = "\U806f\U7cfb\U65b9\U5f0f\Uff08Email/QQ/\U5fae\U535a\Uff09\Uff1a";
+	"0DP-yF-g2l.placeholder" = "\U8acb\U8f38\U5165\U806f\U7cfb\U65b9\U5f0f";
+	"Cw3-rN-trn.text" = "\U5167\U5bb9\Uff1a";
+	"swi-0f-aC8.text" = "\U60a8\U7684\U610f\U898b\U6709\U52a9\U4e8e\U6211\U5011\U505a\U5f97\U66f4\U597d";
+	"qZ0-V4-DU0.text" = "\U63d0\U4ea4";
+	"1mf-aL-y1X.text" = "\U300a\U539f\U578b\U52a9\U624b\U300b\U80fd\U52a9\U4f60";
+	"UId-bE-goc.text" = "\U5728\U79fb\U52d5\U8a2d\U5099\U4e0a\U6f14\U793a\U539f\U578b";
+	"Z8x-nf-rs2.text" = "Prototyper \n\U6216\nAxure\U7b49";
+	"lFw-wf-XBX.text" = "\U539f \U578b";
+	"LSy-4v-qfD.text" = "\U5c0e\U51faHTML";
+	"RCf-QK-m6h.text" = "\U58d3\U7e2e\U6587\U4ef6\U593e";
+	"uPG-bW-1hy.text" = "\U5c0e\U51faHTML";
+	"gxa-39-GQU.text" = "\U4fdd\U5b58\n\U4fdd\U5b58\U7232";
+	"U4x-2G-sN9.text" = "\U6587\U4ef6";
+	"Wgr-dZ-ALV.text" = "\U540c\U6b65zip\U6587\U4ef6\U5230\U624b\U6a5f\U4e2d\U672c\U8edf\U9ad4\U4e0b\U7684\U6587\U6a94\U76ee\U9304";
+	"q8K-Fh-LKI.text" = "\U9023\U63a5\U624b\U6a5f\U5230iTunes";
+	"49f-5f-yQY.text" = "\U9ede\U64ca\U89e3\U58d3\U6587\U4ef6\n(\U652f\U6301\U5bc6\U78bc\U89e3\U58d3\U7e2e)";
+	"hzT-Ve-Tef.text" = "\U5373\U53ef\U9032\U884c\U539f\U578b\U6f14\U793a";
+	"t4f-h2-2kC.text" = "\U6f14\U793a";
+}

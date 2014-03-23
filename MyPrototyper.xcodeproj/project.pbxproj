@@ -23,7 +23,6 @@
 		9416A356187AF96D00F8C9EC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9416A355187AF96D00F8C9EC /* libsqlite3.dylib */; };
 		9416A359187B005900F8C9EC /* MPProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416A358187B005900F8C9EC /* MPProject.m */; };
 		94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94357A4F18B722B80001C0EA /* EmptyView.xib */; };
-		943A0C1218AC7AD5004AF08E /* Prototyper Example.zip in Resources */ = {isa = PBXBuildFile; fileRef = 943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */; };
 		943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */; };
 		943F6B9818AD0E6800253DF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9518AD0E6800253DF1 /* Default.png */; };
 		943F6B9918AD0E6800253DF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943F6B9618AD0E6800253DF1 /* Default@2x.png */; };
@@ -57,13 +56,7 @@
 		9486715F18A0B345002165CF /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486715D18A0B345002165CF /* help@2x.png */; };
 		9486716418A0F3BF002165CF /* shakephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716218A0F3BF002165CF /* shakephone.png */; };
 		9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716318A0F3BF002165CF /* shakephone@2x.png */; };
-		9486716818A103AC002165CF /* itunesconnect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716618A103AC002165CF /* itunesconnect.png */; };
-		9486716918A103AC002165CF /* itunesconnect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716718A103AC002165CF /* itunesconnect@2x.png */; };
 		9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486716B18A164BA002165CF /* MPHelpViewController.m */; };
-		9486716F18A29DA4002165CF /* supports.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716D18A29DA4002165CF /* supports.png */; };
-		9486717018A29DA4002165CF /* supports@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486716E18A29DA4002165CF /* supports@2x.png */; };
-		9486717318A33CC1002165CF /* unzip.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717118A33CC1002165CF /* unzip.png */; };
-		9486717418A33CC1002165CF /* unzip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717218A33CC1002165CF /* unzip@2x.png */; };
 		9486717B18A544FC002165CF /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717718A544FC002165CF /* icon-57.png */; };
 		9486717C18A544FC002165CF /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717818A544FC002165CF /* icon-60.png */; };
 		9486717D18A544FC002165CF /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717918A544FC002165CF /* icon-114.png */; };
@@ -86,12 +79,17 @@
 		94ABB1BA187D63AE004F19F9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ABB1B9187D63AE004F19F9 /* AudioToolbox.framework */; };
 		94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */; };
 		94ABB1C0187DB2C7004F19F9 /* MPSettingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */; };
+		94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FE918DEC1C800DBB697 /* howto0.png */; };
+		94BD4FF118DEC1C800DBB697 /* howto1.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEA18DEC1C800DBB697 /* howto1.png */; };
+		94BD4FF218DEC1C800DBB697 /* howto1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEB18DEC1C800DBB697 /* howto1@2x.png */; };
+		94BD4FF318DEC1C800DBB697 /* howto2.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEC18DEC1C800DBB697 /* howto2.png */; };
+		94BD4FF418DEC1C800DBB697 /* howto2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FED18DEC1C800DBB697 /* howto2@2x.png */; };
+		94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEE18DEC1C800DBB697 /* howto3.png */; };
+		94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */; };
 		94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */; };
 		94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */; };
 		94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2818DC42C100E32A49 /* libz.dylib */; };
 		94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */; };
-		94CD406218A69FF8000E93AA /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406018A69FF8000E93AA /* welcome.png */; };
-		94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94CD406118A69FF8000E93AA /* welcome@2x.png */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -143,7 +141,6 @@
 		9416A357187B005900F8C9EC /* MPProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPProject.h; sourceTree = "<group>"; };
 		9416A358187B005900F8C9EC /* MPProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPProject.m; sourceTree = "<group>"; };
 		94357A4E18B722B80001C0EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EmptyView.xib; sourceTree = "<group>"; };
-		943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "Prototyper Example.zip"; sourceTree = "<group>"; };
 		943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "MyPrototyper/Default-568h@2x.png"; sourceTree = "<group>"; };
 		943F6B9518AD0E6800253DF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = MyPrototyper/Default.png; sourceTree = "<group>"; };
 		943F6B9618AD0E6800253DF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "MyPrototyper/Default@2x.png"; sourceTree = "<group>"; };
@@ -189,14 +186,8 @@
 		9486715D18A0B345002165CF /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
 		9486716218A0F3BF002165CF /* shakephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shakephone.png; sourceTree = "<group>"; };
 		9486716318A0F3BF002165CF /* shakephone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shakephone@2x.png"; sourceTree = "<group>"; };
-		9486716618A103AC002165CF /* itunesconnect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = itunesconnect.png; sourceTree = "<group>"; };
-		9486716718A103AC002165CF /* itunesconnect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "itunesconnect@2x.png"; sourceTree = "<group>"; };
 		9486716A18A164BA002165CF /* MPHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHelpViewController.h; sourceTree = "<group>"; };
 		9486716B18A164BA002165CF /* MPHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHelpViewController.m; sourceTree = "<group>"; };
-		9486716D18A29DA4002165CF /* supports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = supports.png; sourceTree = "<group>"; };
-		9486716E18A29DA4002165CF /* supports@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supports@2x.png"; sourceTree = "<group>"; };
-		9486717118A33CC1002165CF /* unzip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unzip.png; sourceTree = "<group>"; };
-		9486717218A33CC1002165CF /* unzip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unzip@2x.png"; sourceTree = "<group>"; };
 		9486717718A544FC002165CF /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-57.png"; path = "MyPrototyper/icon-57.png"; sourceTree = "<group>"; };
 		9486717818A544FC002165CF /* icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-60.png"; path = "MyPrototyper/icon-60.png"; sourceTree = "<group>"; };
 		9486717918A544FC002165CF /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-114.png"; path = "MyPrototyper/icon-114.png"; sourceTree = "<group>"; };
@@ -229,13 +220,18 @@
 		94ABB1BC187DA6E4004F19F9 /* MPSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingViewController.m; sourceTree = "<group>"; };
 		94ABB1BE187DB2C7004F19F9 /* MPSettingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSettingUtils.h; sourceTree = "<group>"; };
 		94ABB1BF187DB2C7004F19F9 /* MPSettingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSettingUtils.m; sourceTree = "<group>"; };
+		94BD4FE918DEC1C800DBB697 /* howto0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto0.png; sourceTree = "<group>"; };
+		94BD4FEA18DEC1C800DBB697 /* howto1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto1.png; sourceTree = "<group>"; };
+		94BD4FEB18DEC1C800DBB697 /* howto1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto1@2x.png"; sourceTree = "<group>"; };
+		94BD4FEC18DEC1C800DBB697 /* howto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto2.png; sourceTree = "<group>"; };
+		94BD4FED18DEC1C800DBB697 /* howto2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto2@2x.png"; sourceTree = "<group>"; };
+		94BD4FEE18DEC1C800DBB697 /* howto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howto3.png; sourceTree = "<group>"; };
+		94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto3@2x.png"; sourceTree = "<group>"; };
 		94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary_armv6.a; sourceTree = "<group>"; };
 		94BFBD2518DC41DA00E32A49 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		94BFBD2818DC42C100E32A49 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytick.mp3; sourceTree = "<group>"; };
-		94CD406018A69FF8000E93AA /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome.png; sourceTree = "<group>"; };
-		94CD406118A69FF8000E93AA /* welcome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome@2x.png"; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
 		94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLandespaceSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -306,7 +302,6 @@
 		943A0C1018AC7AD5004AF08E /* example */ = {
 			isa = PBXGroup;
 			children = (
-				943A0C1118AC7AD5004AF08E /* Prototyper Example.zip */,
 			);
 			path = example;
 			sourceTree = "<group>";
@@ -478,16 +473,15 @@
 		9486715918A09B82002165CF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				94BD4FE918DEC1C800DBB697 /* howto0.png */,
+				94BD4FEA18DEC1C800DBB697 /* howto1.png */,
+				94BD4FEB18DEC1C800DBB697 /* howto1@2x.png */,
+				94BD4FEC18DEC1C800DBB697 /* howto2.png */,
+				94BD4FED18DEC1C800DBB697 /* howto2@2x.png */,
+				94BD4FEE18DEC1C800DBB697 /* howto3.png */,
+				94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */,
 				943F6B9A18AD1AA800253DF1 /* sound */,
 				943A0C1018AC7AD5004AF08E /* example */,
-				94CD406018A69FF8000E93AA /* welcome.png */,
-				94CD406118A69FF8000E93AA /* welcome@2x.png */,
-				9486717118A33CC1002165CF /* unzip.png */,
-				9486717218A33CC1002165CF /* unzip@2x.png */,
-				9486716D18A29DA4002165CF /* supports.png */,
-				9486716E18A29DA4002165CF /* supports@2x.png */,
-				9486716618A103AC002165CF /* itunesconnect.png */,
-				9486716718A103AC002165CF /* itunesconnect@2x.png */,
 				9486716218A0F3BF002165CF /* shakephone.png */,
 				9486716318A0F3BF002165CF /* shakephone@2x.png */,
 				9486715C18A0B345002165CF /* help.png */,
@@ -632,42 +626,40 @@
 			files = (
 				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
 				94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */,
-				9486717418A33CC1002165CF /* unzip@2x.png in Resources */,
-				9486716918A103AC002165CF /* itunesconnect@2x.png in Resources */,
 				943F6B9818AD0E6800253DF1 /* Default.png in Resources */,
 				9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */,
 				9486717B18A544FC002165CF /* icon-57.png in Resources */,
+				94BD4FF418DEC1C800DBB697 /* howto2@2x.png in Resources */,
+				94BD4FF118DEC1C800DBB697 /* howto1.png in Resources */,
 				9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
+				94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */,
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
 				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
 				9486717C18A544FC002165CF /* icon-60.png in Resources */,
-				9486717318A33CC1002165CF /* unzip.png in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
 				94149BC918AF526C005182A0 /* Localizable.strings in Resources */,
+				94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */,
 				9486718218A5476E002165CF /* icon-80.png in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
 				943F6BA618AD24B400253DF1 /* icon-72.png in Resources */,
 				9486717D18A544FC002165CF /* icon-114.png in Resources */,
 				9486715E18A0B345002165CF /* help.png in Resources */,
 				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
-				94CD406218A69FF8000E93AA /* welcome.png in Resources */,
 				943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */,
 				9486718418A547EF002165CF /* icon-29.png in Resources */,
-				9486716818A103AC002165CF /* itunesconnect.png in Resources */,
-				9486717018A29DA4002165CF /* supports@2x.png in Resources */,
-				94CD406318A69FF8000E93AA /* welcome@2x.png in Resources */,
+				94BD4FF218DEC1C800DBB697 /* howto1@2x.png in Resources */,
+				94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				9486718118A5476E002165CF /* icon-58.png in Resources */,
 				94149BD818AFCCCE005182A0 /* iRate.bundle in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
+				94BD4FF318DEC1C800DBB697 /* howto2.png in Resources */,
 				9486717E18A544FC002165CF /* icon-120.png in Resources */,
 				943F6B9918AD0E6800253DF1 /* Default@2x.png in Resources */,
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
 				9486715F18A0B345002165CF /* help@2x.png in Resources */,
-				943A0C1218AC7AD5004AF08E /* Prototyper Example.zip in Resources */,
 				9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */,
-				9486716F18A29DA4002165CF /* supports.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
