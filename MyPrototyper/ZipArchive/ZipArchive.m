@@ -293,6 +293,16 @@
             
             // check if it contains directory
             NSString * strPath = [NSString stringWithCString:filename encoding:self.stringEncoding];
+            NSStringEncoding enc;
+            if (!strPath) {
+                enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                strPath = [NSString stringWithCString:filename encoding:enc];
+            }
+            if (!strPath) {
+                strPath = [NSString stringWithCString:filename encoding:NSUnicodeStringEncoding];
+            }
+            
+//            NSLog(@"Zip strPath:%@",strPath);
             BOOL isDirectory = NO;
             if( filename[fileInfo.size_filename-1]=='/' || filename[fileInfo.size_filename-1]=='\\')
                 isDirectory = YES;
