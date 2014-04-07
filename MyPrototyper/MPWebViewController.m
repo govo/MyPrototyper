@@ -243,12 +243,13 @@
             case UIInterfaceOrientationMaskLandscapeLeft:
             case UIInterfaceOrientationMaskLandscapeRight:
                 navC.isRotateable = YES;
-                navC.orientationSupport = UIInterfaceOrientationMaskLandscapeLeft;
+                navC.orientationSupport = UIInterfaceOrientationMaskLandscape;
                 break;
             case UIInterfaceOrientationMaskAllButUpsideDown:
             case UIInterfaceOrientationMaskAll:
                 navC.isRotateable = YES;
-                navC.orientationSupport = UIInterfaceOrientationMaskAllButUpsideDown;
+                navC.orientationSupport =(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)?
+                    UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskAllButUpsideDown;
                 
                 break;
         }
@@ -260,7 +261,7 @@
 {
     NSDictionary *settings = [MPSettingUtils settingsFromDirectory:_filePath];
     _landSpace = [[settings objectForKey:kSettingLandSpace] integerValue];
-    return _landSpace==UIInterfaceOrientationMaskLandscapeLeft || _landSpace == UIInterfaceOrientationMaskAllButUpsideDown || _landSpace == UIInterfaceOrientationMaskAll;
+    return _landSpace==UIInterfaceOrientationMaskLandscape || _landSpace == UIInterfaceOrientationMaskAllButUpsideDown || _landSpace == UIInterfaceOrientationMaskAll;
 }
 - (NSUInteger)supportedInterfaceOrientations
 {
@@ -275,13 +276,15 @@
         case UIInterfaceOrientationMaskLandscape:
         case UIInterfaceOrientationMaskLandscapeLeft:
         case UIInterfaceOrientationMaskLandscapeRight:
-            support = UIInterfaceOrientationMaskLandscapeLeft;
+            support = UIInterfaceOrientationMaskLandscape;
 
             break;
             
         case UIInterfaceOrientationMaskAll:
         case UIInterfaceOrientationMaskAllButUpsideDown:
-            support = UIInterfaceOrientationMaskAllButUpsideDown;
+            support = (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)?
+            UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskAllButUpsideDown;
+;
 
             break;
     }
@@ -299,11 +302,12 @@
         case UIInterfaceOrientationMaskLandscape:
         case UIInterfaceOrientationMaskLandscapeLeft:
         case UIInterfaceOrientationMaskLandscapeRight:
-            shouldRotate = toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft;
+            shouldRotate = toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+            toInterfaceOrientation == UIInterfaceOrientationLandscapeRight;
             break;
         case UIInterfaceOrientationMaskAll:
         case UIInterfaceOrientationMaskAllButUpsideDown:
-            shouldRotate = toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+            shouldRotate = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
     }
 
     return shouldRotate;

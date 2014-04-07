@@ -405,13 +405,14 @@ Mobile Devices</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="PGo-6e-K1J" secondAttribute="bottom" id="2cr-Tt-hib"/>
+                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="PGo-6e-K1J" secondAttribute="bottom" id="0CL-HQ-N0V"/>
                             <constraint firstItem="AoA-TN-WeW" firstAttribute="leading" secondItem="82A-Yw-BrZ" secondAttribute="leading" id="5lX-fM-VDx"/>
+                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="AoA-TN-WeW" secondAttribute="bottom" id="7A6-ZZ-XxG"/>
                             <constraint firstAttribute="trailing" secondItem="AoA-TN-WeW" secondAttribute="trailing" id="7TK-eQ-qBp"/>
-                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="AoA-TN-WeW" secondAttribute="bottom" id="DIm-V6-PlI"/>
                             <constraint firstItem="AoA-TN-WeW" firstAttribute="top" secondItem="82A-Yw-BrZ" secondAttribute="top" id="GKe-NC-4B6"/>
                             <constraint firstAttribute="centerX" secondItem="PGo-6e-K1J" secondAttribute="centerX" id="irU-e7-gNN"/>
-                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="uyD-KS-zWJ" secondAttribute="bottom" constant="20" id="vIQ-zD-eh7"/>
+                            <constraint firstAttribute="centerX" secondItem="AoA-TN-WeW" secondAttribute="centerX" id="mjQ-dF-G6Q"/>
+                            <constraint firstItem="WDM-d8-m0W" firstAttribute="top" secondItem="uyD-KS-zWJ" secondAttribute="bottom" constant="20" id="uy2-Pu-Nuj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="jDI-zS-PHw"/>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64513C4C6791463E93095C6C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF9BF068654A4CBC99CFEA /* libPods.a */; };
+		9414744A18F2DEF000A0949D /* HelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9414744918F2DEF000A0949D /* HelpView.xib */; };
 		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
 		94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */; };
 		94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BD218AFA160005182A0 /* MessageUI.framework */; };
@@ -113,6 +114,7 @@
 		940FD64B18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
 		940FD64C18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		940FD64D18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9414744918F2DEF000A0949D /* HelpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpView.xib; sourceTree = "<group>"; };
 		94149BAD18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
 		94149BAE18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main_iPad.strings"; sourceTree = "<group>"; };
 		94149BAF18AE8A44005182A0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -317,6 +319,13 @@
 			path = sound;
 			sourceTree = "<group>";
 		};
+		947EDF6718F2CAC90046781B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		9480D51C18C62C6100B67B2E /* KeyChain */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,11 +405,13 @@
 		9483C597187AEA6B001074DD /* MyPrototyper */ = {
 			isa = PBXGroup;
 			children = (
+				947EDF6718F2CAC90046781B /* iPad */,
 				9480D51D18C62C7200B67B2E /* Utils */,
 				9480D51C18C62C6100B67B2E /* KeyChain */,
 				9483C5A0187AEA6B001074DD /* MPAppDelegate.h */,
 				9483C5A1187AEA6B001074DD /* MPAppDelegate.m */,
 				94357A4F18B722B80001C0EA /* EmptyView.xib */,
+				9414744918F2DEF000A0949D /* HelpView.xib */,
 				9483C5A3187AEA6B001074DD /* Main_iPhone.storyboard */,
 				9483C5A6187AEA6B001074DD /* Main_iPad.storyboard */,
 				9486711A189E856E002165CF /* MPTabBarController.h */,
@@ -640,6 +651,7 @@
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
 				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
 				9486717C18A544FC002165CF /* icon-60.png in Resources */,
+				9414744A18F2DEF000A0949D /* HelpView.xib in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
 				94149BC918AF526C005182A0 /* Localizable.strings in Resources */,
 				94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */,
@@ -917,13 +929,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -937,13 +950,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

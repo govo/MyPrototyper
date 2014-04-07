@@ -8,6 +8,8 @@
 
 #import "MPSettingUtils.h"
 
+//TODO: iPad default allow rotation
+
 @implementation MPSettingUtils
 
 +(NSDictionary *)settings
@@ -22,8 +24,12 @@
 {
     NSString *fullPath =[path stringByAppendingPathComponent:kSettingFileName];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fullPath];
+    
+    NSInteger orientationSupported = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ?
+    UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskPortrait;
+    
     if (dict==nil) {
-        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:NO],kSettingLandSpace:[NSNumber numberWithInteger:UIInterfaceOrientationMaskPortrait],kSettingAppVersion:kAppVersion };
+        dict = @{kSettingScrollBar: [NSNumber numberWithBool:YES],kSettingStatusBar:[NSNumber numberWithBool:NO],kSettingLandSpace:[NSNumber numberWithInteger:orientationSupported],kSettingAppVersion:kAppVersion };
         [self createDirectory:path];
         [dict writeToFile:fullPath atomically:YES];
     }

@@ -451,7 +451,7 @@
             }
                 break;
         }
-        
+        [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
         if (_datas.count==0) {
             if (self.tableView.isEditing) {
                 [self editPressed:self.navigationItem.rightBarButtonItem];
@@ -812,6 +812,8 @@
             }
             _datas = _localFilesArray;
             dispatch_sync(dispatch_get_main_queue(), ^{
+                
+                [self.navigationItem.rightBarButtonItem setEnabled:_localFilesArray.count>0];
                 if (_localFilesArray.count>0) {
                     [self removeEmptyHeader:self.tableView];
                 }
@@ -863,6 +865,8 @@
             break;
     }
     _segmentIndex = tag;
+    
+    [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
     if (_datas.count==0) {
         [self addEmptyHeader:self.tableView];
     }else{

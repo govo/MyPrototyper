@@ -126,12 +126,13 @@
             case UIInterfaceOrientationMaskLandscapeLeft:
             case UIInterfaceOrientationMaskLandscapeRight:
                 navC.isRotateable = YES;
-                navC.orientationSupport = UIInterfaceOrientationMaskLandscapeLeft;
+                navC.orientationSupport = UIInterfaceOrientationMaskLandscape;
                 break;
             case UIInterfaceOrientationMaskAllButUpsideDown:
             case UIInterfaceOrientationMaskAll:
                 navC.isRotateable = YES;
-                navC.orientationSupport = UIInterfaceOrientationMaskAllButUpsideDown;
+                navC.orientationSupport =(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)?
+                    UIInterfaceOrientationMaskAll : UIInterfaceOrientationMaskAllButUpsideDown;
 
                 break;
         }

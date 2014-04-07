@@ -157,10 +157,14 @@
                 [self.delegate didSelected:UIInterfaceOrientationMaskPortrait];
                 break;
             case 1:
-                [self.delegate didSelected:UIInterfaceOrientationMaskLandscapeLeft];
+                [self.delegate didSelected:UIInterfaceOrientationMaskLandscape];
                 break;
             case 2:
-                [self.delegate didSelected:UIInterfaceOrientationMaskAllButUpsideDown];
+                if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+                    [self.delegate didSelected:UIInterfaceOrientationMaskAll];
+                }else{
+                    [self.delegate didSelected:UIInterfaceOrientationMaskAllButUpsideDown];
+                }
                 break;
         }
     }

@@ -1,7 +1,6 @@
 {
-    
 	"Preview now?" = "Show it now?";
-	"Do Preview" = "Yes";
+	"Do Preview" = Yes;
 	"Just Preview" = "Only Show it";
 	"Re-Unzip" = "Unzip And Overwrite";
 	"\"%@\" exists,\nOverwrite?" = "\"%@\" exists,\noverwrite?";
@@ -26,4 +25,5 @@
 	"feedbackSendSuccessed" = "Sending Successful! Thank you!";
 	feedbackSendFailed = "Sending Failed";
 	offlineAndLater = "Opps! The Internet connection appears to be offline.";
+	"All (but upside down)" = All;
 }
