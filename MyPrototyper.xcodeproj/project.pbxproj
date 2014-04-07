@@ -92,6 +92,18 @@
 		94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */; };
 		94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2818DC42C100E32A49 /* libz.dylib */; };
 		94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */; };
+		94EEEAC518F3163F00FED66A /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC118F3163F00FED66A /* Default~ipad.png */; };
+		94EEEAC618F3163F00FED66A /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC218F3163F00FED66A /* Default-Landscape~ipad.png */; };
+		94EEEAC718F3163F00FED66A /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC318F3163F00FED66A /* Default-Portrait@2x~ipad.png */; };
+		94EEEAC818F3163F00FED66A /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC418F3163F00FED66A /* Default-Landscape@2x~ipad.png */; };
+		94EEEACA18F316F900FED66A /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC918F316F900FED66A /* Default-Portrait~ipad.png */; };
+		94EEEAD118F31A8B00FED66A /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACB18F31A8B00FED66A /* icon-40.png */; };
+		94EEEAD218F31A8B00FED66A /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACC18F31A8B00FED66A /* icon-50.png */; };
+		94EEEAD318F31A8B00FED66A /* icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACD18F31A8B00FED66A /* icon-80.png */; };
+		94EEEAD418F31A8B00FED66A /* icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACE18F31A8B00FED66A /* icon-100.png */; };
+		94EEEAD518F31A8B00FED66A /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACF18F31A8B00FED66A /* icon-144.png */; };
+		94EEEAD618F31A8B00FED66A /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAD018F31A8B00FED66A /* icon-152.png */; };
+		94EEEAD818F31AAE00FED66A /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAD718F31AAE00FED66A /* icon-76.png */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +248,18 @@
 		94BFBD2518DC41DA00E32A49 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		94BFBD2818DC42C100E32A49 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytick.mp3; sourceTree = "<group>"; };
+		94EEEAC118F3163F00FED66A /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~ipad.png"; path = "MyPrototyper/Default~ipad.png"; sourceTree = "<group>"; };
+		94EEEAC218F3163F00FED66A /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "MyPrototyper/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		94EEEAC318F3163F00FED66A /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "MyPrototyper/Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		94EEEAC418F3163F00FED66A /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "MyPrototyper/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		94EEEAC918F316F900FED66A /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "MyPrototyper/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		94EEEACB18F31A8B00FED66A /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-40.png"; path = "MyPrototyper/icon-40.png"; sourceTree = "<group>"; };
+		94EEEACC18F31A8B00FED66A /* icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-50.png"; path = "MyPrototyper/icon-50.png"; sourceTree = "<group>"; };
+		94EEEACD18F31A8B00FED66A /* icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-80.png"; path = "MyPrototyper/icon-80.png"; sourceTree = "<group>"; };
+		94EEEACE18F31A8B00FED66A /* icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-100.png"; path = "MyPrototyper/icon-100.png"; sourceTree = "<group>"; };
+		94EEEACF18F31A8B00FED66A /* icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-144.png"; path = "MyPrototyper/icon-144.png"; sourceTree = "<group>"; };
+		94EEEAD018F31A8B00FED66A /* icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-152.png"; path = "MyPrototyper/icon-152.png"; sourceTree = "<group>"; };
+		94EEEAD718F31AAE00FED66A /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "MyPrototyper/icon-76.png"; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
 		94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLandespaceSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -349,6 +373,18 @@
 		9483C585187AEA6B001074DD = {
 			isa = PBXGroup;
 			children = (
+				94EEEACB18F31A8B00FED66A /* icon-40.png */,
+				94EEEACC18F31A8B00FED66A /* icon-50.png */,
+				94EEEACD18F31A8B00FED66A /* icon-80.png */,
+				94EEEAD718F31AAE00FED66A /* icon-76.png */,
+				94EEEACE18F31A8B00FED66A /* icon-100.png */,
+				94EEEACF18F31A8B00FED66A /* icon-144.png */,
+				94EEEAD018F31A8B00FED66A /* icon-152.png */,
+				94EEEAC918F316F900FED66A /* Default-Portrait~ipad.png */,
+				94EEEAC118F3163F00FED66A /* Default~ipad.png */,
+				94EEEAC218F3163F00FED66A /* Default-Landscape~ipad.png */,
+				94EEEAC318F3163F00FED66A /* Default-Portrait@2x~ipad.png */,
+				94EEEAC418F3163F00FED66A /* Default-Landscape@2x~ipad.png */,
 				943F6B9418AD0E6800253DF1 /* Default-568h@2x.png */,
 				943F6B9518AD0E6800253DF1 /* Default.png */,
 				943F6B9618AD0E6800253DF1 /* Default@2x.png */,
@@ -639,6 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
+				94EEEAC518F3163F00FED66A /* Default~ipad.png in Resources */,
 				94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */,
 				943F6B9818AD0E6800253DF1 /* Default.png in Resources */,
 				9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */,
@@ -648,19 +685,28 @@
 				9483C5A8187AEA6B001074DD /* Main_iPad.storyboard in Resources */,
 				9483C5B0187AEA6B001074DD /* Images.xcassets in Resources */,
 				94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */,
+				94EEEAD818F31AAE00FED66A /* icon-76.png in Resources */,
+				94EEEAD218F31A8B00FED66A /* icon-50.png in Resources */,
 				94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */,
+				94EEEAC718F3163F00FED66A /* Default-Portrait@2x~ipad.png in Resources */,
+				94EEEAD518F31A8B00FED66A /* icon-144.png in Resources */,
+				94EEEAC618F3163F00FED66A /* Default-Landscape~ipad.png in Resources */,
 				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
 				9486717C18A544FC002165CF /* icon-60.png in Resources */,
+				94EEEAC818F3163F00FED66A /* Default-Landscape@2x~ipad.png in Resources */,
 				9414744A18F2DEF000A0949D /* HelpView.xib in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
 				94149BC918AF526C005182A0 /* Localizable.strings in Resources */,
+				94EEEAD118F31A8B00FED66A /* icon-40.png in Resources */,
 				94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */,
+				94EEEAD418F31A8B00FED66A /* icon-100.png in Resources */,
 				9486718218A5476E002165CF /* icon-80.png in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
 				943F6BA618AD24B400253DF1 /* icon-72.png in Resources */,
 				9486717D18A544FC002165CF /* icon-114.png in Resources */,
 				9486715E18A0B345002165CF /* help.png in Resources */,
 				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
+				94EEEAD618F31A8B00FED66A /* icon-152.png in Resources */,
 				943F6B9718AD0E6800253DF1 /* Default-568h@2x.png in Resources */,
 				94BD4FF818DEF62600DBB697 /* howto0@2x.png in Resources */,
 				9486718418A547EF002165CF /* icon-29.png in Resources */,
@@ -668,6 +714,7 @@
 				94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				9486718118A5476E002165CF /* icon-58.png in Resources */,
+				94EEEAD318F31A8B00FED66A /* icon-80.png in Resources */,
 				94149BD818AFCCCE005182A0 /* iRate.bundle in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
 				94BD4FF318DEC1C800DBB697 /* howto2.png in Resources */,
@@ -676,6 +723,7 @@
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
 				9486715F18A0B345002165CF /* help@2x.png in Resources */,
 				9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */,
+				94EEEACA18F316F900FED66A /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
