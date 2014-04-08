@@ -72,6 +72,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (APP_DEBUG) {
+        NSLog(@"APP_DEBUG,now is DEBUG version>>>===========================================");
+    }
     NSLog(@"APP PATH:%@",kDocumentDictory);
     _viewName = @"Main";
     
@@ -82,7 +85,9 @@
     NSDictionary *globalSetting = [MPSettingUtils globalSetting];
     
     if ([[globalSetting objectForKey:kSettingIsFirstUse] boolValue]) {
-        MPHelpViewController *helpController = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
+        MPHelpViewController *helpController;
+        helpController = [[MPHelpViewController alloc]initWithNibName:@"HelpView" bundle:nil];
+        
         helpController.isFirstUse = YES;
         [self presentViewController:helpController animated:NO completion:nil];
     }
@@ -116,19 +121,21 @@
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     MPStorage *storage = [[MPStorage alloc]init];
     _segmentIndex = 0;
     _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:500]];
-    if (_datas.count == 0) {
+    if (_datas.count == 0){
+        self.navigationItem.rightBarButtonItem.enabled = NO;
         _segmentIndex = 1;
         [self switchToTableList:_segmentIndex];
         self.segment.selectedSegmentIndex = _segmentIndex;
     }
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
 
     
     /*
@@ -939,8 +946,11 @@
 
 #pragma mark - button
 - (IBAction)helpPressed:(id)sender {
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    MPHelpViewController *helpController;
+    helpController = [[MPHelpViewController alloc]initWithNibName:@"HelpView" bundle:nil];
+
+    [self.navigationController pushViewController:helpController animated:YES];
     
     //AVOCloud
     [MPAVObject onTapedWithEvent:KEY_AV_TAPED_COUNTER data:KEY_AV_HELP];

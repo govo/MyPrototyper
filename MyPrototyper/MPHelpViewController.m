@@ -26,6 +26,7 @@
     int _maxPageIndex;
     NSString *_viewName;
     NSInteger _currentRotation;
+    int _lastPageIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -70,6 +71,11 @@
 }
 - (void)viewDidLoad
 {
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]){
+        [[UIApplication sharedApplication].windows.firstObject setBackgroundColor:[UIColor whiteColor]];
+        self.edgesForExtendedLayout = UIRectEdgeBottom;// stop offset of iOS7
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     [super viewDidLoad];
 
     self.title = NSLocalizedString(@"Help", @"help");
@@ -78,20 +84,21 @@
     self.mainScrollView.pagingEnabled = YES;
     self.mainScrollView.delegate = self;
     self.mainScrollView.scrollEnabled = YES;
-
-    self.mainScrollView.frame = self.view.frame;
-    
-    
-    CGRect frame = self.contentView.frame;
-    frame.size.height = self.mainScrollView.frame.size.height;
-    self.contentView.frame = frame;
-
-    
+    self.mainScrollView.frame = self.view.bounds;
     self.mainScrollView.showsVerticalScrollIndicator = NO;
     self.mainScrollView.showsHorizontalScrollIndicator = NO;
     self.mainScrollView.bounces = NO;
+    
+    if (NSFoundationVersionNumber>NSFoundationVersionNumber_iOS_6_1) {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//        self.extendedLayoutIncludesOpaqueBars = YES;
 
-    self.pageControl.numberOfPages = 5;
+    }
+
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self.view exchangeSubviewAtIndex:2 withSubviewAtIndex:0];
+
     
     _currentRotation = [[UIDevice currentDevice] orientation];
     
@@ -107,72 +114,34 @@
     if (self.navigationController) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"More",@"more") style:UIBarButtonItemStylePlain target:self action:@selector(showMore:)];
     }
-
-    // Set the constraints for the scroll view and the image view.
-    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_mainScrollView, _contentView);
-
-
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mainScrollView]|" options:0 metrics: 0 views:viewsDictionary]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mainScrollView]|" options:0 metrics: 0 views:viewsDictionary]];
-    [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
-    [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .1;
-
-    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_isFirstUse) {
-        self.pageControl.hidden = YES;
-        self.mainScrollView.pagingEnabled = NO;
-        self.mainScrollView.showsHorizontalScrollIndicator = YES;
-        self.mainScrollView.bounces = YES;
-    }
+    
     
     [self setupHelpViews];
 }
+
 -(void)showFeedback
 {
-    UIViewController *cv = [self.storyboard instantiateViewControllerWithIdentifier:@"Feedback"];
+    UIStoryboard *storyboard = self.storyboard;
+    if (!storyboard) {
+        storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:[NSBundle mainBundle]];
+    }
+    UIViewController *cv = [storyboard instantiateViewControllerWithIdentifier:@"Feedback"];
     [self.navigationController pushViewController:cv animated:YES];
 }
 -(void)showMore:(id)sender
 {
     [self handShaked];
 }
-/*
--(void)prepareSubViews
-{
-    [self.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UIView *view = (UIView *)obj;
-        UIImageView *imageView = (UIImageView *)[view viewWithTag:10];
-        UIView *textView = (UIView *)[view viewWithTag:20];
-        
-        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view, imageView,textView);
-        [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|" options:0 metrics:0 views:viewsDictionary]];
-    }];
-}
-*/
--(void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-}
--(void)viewDidLayoutSubviews
-{
-    int width = self.view.frame.size.width;
-    
-    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_isFirstUse) {
-        width = 320;
-    }
-    self.mainScrollView.contentSize = CGSizeMake(width*( 5 ), self.view.frame.size.height - 70);
-    [self.view layoutSubviews];
-}
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    if (_isFirstUse && NSFoundationVersionNumber<=NSFoundationVersionNumber_iOS_6_1) {
-//        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-//    }
-    
+    [self setupHelpViews];
     [MPAVObject beginLogPageView:_viewName];
     
 }
@@ -187,7 +156,7 @@
     [super viewDidAppear:animated];
     [self setMotionEnabled:YES];
     [self motionStart];
-//    [self setupHelpViews];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
                                                  name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:)
@@ -290,10 +259,9 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     SystemSoundID soundID;
     
-    //        NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"mytick" ofType:@"mp3"];
-    //        NSLog(@"sound path :%@ ",path);
+
     if (path) {
         SystemSoundID theSoundID;
         OSStatus error =  AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &theSoundID);
@@ -307,7 +275,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     UIActionSheet *actionSheet = nil;
     if(_isFirstUse){
         
-        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:nil];
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Continue!", nil) otherButtonTitles:nil];
         
     }else if (YES || [[iRate sharedInstance] shouldPromptForRating]) {
         
@@ -351,6 +319,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     [self setupHelpViews];
 }
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    _lastPageIndex = self.pageControl.currentPage;
     _currentRotation = toInterfaceOrientation;
 }
 
@@ -446,22 +415,39 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 #pragma mark - FirstUse
 -(void)setupHelpViews
 {
-    
-    // Set the constraints for the scroll view and the image view.
-//    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_mainScrollView, _contentView);
-//    
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mainScrollView]|" options:0 metrics: 0 views:viewsDictionary]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mainScrollView]|" options:0 metrics: 0 views:viewsDictionary]];
-//    [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
-//    [self.mainScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentView]|" options:0 metrics: 0 views:viewsDictionary]];
-    
     int count = (int)self.contentView.subviews.count;
-    int width = self.view.frame.size.width;
-    self.contentView.frame = self.mainScrollView.frame;
-    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad && !_isFirstUse) {
-        
-        width = 320;
+    int width = self.view.bounds.size.width;
+    CGRect viewRect = self.view.bounds;
+    CGRect contentFrame = self.contentView.frame;
+  
+
+    self.mainScrollView.frame = viewRect;
+    self.mainScrollView.contentSize = CGSizeMake(width * count , contentFrame.size.height);
+    
+
+    self.pageControl.numberOfPages = count;
+    
+    contentFrame.origin.y = (viewRect.size.height-contentFrame.size.height)/2;
+    contentFrame.size.width = viewRect.size.width*count;
+    self.contentView.frame = contentFrame;
+    
+    CGRect pageRect = self.pageControl.frame;
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        self.mainScrollView.bounces = YES;
+        pageRect.origin.y = MIN(contentFrame.origin.y+contentFrame.size.height,viewRect.size.height-pageRect.size.height);
     }
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) {
+        pageRect.origin.y = viewRect.size.height-pageRect.size.height;
+    }
+    
+    self.pageControl.frame = pageRect;
+    
+    self.mainScrollView.contentOffset = CGPointMake(_lastPageIndex*viewRect.size.width, 0);
+    self.pageControl.currentPage = _lastPageIndex;
+    
+//    NSLog(@"frame:%@,%@,%f",NSStringFromCGRect(self.view.frame),NSStringFromCGRect(self.view.bounds),self.navigationController.navigationBar.frame.size.height);
+
+    
 
     [self.contentView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
@@ -469,12 +455,9 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
         view.hidden = NO;
         CGRect frame = view.frame;
         frame.origin.x=(count-idx-1)*width+(width-frame.size.width)/2;
+        frame.origin.y = 0;
         view.frame = frame;
-        UIView *contentView = self.contentView;
         
-        
-        NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(view,contentView);
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[view]",frame.origin.x ] options:0 metrics:0 views:viewsDictionary]];
     }];
     
     
@@ -485,23 +468,23 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 #pragma mark - rotation
 -(BOOL)shouldAutorotate
 {
-//    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-//        return YES;
-//    }
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        return YES;
+    }
     return NO;
 }
 -(NSUInteger)supportedInterfaceOrientations
 {
-//    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-//        return UIInterfaceOrientationMaskAll;
-//    }
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    }
     return UIInterfaceOrientationMaskPortrait;
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-//    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
-//        return YES;
-//    }
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) {
+        return YES;
+    }
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 #pragma mark - statusbar

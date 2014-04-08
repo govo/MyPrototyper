@@ -9,6 +9,8 @@
 #import "MPAVObject.h"
 #import "MPDevice.h"
 
+
+
 NSString * const kAVObjectPreviewCounterEventFromRow = @"R";
 NSString * const kAVObjectPreviewCounterEventFromZip = @"Z";
 NSString * const kAVObjectPreviewCounterEventFromUnZip = @"U";
@@ -23,6 +25,9 @@ NSString * const kAVObjectResultFailed = @"0";
 
 +(void)previewCounterWithEvent:(NSString *)event
 {
+    if (APP_DEBUG) {
+        return;
+    }
     if (event==nil) {
         return;
     }
@@ -62,6 +67,9 @@ NSString * const kAVObjectResultFailed = @"0";
 }
 +(void)unzipCounterWithEvent:(NSString *)event result:(NSString *)result hasPwd:(BOOL)hasPwd
 {
+    if (APP_DEBUG) {
+        return;
+    }
     if (event==nil) {
         return;
     }
@@ -111,6 +119,9 @@ NSString * const kAVObjectResultFailed = @"0";
 
 +(void)onTapedWithEvent:(NSString *)event data:(NSString *)data
 {
+    if (APP_DEBUG) {
+        return;
+    }
     if (!event) {
         return;
     }
@@ -131,6 +142,9 @@ NSString * const kAVObjectResultFailed = @"0";
 +(void)userAutoLogin
 {
     
+    if (APP_DEBUG) {
+        return;
+    }
     if ([AVUser currentUser]==nil) {
         AVUser *user = [AVUser user];
         
@@ -154,7 +168,6 @@ NSString * const kAVObjectResultFailed = @"0";
 
 +(void)sentFeedback:(NSString *)feedback contact:(NSString *)contact resultBlock:(AVBooleanResultBlock)block
 {
-    
     if (!feedback) {
         return;
     }
@@ -167,9 +180,15 @@ NSString * const kAVObjectResultFailed = @"0";
     
 }
 +(void)beginLogPageView:(NSString *)pageName{
+    if (APP_DEBUG) {
+        return;
+    }
     [MobClick beginLogPageView:pageName];
 }
 +(void)endLogPageView:(NSString *)pageName{
+    if (APP_DEBUG) {
+        return;
+    }
     [MobClick endLogPageView:pageName];
 }
 

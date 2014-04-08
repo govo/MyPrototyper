@@ -22,8 +22,9 @@
 	errorContentResend = "Already send!";
 	Sent = Sent;
 	sending = Sending;
-	"feedbackSendSuccessed" = "Sending Successful! Thank you!";
+	"feedbackSendSuccessed" = "Message has been sent! Thank you!";
 	feedbackSendFailed = "Sending Failed";
 	offlineAndLater = "Opps! The Internet connection appears to be offline.";
 	"All (but upside down)" = All;
+	"Continue!" = "Continue!";
 }

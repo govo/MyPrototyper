@@ -82,7 +82,9 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self registerForKeyboardNotifications];
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) {
+        [self registerForKeyboardNotifications];
+    }
     _defaultInset = self.scrollView.contentInset;
     CGSize contentSize = self.view.frame.size;
     contentSize.height -= _defaultInset.top;
@@ -92,7 +94,9 @@
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [self unRegisterForKeyboardNotifications];
+    if (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) {
+        [self unRegisterForKeyboardNotifications];
+    }
 }
 
 - (void)didReceiveMemoryWarning

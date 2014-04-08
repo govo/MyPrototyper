@@ -11,6 +11,8 @@
 #import "MPNavigationController.h"
 #import "MPAVObject.h"
 
+//TODO: BUG 滚屏设置导致外面的界面也会滚动
+
 @interface MPSettingViewController (){
     NSString *_viewName;
 }
