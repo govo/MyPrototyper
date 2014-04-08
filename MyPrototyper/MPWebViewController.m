@@ -164,7 +164,8 @@
     }
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Operation", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Back", nil) otherButtonTitles:NSLocalizedString(@"Settings", nil), nil];
     self.globalActionSheet = actionSheet;
-    if (NO && [UIApplication sharedApplication].windows.firstObject) {
+    
+    if (NO && [UIApplication sharedApplication].windows.firstObject) {//AutoLayout 才需要
         [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
     }else{
         [actionSheet showInView:self.view];

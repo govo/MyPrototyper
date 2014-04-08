@@ -289,7 +289,7 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
     }
     self.globalActionSheet = actionSheet;
 //    NSLog(@"self.view:%@\n======\nscollview:%@\n=====\nsubviews:%@",self.view,self.mainScrollView,self.view.subviews);
-    if ([UIApplication sharedApplication].windows.firstObject) {
+    if (NO && [UIApplication sharedApplication].windows.firstObject) {
         [actionSheet showInView:[UIApplication sharedApplication].windows.firstObject];
     }else{
         [actionSheet showInView:self.view];

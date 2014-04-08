@@ -20,10 +20,10 @@
 	canNotUnzip = "Can not unzip file. Please make sure it is a correct zip file.";
 	Feedback = Feedback;
 	errorContentResend = "Already send!";
-	Sent = Sent;
+	Sent = Send;
 	sending = Sending;
-	"feedbackSendSuccessed" = "Message has been sent! Thank you!";
-	feedbackSendFailed = "Sending Failed";
+	"feedbackSendSuccessed" = "Sent successfully";
+	feedbackSendFailed = "Failed to send";
 	offlineAndLater = "Opps! The Internet connection appears to be offline.";
 	"All (but upside down)" = All;
 	"Continue!" = "Continue!";
