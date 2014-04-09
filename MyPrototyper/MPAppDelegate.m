@@ -28,7 +28,8 @@
     [AVOSCloud setApplicationId:appID clientKey:appKey];
     
     //友盟
-    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:SEND_INTERVAL channelId:nil];
+    NSString *channelId = nil;// @"tongbu";//渠道：tongbu 同步推
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:SEND_INTERVAL channelId:channelId];
     [MobClick setAppVersion:XcodeAppVersion];
     [MobClick checkUpdate];
     

@@ -56,4 +56,7 @@
 	offlineAndLater = "\U7db2\U7d61\U4e0d\U901a\Uff0c\U8acb\U7a0d\U5019\U518d\U8a66\U54e6T_T";
 	More = "\U66f4\U591a";
 	"Continue!" = "\U7e7c\U7e8c";
+	umUpdateTitle = "\U6709\U65b0\U7248\U672c\U54e6";
+	umUpdateCancel = "\U4e0d\U66f4\U65b0";
+	umUpdateOK = "\U7acb\U5373\U66f4\U65b0";
 }

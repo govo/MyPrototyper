@@ -27,4 +27,7 @@
 	offlineAndLater = "Opps! The Internet connection appears to be offline.";
 	"All (but upside down)" = All;
 	"Continue!" = "Continue!";
+	umUpdateTitle = "New version";
+	umUpdateCancel = Skip;
+	umUpdateOK = "Goto Store";
 }
