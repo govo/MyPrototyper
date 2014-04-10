@@ -570,8 +570,10 @@ CGAffineTransform CGAffineTransformMakeRotationAt(CGFloat angle, CGPoint pt){
 -(void)outputAccelertionData:(CMAcceleration)acceleration
 {
     double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
-//    NSLog(@"acceleration:%f",accelerameter);
-    if (accelerameter>2.3f && _motionEnabled) {
+
+    
+    float activeShake =(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)? 2.0f : 2.3f;
+    if (accelerameter>activeShake && _motionEnabled) {
         [self setMotionEnabled:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self handShaked];

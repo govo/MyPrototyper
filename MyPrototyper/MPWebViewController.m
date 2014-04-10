@@ -175,7 +175,7 @@
     
     SystemSoundID soundID;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Tock" ofType:@"aiff"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mytick" ofType:@"mp3"];
     
     if (path) {
         SystemSoundID theSoundID;
@@ -352,8 +352,11 @@
 -(void)outputAccelertionData:(CMAcceleration)acceleration
 {
 //    NSLog(@"x:%f,y:%f,z:%f",acceleration.x,acceleration.y,acceleration.z);
+    //iPad上摇太困难，应该轻一点
+    float activeShake =(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad)? 2.2f : 2.7f;
+    
     double accelerameter =sqrt( pow( acceleration.x , 2 ) + pow( acceleration.y , 2 ) + pow( acceleration.z , 2) );
-    if (accelerameter>2.7f && _motionEnabled) {
+    if (accelerameter>activeShake && _motionEnabled) {
         [self setMotionEnabled:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self handShaked];
