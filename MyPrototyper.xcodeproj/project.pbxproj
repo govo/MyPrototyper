@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940EF1C518FD171800E684FC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940EF1C418FD171800E684FC /* Main_iPad.storyboard */; };
 		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
 		94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */; };
 		94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BD218AFA160005182A0 /* MessageUI.framework */; };
@@ -117,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		940EF1C418FD171800E684FC /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		940FD64818C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		940FD64918C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/EmptyView.strings"; sourceTree = "<group>"; };
 		940FD64A18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		947EDF6718F2CAC90046781B /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				940EF1C418FD171800E684FC /* Main_iPad.storyboard */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				943F6B9918AD0E6800253DF1 /* Default@2x.png in Resources */,
 				9483C59C187AEA6B001074DD /* InfoPlist.strings in Resources */,
 				9486715F18A0B345002165CF /* help@2x.png in Resources */,
+				940EF1C518FD171800E684FC /* Main_iPad.storyboard in Resources */,
 				9486716518A0F3BF002165CF /* shakephone@2x.png in Resources */,
 				94EEEACA18F316F900FED66A /* Default-Portrait~ipad.png in Resources */,
 			);
