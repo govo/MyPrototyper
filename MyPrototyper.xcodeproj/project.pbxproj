@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64513C4C6791463E93095C6C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFF9BF068654A4CBC99CFEA /* libPods.a */; };
 		94149BC918AF526C005182A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94149BCB18AF526C005182A0 /* Localizable.strings */; };
 		94149BD118AF8DC2005182A0 /* MPSimpleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94149BD018AF8DC2005182A0 /* MPSimpleWebViewController.m */; };
 		94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94149BD218AFA160005182A0 /* MessageUI.framework */; };
@@ -64,10 +63,8 @@
 		9486718118A5476E002165CF /* icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486717F18A5476E002165CF /* icon-58.png */; };
 		9486718218A5476E002165CF /* icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486718018A5476E002165CF /* icon-80.png */; };
 		9486718418A547EF002165CF /* icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 9486718318A547EF002165CF /* icon-29.png */; };
-		94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */; };
 		94ABB1A3187C2ACE004F19F9 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB192187C2ACE004F19F9 /* ioapi.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB194187C2ACE004F19F9 /* make_vms.com */; };
-		94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB195187C2ACE004F19F9 /* Makefile */; };
 		94ABB1A8187C2ACE004F19F9 /* MiniZip64_Changes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */; };
 		94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */ = {isa = PBXBuildFile; fileRef = 94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */; };
 		94ABB1AA187C2ACE004F19F9 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 94ABB19A187C2ACE004F19F9 /* mztools.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -88,7 +85,6 @@
 		94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */; };
 		94BD4FF818DEF62600DBB697 /* howto0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BD4FF718DEF62600DBB697 /* howto0@2x.png */; };
 		94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */; };
-		94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */; };
 		94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BFBD2818DC42C100E32A49 /* libz.dylib */; };
 		94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */; };
 		94EEEAC518F3163F00FED66A /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC118F3163F00FED66A /* Default~ipad.png */; };
@@ -98,12 +94,16 @@
 		94EEEACA18F316F900FED66A /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAC918F316F900FED66A /* Default-Portrait~ipad.png */; };
 		94EEEAD118F31A8B00FED66A /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACB18F31A8B00FED66A /* icon-40.png */; };
 		94EEEAD218F31A8B00FED66A /* icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACC18F31A8B00FED66A /* icon-50.png */; };
-		94EEEAD318F31A8B00FED66A /* icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACD18F31A8B00FED66A /* icon-80.png */; };
 		94EEEAD418F31A8B00FED66A /* icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACE18F31A8B00FED66A /* icon-100.png */; };
 		94EEEAD518F31A8B00FED66A /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEACF18F31A8B00FED66A /* icon-144.png */; };
 		94EEEAD618F31A8B00FED66A /* icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAD018F31A8B00FED66A /* icon-152.png */; };
 		94EEEAD818F31AAE00FED66A /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EEEAD718F31AAE00FED66A /* icon-76.png */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
+		94F795F818FCEF780047FDEA /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795F718FCEF780047FDEA /* AVOSCloud.framework */; };
+		94F795FA18FCEF9B0047FDEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795F918FCEF9B0047FDEA /* SystemConfiguration.framework */; };
+		94F795FC18FCEFA50047FDEA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795FB18FCEFA50047FDEA /* MobileCoreServices.framework */; };
+		94F795FE18FCEFAF0047FDEA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795FD18FCEFAF0047FDEA /* CoreTelephony.framework */; };
+		94F7960018FCEFB60047FDEA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795FF18FCEFB60047FDEA /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +117,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		290B1BF725634156952384E5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		4FFF9BF068654A4CBC99CFEA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		940FD64818C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		940FD64918C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/EmptyView.strings"; sourceTree = "<group>"; };
 		940FD64A18C8DC050033F499 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main_iPhone.strings"; sourceTree = "<group>"; };
@@ -209,12 +207,10 @@
 		9486718018A5476E002165CF /* icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-80.png"; path = "MyPrototyper/icon-80.png"; sourceTree = "<group>"; };
 		9486718318A547EF002165CF /* icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29.png"; path = "MyPrototyper/icon-29.png"; sourceTree = "<group>"; };
 		948D4E8118B722F700645CC5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/EmptyView.strings"; sourceTree = "<group>"; };
-		94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChangeLogUnzip; sourceTree = "<group>"; };
 		94ABB191187C2ACE004F19F9 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		94ABB192187C2ACE004F19F9 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
 		94ABB193187C2ACE004F19F9 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
 		94ABB194187C2ACE004F19F9 /* make_vms.com */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = make_vms.com; sourceTree = "<group>"; };
-		94ABB195187C2ACE004F19F9 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_Changes.txt; sourceTree = "<group>"; };
 		94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniZip64_info.txt; sourceTree = "<group>"; };
 		94ABB19A187C2ACE004F19F9 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
@@ -242,7 +238,6 @@
 		94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto3@2x.png"; sourceTree = "<group>"; };
 		94BD4FF718DEF62600DBB697 /* howto0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "howto0@2x.png"; sourceTree = "<group>"; };
 		94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary_armv6.a; sourceTree = "<group>"; };
 		94BFBD2518DC41DA00E32A49 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		94BFBD2818DC42C100E32A49 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94BFBD2C18DCAF4700E32A49 /* mytick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytick.mp3; sourceTree = "<group>"; };
@@ -260,6 +255,11 @@
 		94EEEAD718F31AAE00FED66A /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-76.png"; path = "MyPrototyper/icon-76.png"; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
 		94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLandespaceSettingViewController.m; sourceTree = "<group>"; };
+		94F795F718FCEF780047FDEA /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVOSCloud.framework; path = "Frameworks/release-v2.5.0/AVOSCloud.framework"; sourceTree = "<group>"; };
+		94F795F918FCEF9B0047FDEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		94F795FB18FCEFA50047FDEA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		94F795FD18FCEFAF0047FDEA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		94F795FF18FCEFB60047FDEA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,8 +267,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F7960018FCEFB60047FDEA /* CoreLocation.framework in Frameworks */,
+				94F795FE18FCEFAF0047FDEA /* CoreTelephony.framework in Frameworks */,
+				94F795FC18FCEFA50047FDEA /* MobileCoreServices.framework in Frameworks */,
+				94F795FA18FCEF9B0047FDEA /* SystemConfiguration.framework in Frameworks */,
 				94BFBD2918DC42C100E32A49 /* libz.dylib in Frameworks */,
-				94BFBD2718DC41DA00E32A49 /* libMobClickLibrary_armv6.a in Frameworks */,
 				9480D51818C62B6E00B67B2E /* AdSupport.framework in Frameworks */,
 				94149BDB18B0E4AD005182A0 /* CoreMotion.framework in Frameworks */,
 				94149BD318AFA160005182A0 /* MessageUI.framework in Frameworks */,
@@ -279,7 +282,7 @@
 				9483C596187AEA6B001074DD /* UIKit.framework in Frameworks */,
 				9483C592187AEA6B001074DD /* Foundation.framework in Frameworks */,
 				94BFBD2618DC41DA00E32A49 /* libMobClickLibrary.a in Frameworks */,
-				64513C4C6791463E93095C6C /* libPods.a in Frameworks */,
+				94F795F818FCEF780047FDEA /* AVOSCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +380,6 @@
 				9483C5BC187AEA6B001074DD /* MyPrototyperTests */,
 				9483C590187AEA6B001074DD /* Frameworks */,
 				9483C58F187AEA6B001074DD /* Products */,
-				290B1BF725634156952384E5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,6 +395,11 @@
 		9483C590187AEA6B001074DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94F795FF18FCEFB60047FDEA /* CoreLocation.framework */,
+				94F795FD18FCEFAF0047FDEA /* CoreTelephony.framework */,
+				94F795FB18FCEFA50047FDEA /* MobileCoreServices.framework */,
+				94F795F918FCEF9B0047FDEA /* SystemConfiguration.framework */,
+				94F795F718FCEF780047FDEA /* AVOSCloud.framework */,
 				94BFBD2818DC42C100E32A49 /* libz.dylib */,
 				94BFBD2218DC41DA00E32A49 /* UMAnalytics_Sdk_2.2.1.OpenUDID */,
 				9480D51718C62B6E00B67B2E /* AdSupport.framework */,
@@ -409,7 +416,6 @@
 				9483C593187AEA6B001074DD /* CoreGraphics.framework */,
 				9483C595187AEA6B001074DD /* UIKit.framework */,
 				9483C5B6187AEA6B001074DD /* XCTest.framework */,
-				4FFF9BF068654A4CBC99CFEA /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -562,12 +568,10 @@
 		94ABB18F187C2ACE004F19F9 /* minizip */ = {
 			isa = PBXGroup;
 			children = (
-				94ABB190187C2ACE004F19F9 /* ChangeLogUnzip */,
 				94ABB191187C2ACE004F19F9 /* crypt.h */,
 				94ABB192187C2ACE004F19F9 /* ioapi.c */,
 				94ABB193187C2ACE004F19F9 /* ioapi.h */,
 				94ABB194187C2ACE004F19F9 /* make_vms.com */,
-				94ABB195187C2ACE004F19F9 /* Makefile */,
 				94ABB198187C2ACE004F19F9 /* MiniZip64_Changes.txt */,
 				94ABB199187C2ACE004F19F9 /* MiniZip64_info.txt */,
 				94ABB19A187C2ACE004F19F9 /* mztools.c */,
@@ -584,7 +588,6 @@
 			isa = PBXGroup;
 			children = (
 				94BFBD2318DC41DA00E32A49 /* libMobClickLibrary.a */,
-				94BFBD2418DC41DA00E32A49 /* libMobClickLibrary_armv6.a */,
 				94BFBD2518DC41DA00E32A49 /* MobClick.h */,
 			);
 			path = UMAnalytics_Sdk_2.2.1.OpenUDID;
@@ -597,11 +600,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9483C5C6187AEA6B001074DD /* Build configuration list for PBXNativeTarget "MyPrototyper" */;
 			buildPhases = (
-				A999FC3CC1FE4D4DAE1D7E07 /* Check Pods Manifest.lock */,
 				9483C58A187AEA6B001074DD /* Sources */,
 				9483C58B187AEA6B001074DD /* Frameworks */,
 				9483C58C187AEA6B001074DD /* Resources */,
-				F1DFF860D2604BD197E2B55A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -637,7 +638,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MP;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = me.govo;
 				TargetAttributes = {
 					9483C58D187AEA6B001074DD = {
@@ -679,7 +680,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94ABB1A2187C2ACE004F19F9 /* ChangeLogUnzip in Resources */,
 				94EEEAC518F3163F00FED66A /* Default~ipad.png in Resources */,
 				94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */,
 				943F6B9818AD0E6800253DF1 /* Default.png in Resources */,
@@ -718,7 +718,6 @@
 				94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */,
 				94ABB1A9187C2ACE004F19F9 /* MiniZip64_info.txt in Resources */,
 				9486718118A5476E002165CF /* icon-58.png in Resources */,
-				94EEEAD318F31A8B00FED66A /* icon-80.png in Resources */,
 				94149BD818AFCCCE005182A0 /* iRate.bundle in Resources */,
 				94ABB1A4187C2ACE004F19F9 /* make_vms.com in Resources */,
 				94BD4FF318DEC1C800DBB697 /* howto2.png in Resources */,
@@ -740,39 +739,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A999FC3CC1FE4D4DAE1D7E07 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F1DFF860D2604BD197E2B55A /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9483C58A187AEA6B001074DD /* Sources */ = {
@@ -805,7 +771,6 @@
 				9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */,
 				94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */,
 				94ABB1AD187C2ACE004F19F9 /* ZipArchive.m in Sources */,
-				94ABB1A5187C2ACE004F19F9 /* Makefile in Sources */,
 				9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */,
 				9480D51B18C62C3900B67B2E /* MPDevice.m in Sources */,
 				9416A350187AF93C00F8C9EC /* FMDatabaseAdditions.m in Sources */,
@@ -898,7 +863,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -934,6 +898,7 @@
 				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Debug;
 		};
@@ -941,7 +906,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -971,15 +935,18 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
 		};
 		9483C5C7187AEA6B001074DD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/release-v2.5.0",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
@@ -988,19 +955,23 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		9483C5C8187AEA6B001074DD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 290B1BF725634156952384E5 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang jiekang (22HDUG74E7)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/release-v2.5.0",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPrototyper/MyPrototyper-Prefix.pch";
 				INFOPLIST_FILE = "MyPrototyper/MyPrototyper-Info.plist";
@@ -1009,9 +980,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMAnalytics_Sdk_2.2.1.OpenUDID",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "847F97F1-36F4-4FF4-B00E-938DDC923DF8";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1019,7 +992,6 @@
 		9483C5CA187AEA6B001074DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyPrototyper.app/MyPrototyper";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1042,7 +1014,6 @@
 		9483C5CB187AEA6B001074DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyPrototyper.app/MyPrototyper";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
