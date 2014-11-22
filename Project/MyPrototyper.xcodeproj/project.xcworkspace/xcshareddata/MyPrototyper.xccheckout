@@ -14,11 +14,11 @@
 		<string>https://code.jd.com/govomusic_m/MyPrototyper.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MyPrototyper.xcodeproj/project.xcworkspace</string>
+	<string>Project/MyPrototyper.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3DD07C6A0D0DF01F3A86ED9BE6751A2AD473209D</key>
-		<string>../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://code.jd.com/govomusic_m/MyPrototyper.git</string>
