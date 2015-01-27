@@ -6,6 +6,7 @@
 4、演示时摇一摇可呼出菜单，减少演示时的干扰；
 5、每个原型演示独立设置，互不干扰；
 
+最新更新：适配iPhone6 iPhone6 Plus
 
 Description:
 Show your prototyper on your phone.
@@ -15,7 +16,7 @@ Show your prototyper on your phone.
 4.Shake to call menu when Showing, less UI and easy to focus on your view.
 5.Setting is prepare for each Show separately.
 
-
+update: for iPhone6 and iPhone6 Plus
 
 Support URL :http://myprototyper.lofter.com/
 
