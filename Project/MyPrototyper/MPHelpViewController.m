@@ -80,14 +80,6 @@
 
     self.title = NSLocalizedString(@"Help", @"help");
     
-	// Do any additional setup after loading the view.
-    self.mainScrollView.pagingEnabled = YES;
-    self.mainScrollView.delegate = self;
-    self.mainScrollView.scrollEnabled = YES;
-    self.mainScrollView.frame = self.view.bounds;
-    self.mainScrollView.showsVerticalScrollIndicator = NO;
-    self.mainScrollView.showsHorizontalScrollIndicator = NO;
-    self.mainScrollView.bounces = NO;
     
     if (NSFoundationVersionNumber>NSFoundationVersionNumber_iOS_6_1) {
 //        self.automaticallyAdjustsScrollViewInsets = NO;
@@ -118,6 +110,20 @@
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .1;
     
+    
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    
+    // Do any additional setup after loading the view.
+    self.mainScrollView.pagingEnabled = YES;
+    self.mainScrollView.delegate = self;
+    self.mainScrollView.scrollEnabled = YES;
+    self.mainScrollView.frame = self.view.bounds;
+    self.mainScrollView.showsVerticalScrollIndicator = NO;
+    self.mainScrollView.showsHorizontalScrollIndicator = NO;
+    self.mainScrollView.bounces = NO;
     
     [self setupHelpViews];
 }
