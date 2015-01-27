@@ -123,7 +123,13 @@
     self.clearsSelectionOnViewWillAppear = YES;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
- 
+
+    //TODO:在rightBarItem中加入按钮还是在列表中加入？
+//    UIBarButtonItem *transferButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Trans",@"Trans") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
+//    NSMutableArray *rightItems = [self.navigationItem.rightBarButtonItems mutableCopy];
+//    [rightItems addObject:transferButton];
+//    self.navigationItem.rightBarButtonItems = rightItems;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     MPStorage *storage = [[MPStorage alloc]init];
