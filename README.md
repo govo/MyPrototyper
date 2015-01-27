@@ -7,6 +7,9 @@ App Store：[https://itunes.apple.com/cn/app/yuan-xing-zhu-shou/id822214463?mt=8
 
 版本更新：
 
+- v1.1.2 [2015.1.27]
+	> iPhone6, iPhone6 Plus适配
+	
 - v1.1.1 [2014.4.11]
 
 	>简体中文：
