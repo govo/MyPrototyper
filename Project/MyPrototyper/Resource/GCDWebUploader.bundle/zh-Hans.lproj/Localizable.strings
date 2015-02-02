@@ -1,0 +1,3 @@
+"PROLOGUE" = "<p>把文件拖放到页面或者点击按钮 \"Upload Files&hellip;\" 上传文件</p>";
+"EPILOGUE" = "联系：<a href=\"http://govo.info/\" target='_blank'>govo.info</a> | <a href=\"http://myprototyper.lofter.com/\" target='_blank'>myprototyper.lofter.com</a>";
+"FOOTER_FORMAT" = "%@ %@";

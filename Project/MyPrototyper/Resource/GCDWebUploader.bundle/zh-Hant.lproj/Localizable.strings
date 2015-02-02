@@ -1,0 +1,3 @@
+"PROLOGUE" = "<p>Drag &amp; drop files on this window or use the \"Upload Files&hellip;\" button to upload new files.</p>";
+"EPILOGUE" = "Contact: <a href=\"http://govo.info/\" target='_blank'>govo.info</a> | <a href=\"http://myprototyper.lofter.com/\" target='_blank'>myprototyper.lofter.com</a>";
+"FOOTER_FORMAT" = "%@ %@";
