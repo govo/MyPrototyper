@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WifiCell" id="KGk-i7-Jjw" customClass="MPWifiTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi Transfer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcC-cN-96Y">
+                        <rect key="frame" x="40" y="14" width="200" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="LRz-Qo-sUY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g86-nn-RbW">
+                        <rect key="frame" x="269" y="14" width="18" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.png" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-bs-Jlf">
+                        <rect key="frame" x="8" y="9" width="24" height="24"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="UcC-cN-96Y" secondAttribute="centerY" id="CON-AQ-dyR"/>
+                    <constraint firstAttribute="centerY" secondItem="g86-nn-RbW" secondAttribute="centerY" id="CTx-Vk-zwX"/>
+                    <constraint firstItem="TdG-bs-Jlf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="D3C-uW-XLe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="g86-nn-RbW" secondAttribute="trailing" constant="-8" id="Lar-A7-nFd"/>
+                    <constraint firstItem="TdG-bs-Jlf" firstAttribute="leading" secondItem="UcC-cN-96Y" secondAttribute="leading" constant="-32" id="XyF-8r-VY2"/>
+                    <constraint firstAttribute="centerY" secondItem="TdG-bs-Jlf" secondAttribute="centerY" constant="0.5" id="fim-1F-ade"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.97481496710526316" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="325" y="275"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="wifi.png" width="24" height="24"/>
+    </resources>
+</document>

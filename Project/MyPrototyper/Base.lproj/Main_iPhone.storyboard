@@ -231,7 +231,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Visit the host above using your computer, to import files over WiFi." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-NE-MFe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="To import files over WiFi,visit the host above using your computer, " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-NE-MFe">
                                 <rect key="frame" x="16" y="124" width="288" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

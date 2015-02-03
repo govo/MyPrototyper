@@ -75,6 +75,11 @@
 		94D95FC81A77CBA300CF43BB /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 94D95FBA1A77CBA300CF43BB /* zip.c */; };
 		94D95FC91A77CBA300CF43BB /* ZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D95FBD1A77CBA300CF43BB /* ZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		94F4FF8C1A7FEA6E005F3007 /* GCDWebUploader.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94F4FF8B1A7FEA6E005F3007 /* GCDWebUploader.bundle */; };
+		94F550401A8138A200E3DC14 /* MPWifiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5503E1A8138A200E3DC14 /* MPWifiTableCell.m */; };
+		94F550411A8138A200E3DC14 /* MPWifiTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F5503F1A8138A200E3DC14 /* MPWifiTableCell.xib */; };
+		94F550451A813FD500E3DC14 /* wifi.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F550421A813FD500E3DC14 /* wifi.png */; };
+		94F550461A813FD500E3DC14 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F550431A813FD500E3DC14 /* wifi@2x.png */; };
+		94F550471A813FD500E3DC14 /* wifi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F550441A813FD500E3DC14 /* wifi@3x.png */; };
 		94F5FD4C188A7ED400A33409 /* MPLandespaceSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */; };
 		94F795FA18FCEF9B0047FDEA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795F918FCEF9B0047FDEA /* SystemConfiguration.framework */; };
 		94F795FC18FCEFA50047FDEA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F795FB18FCEFA50047FDEA /* MobileCoreServices.framework */; };
@@ -205,6 +210,12 @@
 		94D95FBC1A77CBA300CF43BB /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		94D95FBD1A77CBA300CF43BB /* ZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipArchive.m; sourceTree = "<group>"; };
 		94F4FF8B1A7FEA6E005F3007 /* GCDWebUploader.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GCDWebUploader.bundle; sourceTree = "<group>"; };
+		94F5503D1A8138A200E3DC14 /* MPWifiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWifiTableCell.h; sourceTree = "<group>"; };
+		94F5503E1A8138A200E3DC14 /* MPWifiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWifiTableCell.m; sourceTree = "<group>"; };
+		94F5503F1A8138A200E3DC14 /* MPWifiTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPWifiTableCell.xib; sourceTree = "<group>"; };
+		94F550421A813FD500E3DC14 /* wifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wifi.png; sourceTree = "<group>"; };
+		94F550431A813FD500E3DC14 /* wifi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi@2x.png"; sourceTree = "<group>"; };
+		94F550441A813FD500E3DC14 /* wifi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifi@3x.png"; sourceTree = "<group>"; };
 		94F5FD4A188A7ED400A33409 /* MPLandespaceSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLandespaceSettingViewController.h; sourceTree = "<group>"; };
 		94F5FD4B188A7ED400A33409 /* MPLandespaceSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLandespaceSettingViewController.m; sourceTree = "<group>"; };
 		94F795F918FCEF9B0047FDEA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -417,6 +428,9 @@
 				94BD4FED18DEC1C800DBB697 /* howto2@2x.png */,
 				94BD4FEE18DEC1C800DBB697 /* howto3.png */,
 				94BD4FEF18DEC1C800DBB697 /* howto3@2x.png */,
+				94F550421A813FD500E3DC14 /* wifi.png */,
+				94F550431A813FD500E3DC14 /* wifi@2x.png */,
+				94F550441A813FD500E3DC14 /* wifi@3x.png */,
 				943F6B9A18AD1AA800253DF1 /* sound */,
 				943A0C1018AC7AD5004AF08E /* example */,
 				9486716218A0F3BF002165CF /* shakephone.png */,
@@ -529,6 +543,9 @@
 				94357A4F18B722B80001C0EA /* EmptyView.xib */,
 				9483FA2818F3C6B50042B874 /* HelpView.xib */,
 				9483C5A3187AEA6B001074DD /* Main_iPhone.storyboard */,
+				94F5503D1A8138A200E3DC14 /* MPWifiTableCell.h */,
+				94F5503E1A8138A200E3DC14 /* MPWifiTableCell.m */,
+				94F5503F1A8138A200E3DC14 /* MPWifiTableCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -624,22 +641,26 @@
 			files = (
 				94BFBD2D18DCAF4700E32A49 /* mytick.mp3 in Resources */,
 				9486715B18A09B82002165CF /* SVProgressHUD.bundle in Resources */,
+				94F550451A813FD500E3DC14 /* wifi.png in Resources */,
 				94BD4FF418DEC1C800DBB697 /* howto2@2x.png in Resources */,
 				94BD4FF118DEC1C800DBB697 /* howto1.png in Resources */,
 				94BD4FF618DEC1C800DBB697 /* howto3@2x.png in Resources */,
 				94357A4D18B722B80001C0EA /* EmptyView.xib in Resources */,
+				94F550461A813FD500E3DC14 /* wifi@2x.png in Resources */,
 				9483FA2618F3C6B50042B874 /* HelpView.xib in Resources */,
 				943F6BA418AD1D5800253DF1 /* Tock.aiff in Resources */,
 				94F4FF8C1A7FEA6E005F3007 /* GCDWebUploader.bundle in Resources */,
 				941096EF1A77408400A9ED77 /* Images.xcassets in Resources */,
 				94149BC918AF526C005182A0 /* Localizable.strings in Resources */,
 				94340C101A77608C009CDD91 /* help@3x.png in Resources */,
+				94F550411A8138A200E3DC14 /* MPWifiTableCell.xib in Resources */,
 				94BD4FF518DEC1C800DBB697 /* howto3.png in Resources */,
 				9483C5A5187AEA6B001074DD /* Main_iPhone.storyboard in Resources */,
 				9486715E18A0B345002165CF /* help.png in Resources */,
 				9486716418A0F3BF002165CF /* shakephone.png in Resources */,
 				94BD4FF818DEF62600DBB697 /* howto0@2x.png in Resources */,
 				94BD4FF218DEC1C800DBB697 /* howto1@2x.png in Resources */,
+				94F550471A813FD500E3DC14 /* wifi@3x.png in Resources */,
 				94D94F151A77D4C900594FEE /* iRate.bundle in Resources */,
 				94BD4FF018DEC1C800DBB697 /* howto0.png in Resources */,
 				94BD4FF318DEC1C800DBB697 /* howto2.png in Resources */,
@@ -725,6 +746,7 @@
 				9483C5CE187AED20001074DD /* MPMainViewController.m in Sources */,
 				94ABB1BD187DA6E4004F19F9 /* MPSettingViewController.m in Sources */,
 				9486716C18A164BA002165CF /* MPHelpViewController.m in Sources */,
+				94F550401A8138A200E3DC14 /* MPWifiTableCell.m in Sources */,
 				9480D51B18C62C3900B67B2E /* MPDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
