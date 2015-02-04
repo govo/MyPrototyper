@@ -18,6 +18,7 @@
 #import "MPHelpViewController.h"
 #import "MPDevice.h"
 #import "MPAVObject.h"
+#import "MPWifiTableCell.h"
 
 
 
@@ -27,6 +28,7 @@
 #define kAlertTagUnzipSuccessed     10
 
 
+static NSString * const wifiCellIdenty = @"WifiCell";
 
 @interface MPMainViewController (){
     NSMutableArray *_datas;
@@ -47,8 +49,11 @@
     NSString *_exampleName;
     
     NSString *_viewName;
+    
+    BOOL _isWifiSupported;
 
 }
+
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *help;
 - (IBAction)helpPressed:(id)sender;
@@ -91,6 +96,10 @@
         helpController.isFirstUse = YES;
         [self presentViewController:helpController animated:NO completion:nil];
     }
+    
+    _isWifiSupported = YES;
+    [self.tableView registerNib:[UINib nibWithNibName:@"MPWifiTableCell" bundle:nil] forCellReuseIdentifier:wifiCellIdenty];
+    
 #if 0
     
     //Example ready
@@ -318,12 +327,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger count = _datas.count;
+    if (_segmentIndex==1) {
+        count+=1;
+    }
+    return count;
     // Return the number of rows in the section.
-    return [_datas count];
+//    return [_datas count];
+}
+
+- (NSInteger)rowOfFileCellFromIndexPath:(NSIndexPath *)indexPath{
+    return _isWifiSupported ? indexPath.row-1 : indexPath.row;
+}
+
+- (BOOL)isWifiRow:(NSIndexPath *)indexPath{
+    return (_isWifiSupported && _segmentIndex==1 && indexPath.row==0);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self isWifiRow:indexPath]) {
+        UITableViewCell *wifiCell = [tableView dequeueReusableCellWithIdentifier:wifiCellIdenty forIndexPath:indexPath];
+        NSLog(@"wificell:%@",wifiCell);
+        return wifiCell;
+    }
+//
+    
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -354,7 +383,7 @@
             
         default:
         {
-            NSString *file = [_datas objectAtIndex:indexPath.row];
+            NSString *file = [_datas objectAtIndex:[self rowOfFileCellFromIndexPath:indexPath]];
             if (_exampleZip && [file isEqualToString:_exampleZip]) {
                 file = _exampleName;
                 cell.textLabel.textColor = [UIColor darkGrayColor];
@@ -378,6 +407,9 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self isWifiRow:indexPath]) {
+        return NO;
+    }
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
@@ -442,14 +474,14 @@
             default:
             {
                 [HUD hide:NO];
-                
+                NSInteger row = [self rowOfFileCellFromIndexPath:indexPath];
                 HUD = [self whiteHUDWithIndeterminate];
                 HUD.labelText = NSLocalizedString(@"Deleting", nill);
                 [HUD show:NO];
                 
                 [self stopListenDocumentChange];
                 filemanager = [[NSFileManager alloc] init];
-                NSString *filename = [_localFilesArray objectAtIndex:indexPath.row];
+                NSString *filename = [_localFilesArray objectAtIndex:row];
                 if (_exampleZip && [filename isEqualToString:_exampleZip]) {
                     [filemanager removeItemAtPath:_exampleZip error:&error];
                     _exampleZip = nil;
@@ -457,7 +489,7 @@
                 }else{
                     [filemanager removeItemAtPath:[kDocumentDictory stringByAppendingPathComponent:filename] error:&error];
                 }
-                [_localFilesArray removeObjectAtIndex:indexPath.row];
+                [_localFilesArray removeObjectAtIndex:row];
                 _datas = _localFilesArray;
                 [self listenDocumentChange];
                 [HUD hide:NO];
@@ -482,6 +514,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self isWifiRow:indexPath]) {
+        //TODO: to WiFi page
+        return;
+    }
+    
     switch (_segmentIndex) {
         case 0:
         {
@@ -505,7 +542,7 @@
 //                cell.textLabel.textColor = [UIColor darkGrayColor];
 //            }
             
-            NSString *file = [_localFilesArray objectAtIndex:indexPath.row];
+            NSString *file = [_localFilesArray objectAtIndex:[self rowOfFileCellFromIndexPath:indexPath]];
             NSString *fileName = nil;
 //            if (_exampleZip && [file isEqualToString:_exampleZip]) {
 //                file = [_exampleName stringByAppendingPathExtension:@"zip"];
@@ -568,6 +605,8 @@
 }
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self isWifiRow:indexPath]) return;
+    
     if (_segmentIndex==0) {
         MPSettingViewController *controller = (MPSettingViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"setting"];
         
@@ -584,6 +623,9 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self isWifiRow:indexPath]) {
+        return 48.0f;
+    }
     return 58.0f;
 }
 /*

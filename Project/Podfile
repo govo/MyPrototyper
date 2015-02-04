@@ -1,0 +1,28 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, "6.0"
+
+
+#pod 'iRate',       '1.9.3'
+#pod 'ZipArchive',       '1.2.0'
+#pod 'FMDB',       '2.2'
+pod 'AVOSCloud',	'2.6.10'
+pod 'MBProgressHUD',       '0.9'
+pod 'UMengAnalytics',       '3.4.4'
+#pod "GCDWebServer", "~> 3.0"
+pod "GCDWebServer/WebUploader", "3.2.2"
+#pod "GCDWebServer/WebDAV", "3.2"
+pod "UnrarKit",	'2.3.0-RC3'
+#pod "zipzap",	'8.0.2'
+
+#post_install do |installer|
+#    installer.project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['ARCHS'] = "$(ARCHS_STANDARD)"
+#        end
+#    end
+#end
+post_install do |installer|
+    installer.project.targets.each do |target|
+        puts "#{target.name}"
+    end
+end
