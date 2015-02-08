@@ -1,6 +1,6 @@
 
 /* Class = "IBUILabel"; text = "You can transport zip file by iTunes"; ObjectID = "9tQ-hA-WeZ"; */
-"9tQ-hA-WeZ.text" = "您可以通過iTunes來傳送文件";
+"9tQ-hA-WeZ.text" = "通過 WiFi 或 iTunes傳送文檔";
 
 /* Class = "IBUIButton"; normalTitle = "Go"; ObjectID = "CyG-yV-mbq"; */
 "CyG-yV-mbq.normalTitle" = "去解壓";
@@ -13,3 +13,5 @@
 
 /* Class = "IBUILabel"; text = "Empty"; ObjectID = "zQJ-XZ-q5U"; */
 "zQJ-XZ-q5U.text" = "無內容";
+
+"JLi-OX-MvZ" = "WiFi傳文檔";

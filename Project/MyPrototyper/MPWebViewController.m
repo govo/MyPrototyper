@@ -20,10 +20,12 @@
     NSInteger _landSpace;
     BOOL _motionEnabled;
     NSString *_viewName;
+    UIButton *_handlerButton;
 }
 
 @property(strong,nonatomic) CMMotionManager *motionManager;
 @property(weak,nonatomic) UIActionSheet *globalActionSheet;
+@property (weak, nonatomic) IBOutlet UIButton *dotHelper;
 
 @end
 
@@ -61,6 +63,9 @@
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .1;
+    
+    //TODO:在下一个版本把可视的帮助按钮完成
+    self.dotHelper.hidden = YES;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -156,6 +161,11 @@
     [MPAVObject endLogPageView:_viewName];
 }
 #pragma mark - handshake event
+//TODO:帮助按钮可以点击移动
+-(void)dotHelperTouchMove{
+    
+}
+
 -(void)handShaked
 {
     [self setMotionEnabled:NO];

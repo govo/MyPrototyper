@@ -30,4 +30,6 @@
 	umUpdateTitle = "New version";
 	umUpdateCancel = Skip;
 	umUpdateOK = "Goto Store";
+    wifiTitle = "WiFi File Transfer";
+    wifiDescription = "To import files over WiFi,visit the host above using your computer.";
 }

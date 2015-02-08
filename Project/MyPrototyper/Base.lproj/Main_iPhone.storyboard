@@ -83,6 +83,12 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lk8-ih-aJX">
+                                <rect key="frame" x="272" y="500" width="48" height="48"/>
+                                <state key="normal" image="dot.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,6 +99,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dotHelper" destination="lk8-ih-aJX" id="3Zt-hx-d0w"/>
                         <outlet property="webview" destination="sB7-u0-jyB" id="Ugt-dP-72e"/>
                     </connections>
                 </viewController>
@@ -209,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="1959" y="-205"/>
         </scene>
-        <!--View Controller-->
+        <!--Wifi Controller-->
         <scene sceneID="Sco-X6-oXg">
             <objects>
-                <viewController id="fww-4f-don" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MPWifiController" id="fww-4f-don" customClass="MPWifiController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ozg-k7-sJp"/>
                         <viewControllerLayoutGuide type="bottom" id="LtA-5v-3WJ"/>
@@ -221,50 +228,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi Transfer Host:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sta-7Y-Dcg">
-                                <rect key="frame" x="16" y="28" width="288" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="1rP-xT-1TC"/>
-                                    <constraint firstAttribute="height" constant="23" id="iMb-7w-S9G"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WiFi Transfer: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xML-SU-T2d">
+                                <rect key="frame" x="16" y="28" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="To import files over WiFi,visit the host above using your computer, " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-NE-MFe">
-                                <rect key="frame" x="16" y="124" width="288" height="70"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="9wy-Mh-hwN"/>
-                                    <constraint firstAttribute="width" constant="288" id="YHM-8D-4Pm"/>
-                                </constraints>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osK-1K-L9x">
+                                <rect key="frame" x="255" y="23" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onSwitch:" destination="fww-4f-don" eventType="valueChanged" id="JhM-ph-ATi"/>
+                                </connections>
+                            </switch>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="http://0.0.0.0/" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f92-Qu-jEr">
-                                <rect key="frame" x="0.0" y="65" width="320" height="42"/>
-                                <color key="backgroundColor" white="0.98832238034198161" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="42"/>
+                                <color key="backgroundColor" white="0.96999999999999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="OIY-aY-Vdq"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="fIB-3m-oyd"/>
+                                    <constraint firstAttribute="height" constant="42" id="fN1-Df-vDn"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="To import files over WiFi,visit the host above using your computer." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEF-NE-MFe">
+                                <rect key="frame" x="16" y="123" width="288" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="dFh-g5-ZUc"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f92-Qu-jEr" firstAttribute="top" secondItem="ozg-k7-sJp" secondAttribute="bottom" constant="45" id="2d5-gA-LMy"/>
-                            <constraint firstItem="f92-Qu-jEr" firstAttribute="leading" secondItem="3K6-pR-ZCe" secondAttribute="leadingMargin" constant="-16" id="NJJ-bn-e3A"/>
-                            <constraint firstAttribute="centerX" secondItem="NEF-NE-MFe" secondAttribute="centerX" id="Uj9-l8-y7r"/>
-                            <constraint firstAttribute="centerX" secondItem="Sta-7Y-Dcg" secondAttribute="centerX" id="cE5-cs-mut"/>
-                            <constraint firstItem="Sta-7Y-Dcg" firstAttribute="top" secondItem="ozg-k7-sJp" secondAttribute="bottom" constant="8" id="dna-ly-W4F"/>
-                            <constraint firstItem="NEF-NE-MFe" firstAttribute="top" secondItem="ozg-k7-sJp" secondAttribute="bottom" constant="104" id="m3L-Ag-QrM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f92-Qu-jEr" secondAttribute="trailing" constant="-16" id="mNX-c4-esz"/>
+                            <constraint firstItem="osK-1K-L9x" firstAttribute="trailing" secondItem="3K6-pR-ZCe" secondAttribute="trailingMargin" id="D1w-zU-Hme"/>
+                            <constraint firstItem="f92-Qu-jEr" firstAttribute="leading" secondItem="3K6-pR-ZCe" secondAttribute="leadingMargin" constant="-16" id="DPS-eR-Psy"/>
+                            <constraint firstItem="NEF-NE-MFe" firstAttribute="leading" secondItem="3K6-pR-ZCe" secondAttribute="leadingMargin" id="JyH-Qm-iYh"/>
+                            <constraint firstItem="osK-1K-L9x" firstAttribute="centerY" secondItem="xML-SU-T2d" secondAttribute="centerY" id="P3T-a0-Arq"/>
+                            <constraint firstItem="NEF-NE-MFe" firstAttribute="trailing" secondItem="3K6-pR-ZCe" secondAttribute="trailingMargin" id="Pjf-Wa-KsM"/>
+                            <constraint firstItem="xML-SU-T2d" firstAttribute="leading" secondItem="3K6-pR-ZCe" secondAttribute="leadingMargin" id="W1V-I8-qXG"/>
+                            <constraint firstItem="f92-Qu-jEr" firstAttribute="top" secondItem="xML-SU-T2d" secondAttribute="top" constant="36" id="cwZ-GV-ABa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f92-Qu-jEr" secondAttribute="trailing" constant="-16" id="efs-HT-F3V"/>
+                            <constraint firstItem="f92-Qu-jEr" firstAttribute="top" secondItem="NEF-NE-MFe" secondAttribute="top" constant="-59" id="oh7-wK-4Gj"/>
+                            <constraint firstItem="xML-SU-T2d" firstAttribute="top" secondItem="ozg-k7-sJp" secondAttribute="bottom" constant="28" id="pPQ-Wg-eaP"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="desText" destination="NEF-NE-MFe" id="CqO-On-lhS"/>
+                        <outlet property="hostText" destination="f92-Qu-jEr" id="huO-c4-o7S"/>
+                        <outlet property="switcher" destination="osK-1K-L9x" id="gt7-IT-v9a"/>
+                        <outlet property="titleLabel" destination="xML-SU-T2d" id="jHl-nF-sxb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hl-ww-fdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -515,17 +532,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avc-sj-irr">
+                                <rect key="frame" x="272" y="72" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="EKO-3A-XCw"/>
+                                    <constraint firstAttribute="height" constant="48" id="rJT-M1-Wmr"/>
+                                </constraints>
+                                <state key="normal" image="dot.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UX0-dq-fJo" firstAttribute="leading" secondItem="yFw-od-vsl" secondAttribute="leading" id="44y-n5-hMD"/>
+                            <constraint firstItem="Avc-sj-irr" firstAttribute="leading" secondItem="yFw-od-vsl" secondAttribute="leadingMargin" constant="256" id="8jL-7T-3GX"/>
                             <constraint firstAttribute="trailing" secondItem="UX0-dq-fJo" secondAttribute="trailing" id="EYZ-Z6-nmV"/>
+                            <constraint firstItem="Avc-sj-irr" firstAttribute="top" secondItem="HIP-na-hJ2" secondAttribute="bottom" constant="8" id="rBP-hs-HKk"/>
                             <constraint firstItem="UX0-dq-fJo" firstAttribute="top" secondItem="yFw-od-vsl" secondAttribute="top" id="sDD-1a-okb"/>
                             <constraint firstAttribute="bottom" secondItem="UX0-dq-fJo" secondAttribute="bottom" id="vUB-RA-j02"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tY5-8c-JuW"/>
                     <connections>
+                        <outlet property="dotHelper" destination="Avc-sj-irr" id="ZPT-oA-9Gj"/>
                         <outlet property="webview" destination="UX0-dq-fJo" id="phY-fQ-DXK"/>
                     </connections>
                 </viewController>
@@ -553,6 +583,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dot.png" width="48" height="48"/>
         <image name="first" width="30" height="30"/>
         <image name="help.png" width="23" height="23"/>
         <image name="second" width="30" height="30"/>

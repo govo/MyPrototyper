@@ -59,4 +59,6 @@
 	umUpdateTitle = "\U6709\U65b0\U7248\U672c\U54e6";
 	umUpdateCancel = "\U4e0d\U66f4\U65b0";
 	umUpdateOK = "\U7acb\U5373\U66f4\U65b0";
+	wifiTitle = "WiFi \U50b3\U6587\U6a94";
+	wifiDescription = "\U7121\U7dda\U50b3\U9001\U6587\U4ef6\Uff0c\U8acb\U7528\U96fb\U8166\U700f\U89bd\U4ee5\U4e0a\U7db2\U5740\U3002";
 }

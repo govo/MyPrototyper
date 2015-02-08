@@ -18,9 +18,8 @@
 #import "MPHelpViewController.h"
 #import "MPDevice.h"
 #import "MPAVObject.h"
-#import "MPWifiTableCell.h"
-
-
+#import "MPWifiUplader.h"
+#import "MPWifiController.h"
 
 #define kLocalFileNameColor [UIColor colorWithRed:0.f green:110.f/256.f blue:255.f/256.f alpha:1]
 
@@ -51,7 +50,9 @@ static NSString * const wifiCellIdenty = @"WifiCell";
     NSString *_viewName;
     
     BOOL _isWifiSupported;
-
+    
+    UIBarButtonItem *_rightItem;
+    UIButton *_rightButton;
 }
 
 
@@ -98,7 +99,6 @@ static NSString * const wifiCellIdenty = @"WifiCell";
     }
     
     _isWifiSupported = YES;
-    [self.tableView registerNib:[UINib nibWithNibName:@"MPWifiTableCell" bundle:nil] forCellReuseIdentifier:wifiCellIdenty];
     
 #if 0
     
@@ -130,22 +130,17 @@ static NSString * const wifiCellIdenty = @"WifiCell";
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
 
-    //TODO:在rightBarItem中加入按钮还是在列表中加入？
-//    UIBarButtonItem *transferButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Trans",@"Trans") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
-//    NSMutableArray *rightItems = [self.navigationItem.rightBarButtonItems mutableCopy];
-//    [rightItems addObject:transferButton];
-//    self.navigationItem.rightBarButtonItems = rightItems;
+    [self setupWifiItem];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Edit",@"Edit") style:UIBarButtonItemStylePlain target:self action:@selector(editPressed:)];
+
+
+    
     MPStorage *storage = [[MPStorage alloc]init];
     _segmentIndex = 0;
     _datas = _projectListArray = [NSMutableArray arrayWithArray: [storage getDatasWithLimit:500]];
     if (_datas.count == 0){
-        self.navigationItem.rightBarButtonItem.enabled = NO;
         _segmentIndex = 1;
         [self switchToTableList:_segmentIndex];
         self.segment.selectedSegmentIndex = _segmentIndex;
@@ -201,16 +196,56 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 
 }
 
+- (void)setWifiButtonSelected:(BOOL)selected{
+    [_rightButton setSelected:selected];
+    _rightButton.imageView.tintColor = selected ? [UIColor greenColor] : [UIColor darkGrayColor];
+}
+
+- (void)setupWifiItem{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 32, 26);
+    button.backgroundColor = [UIColor clearColor];
+    button.tintColor = [UIColor clearColor];
+    
+    UIImage *image = [UIImage imageNamed:@"wifi"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [button setImage:image forState:UIControlStateNormal];
+     button.imageView.tintColor = [UIColor darkGrayColor];
+    
+    [button addTarget:self action:@selector(wifiButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    button.titleLabel.font = [button.titleLabel.font fontWithSize:12];
+    [button setTitle:@"off" forState:UIControlStateNormal];
+    [button setTitle:@"on" forState:UIControlStateSelected];
+    [button setTitle:@"disabled" forState:UIControlStateDisabled];
+
+    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(20, -12, 0, 0)];
+    
+    _rightButton = button;
+    [self setWifiButtonSelected:NO];
+    
+    _rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = _rightItem;
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (_segmentIndex==1) {
         [self listenDocumentChange];
     }
     self.title = NSLocalizedString(@"List", nil);
     [MPAVObject beginLogPageView:_viewName];
     
+    [self setWifiButtonSelected:[MPWifiUplader isRunning]];
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     if (_segmentIndex==1) {
         [self stopListenDocumentChange];
     }
@@ -268,7 +303,10 @@ static NSString * const wifiCellIdenty = @"WifiCell";
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-
+-(void)emptyWifiTransferTouched:(id)sender
+{
+    [self wifiButtonPressed:sender];
+}
 -(void)emptyButtonTouched:(id)sender
 {
     self.segment.selectedSegmentIndex=1;
@@ -305,9 +343,14 @@ static NSString * const wifiCellIdenty = @"WifiCell";
             
         }
             break;
-        case 1:
+        case 1:{
             [emptyView viewWithTag:1].hidden = YES;
-
+        }
+        UIView *view = [[emptyView viewWithTag:2] viewWithTag:3];
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton *)view;
+            [button addTarget:self action:@selector(emptyWifiTransferTouched:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
     [tableView setTableHeaderView:emptyView];
     
@@ -321,37 +364,17 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger count = _datas.count;
-    if (_segmentIndex==1) {
-        count+=1;
-    }
-    return count;
-    // Return the number of rows in the section.
-//    return [_datas count];
+    return [_datas count];
 }
 
-- (NSInteger)rowOfFileCellFromIndexPath:(NSIndexPath *)indexPath{
-    return _isWifiSupported ? indexPath.row-1 : indexPath.row;
-}
-
-- (BOOL)isWifiRow:(NSIndexPath *)indexPath{
-    return (_isWifiSupported && _segmentIndex==1 && indexPath.row==0);
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isWifiRow:indexPath]) {
-        UITableViewCell *wifiCell = [tableView dequeueReusableCellWithIdentifier:wifiCellIdenty forIndexPath:indexPath];
-        NSLog(@"wificell:%@",wifiCell);
-        return wifiCell;
-    }
-//
     
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -383,7 +406,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
             
         default:
         {
-            NSString *file = [_datas objectAtIndex:[self rowOfFileCellFromIndexPath:indexPath]];
+            NSString *file = [_datas objectAtIndex:indexPath.row];
             if (_exampleZip && [file isEqualToString:_exampleZip]) {
                 file = _exampleName;
                 cell.textLabel.textColor = [UIColor darkGrayColor];
@@ -407,10 +430,6 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isWifiRow:indexPath]) {
-        return NO;
-    }
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
@@ -474,7 +493,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
             default:
             {
                 [HUD hide:NO];
-                NSInteger row = [self rowOfFileCellFromIndexPath:indexPath];
+                NSInteger row = indexPath.row;
                 HUD = [self whiteHUDWithIndeterminate];
                 HUD.labelText = NSLocalizedString(@"Deleting", nill);
                 [HUD show:NO];
@@ -496,7 +515,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
             }
                 break;
         }
-        [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
+//        [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
         if (_datas.count==0) {
             if (self.tableView.isEditing) {
                 [self editPressed:self.navigationItem.rightBarButtonItem];
@@ -514,11 +533,6 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isWifiRow:indexPath]) {
-        //TODO: to WiFi page
-        return;
-    }
-    
     switch (_segmentIndex) {
         case 0:
         {
@@ -542,7 +556,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 //                cell.textLabel.textColor = [UIColor darkGrayColor];
 //            }
             
-            NSString *file = [_localFilesArray objectAtIndex:[self rowOfFileCellFromIndexPath:indexPath]];
+            NSString *file = [_localFilesArray objectAtIndex:indexPath.row];
             NSString *fileName = nil;
 //            if (_exampleZip && [file isEqualToString:_exampleZip]) {
 //                file = [_exampleName stringByAppendingPathExtension:@"zip"];
@@ -605,7 +619,6 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 }
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isWifiRow:indexPath]) return;
     
     if (_segmentIndex==0) {
         MPSettingViewController *controller = (MPSettingViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"setting"];
@@ -623,9 +636,6 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isWifiRow:indexPath]) {
-        return 48.0f;
-    }
     return 58.0f;
 }
 /*
@@ -868,7 +878,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
             _datas = _localFilesArray;
             dispatch_sync(dispatch_get_main_queue(), ^{
                 
-                [self.navigationItem.rightBarButtonItem setEnabled:_localFilesArray.count>0];
+//                [self.navigationItem.rightBarButtonItem setEnabled:_localFilesArray.count>0];
                 if (_localFilesArray.count>0) {
                     [self removeEmptyHeader:self.tableView];
                 }
@@ -921,7 +931,7 @@ static NSString * const wifiCellIdenty = @"WifiCell";
     }
     _segmentIndex = tag;
     
-    [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
+//    [self.navigationItem.rightBarButtonItem setEnabled:_datas.count>0];
     if (_datas.count==0) {
         [self addEmptyHeader:self.tableView];
     }else{
@@ -1006,17 +1016,23 @@ static NSString * const wifiCellIdenty = @"WifiCell";
 
 - (void)editPressed:(id)sender {
     if (self.tableView.editing) {
-        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit",@"Edit");
+//        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Edit",@"Edit");
         [self.tableView setEditing:NO animated:YES];
     }else{
         
         [self.tableView setEditing:YES animated:YES];
-        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done",@"Done");
+//        self.navigationItem.rightBarButtonItem.title = NSLocalizedString(@"Done",@"Done");
         
         //AVOCloud
         [MPAVObject onTapedWithEvent:KEY_AV_TAPED_COUNTER data:KEY_AV_EDIT];
     }
     
+}
+
+- (void)wifiButtonPressed:(id)sender {
+    NSLog(@"wifi pressed");
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MPWifiController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

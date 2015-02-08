@@ -11,6 +11,7 @@
 
 @interface MPSimpleWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (weak, nonatomic) IBOutlet UIButton *dotHelper;
 
 @end
 
@@ -39,6 +40,7 @@
     if (self.urlString) {
         [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
     }
+    [self.view bringSubviewToFront:self.dotHelper];
 }
 -(void)done:(id)sender
 {

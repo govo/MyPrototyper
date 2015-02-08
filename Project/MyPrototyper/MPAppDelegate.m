@@ -11,7 +11,7 @@
 #import "iRate.h"
 #import "MPDevice.h"
 #import "MobClick.h"
-#import "GCDWebUploader.h"
+
 
 
 #define appID @"yxjbxbhr0erk12pp42ldwtdjvt821s9ymuolx4zi6tyqtajt"
@@ -20,7 +20,7 @@
 #define UMENG_APPKEY @"53216e5a56240bbd1c002033"
 
 @interface MPAppDelegate(){
-     GCDWebUploader* _webUploader;
+
 }
 
 @end
@@ -42,11 +42,11 @@
     
 //    [MobClick updateOnlineConfig];  //在线参数配置
     
-    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    _webUploader = [[GCDWebUploader alloc] initWithUploadDirectory:documentsPath];
-    [_webUploader start];
-    NSLog(@"Visit %@ in your web browser", _webUploader.serverURL);
+//    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    _webUploader = [[GCDWebUploader alloc] initWithUploadDirectory:documentsPath];
+//    [_webUploader start];
 
+    
     
     
     return YES;
