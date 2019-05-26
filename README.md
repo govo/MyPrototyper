@@ -1,7 +1,6 @@
 原型助手（MyPrototyper）
 ====
-进度：
-使用Swift重写项目中。
+已经停止维护，有需要可以自行clone二次开发。
 
 App Store：[https://itunes.apple.com/cn/app/yuan-xing-zhu-shou/id822214463?mt=8](https://itunes.apple.com/cn/app/yuan-xing-zhu-shou/id822214463?mt=8)
 
